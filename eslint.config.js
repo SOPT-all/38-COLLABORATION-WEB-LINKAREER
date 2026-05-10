@@ -10,9 +10,11 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import unusedImports from 'eslint-plugin-unused-imports';
 import tseslint from 'typescript-eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
+import pluginQuery from '@tanstack/eslint-plugin-query';
 
 export default defineConfig([
   globalIgnores(['dist', 'coverage']),
+  ...pluginQuery.configs['flat/recommended'],
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
