@@ -1,0 +1,26 @@
+name: Auto Sync Deploy Fork
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+
+      - name: Add deploy fork remote
+        run: |
+          git remote add deploy_fork git remote add deploy_fork https://jinaaaaaaaaaaaaa:${{ secrets.DEPLOY_TOKEN }}@github.com/jinaaaaaaaaaaaaa/38-COLLABORATION-WEB-LINKAREER.git
+          git config user.name "jinaaaaaaaaaaaaa"
+          git config user.email "jinatye@gmail.com"
+
+      - name: Push dev to deploy fork main
+        run: git push -f deploy_fork main:main
+
+      - name: Clean up remote
+        run: git remote remove deploy_fork
