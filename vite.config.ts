@@ -29,6 +29,7 @@ export default defineConfig({
       '@hooks': path.resolve(__dirname, './src/shared/hooks'),
       '@styles': path.resolve(__dirname, './src/shared/styles'),
       '@utils': path.resolve(__dirname, './src/shared/utils'),
+      '@constants': path.resolve(__dirname, './src/shared/constants'),
     },
   },
 });
