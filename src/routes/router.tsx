@@ -1,24 +1,25 @@
-import { createBrowserRouter } from "react-router";
-import HomePage from "@pages/home/HomePage";
-import RecruitPage from "@pages/recruit/RecruitPage";
-import RecruitDetailPage from "@pages/recruitDetail/RecruitDetailPage";
-import MentoPage from "@pages/mento/MentoPage";
+import { createBrowserRouter } from 'react-router';
+
+import HomePage from '@pages/home/HomePage';
+import MentoPage from '@pages/mento/MentoPage';
+import RecruitPage from '@pages/recruit/RecruitPage';
+import RecruitDetailPage from '@pages/recruitDetail/RecruitDetailPage';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <HomePage />,
   },
   {
-    path: "/recruit",
+    path: '/recruit',
     element: <RecruitPage />,
   },
   {
-    path: "/recruit/detail",
+    path: '/recruit/detail',
     element: <RecruitDetailPage />,
   },
   {
-    path: "/mento",
+    path: '/mento',
     element: <MentoPage />,
   },
 ]);
