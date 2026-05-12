@@ -12,13 +12,14 @@ export interface TabItem {
 
 interface TabBarProps {
   tabList: TabItem[];
+  ariaLabel: string;
 }
 
-const TabBar = ({ tabList }: TabBarProps) => {
+const TabBar = ({ tabList, ariaLabel }: TabBarProps) => {
   const [selectedTab, setSelectedTab] = useState(tabList[0].value);
 
   return (
-    <div className={styles.tabBar} role="tablist">
+    <div className={styles.tabBar} role="tablist" aria-label={ariaLabel}>
       {tabList.map((tab) => (
         <Tab
           key={tab.value}
