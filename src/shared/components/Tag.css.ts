@@ -20,15 +20,6 @@ export const sizeVariants = styleVariants({
   },
 });
 
-export const text = style({
-  lineHeight: '150%',
-  letterSpacing: '-0.015rem',
-  fontFamily: 'Pretendard',
-  fontSize: '0.75rem',
-  fontWeight: '500',
-  fontStyle: 'normal',
-});
-
 export const colorVariants = styleVariants({
   gray: {
     backgroundColor: color.gray100,

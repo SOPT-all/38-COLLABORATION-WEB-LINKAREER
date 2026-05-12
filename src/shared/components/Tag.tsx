@@ -1,3 +1,4 @@
+import { typo } from '@styles/typography.css';
 import * as styles from './Tag.css';
 
 type TagProps = {
@@ -9,7 +10,7 @@ type TagProps = {
 const Tag = ({ text, color, size }: TagProps) => {
   return (
     <span
-      className={`${styles.baseTag} ${styles.sizeVariants[size]} ${styles.colorVariants[color]} ${styles.text}`}
+      className={`${styles.baseTag} ${styles.sizeVariants[size]} ${styles.colorVariants[color]} ${typo.caption_m_12}`}
     >
       {text}
     </span>
