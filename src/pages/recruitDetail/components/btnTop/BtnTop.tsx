@@ -1,4 +1,5 @@
 import IcChevronUp from '@shared/assets/svg/IcChevronUp';
+
 import * as styles from './BtnTop.css';
 
 export default function BtnTop() {
