@@ -12,9 +12,7 @@ type TagProps = {
 const Tag = ({ text, color, size }: TagProps) => {
   const hasXIcon = size === 'withIcon';
   return (
-    <span
-      className={`${styles.baseTag} ${styles.sizeVariants[size]} ${styles.colorVariants[color]} ${typo.caption_m_12}`}
-    >
+    <span className={`${styles.tag({ size, color })} ${typo.caption_m_12}`}>
       {text}
       {hasXIcon && <IcX width="1.6rem" height="1.6rem" />}
     </span>
