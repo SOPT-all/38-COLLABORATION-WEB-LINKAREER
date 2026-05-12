@@ -20,7 +20,6 @@ const ActionButton = ({
   variant = 'default',
   rightIcon = false,
   type = 'button',
-
   ...props
 }: ChipProps) => {
   return (
