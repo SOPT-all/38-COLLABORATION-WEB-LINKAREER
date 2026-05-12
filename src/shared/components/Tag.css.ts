@@ -1,6 +1,7 @@
 import { recipe } from '@vanilla-extract/recipes';
 
 import { color } from '@styles/tokens/color';
+import { typography } from '@styles/tokens/typography';
 
 export const tag = recipe({
   base: {
@@ -8,6 +9,7 @@ export const tag = recipe({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: '0.4rem',
+    ...typography.caption_m_12,
   },
 
   variants: {
