@@ -1,17 +1,22 @@
-import { pageNumberRecipe, type PageNumberVariants } from './PageNumber.css';
+import * as styles from './Pagenation.css';
 
-interface PageNumberProps extends NonNullable<PageNumberVariants> {
+interface PageNumberProps {
   page: number;
+  active?: boolean;
   onClick?: () => void;
 }
 
-export default function PageNumber({ page, active, onClick }: PageNumberProps) {
+export default function PageNumber({
+  page,
+  active = false,
+  onClick,
+}: PageNumberProps) {
   return (
     <button
       onClick={() => !active && onClick?.()}
       aria-label={`${page}페이지`}
       aria-current={active ? 'page' : undefined}
-      className={pageNumberRecipe({ active })}
+      className={styles.pageNumberRecipe({ active })}
     >
       {page}
     </button>

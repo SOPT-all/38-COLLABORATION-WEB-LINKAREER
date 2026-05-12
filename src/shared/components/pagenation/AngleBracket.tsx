@@ -1,20 +1,19 @@
-import {
-  angleBracketRecipe,
-  type AngleBracketVariants,
-} from './AngleBracket.css';
+import * as styles from './Pagenation.css';
+
 import IcChevronLeftGray700 from '@shared/assets/svg/IcChevronLeftGray700';
 import IcChevronLeftGray200 from '@shared/assets/svg/IcChevronLeftGray200';
 import IcChevronRightGray700 from '@shared/assets/svg/IcChevronRightGray700';
 import IcChevronRightGray200 from '@shared/assets/svg/IcChevronRightGray200';
 
-interface AngleBracketProps extends NonNullable<AngleBracketVariants> {
+interface AngleBracketProps {
   direction: 'left' | 'right';
+  disabled?: boolean;
   onClick?: () => void;
 }
 
 export default function AngleBracket({
   direction,
-  disabled,
+  disabled = false,
   onClick,
 }: AngleBracketProps) {
   const Icon =
@@ -31,9 +30,9 @@ export default function AngleBracket({
       onClick={() => !disabled && onClick?.()}
       aria-label={direction === 'left' ? '이전 페이지' : '다음 페이지'}
       aria-disabled={disabled}
-      className={angleBracketRecipe({ disabled })}
+      className={styles.pagenationButtonBase}
     >
-      <Icon aria-hidden="true" />
+      <Icon width={24} height={24} aria-hidden="true" />
     </button>
   );
 }

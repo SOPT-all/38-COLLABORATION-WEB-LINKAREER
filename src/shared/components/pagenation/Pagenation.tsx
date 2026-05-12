@@ -1,4 +1,4 @@
-import { paginationWrapper } from './Pagination.css';
+import * as styles from './Pagenation.css';
 import PageNumber from './PageNumber';
 import AngleBracket from './AngleBracket';
 
@@ -31,7 +31,7 @@ export default function Pagination({
   const pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
   return (
-    <nav aria-label="페이지 네비게이션" className={paginationWrapper}>
+    <nav aria-label="페이지 네비게이션" className={styles.pagenationWrapper}>
       <AngleBracket
         direction="left"
         disabled={currentPage === 1}
