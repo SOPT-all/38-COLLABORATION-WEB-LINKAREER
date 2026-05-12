@@ -6,17 +6,17 @@ export const baseTag = style({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  borderRadius: '0.25rem',
+  borderRadius: '0.4rem',
 });
 
 export const sizeVariants = styleVariants({
   small: {
-    padding: '0.125rem 0.5rem',
+    padding: '0.2rem 0.8rem',
   },
   large: {
     flexDirection: 'column',
-    gap: '0.625rem',
-    padding: '0.25rem 0.5rem',
+    gap: '1rem',
+    padding: '0.4rem 0.8rem',
   },
 });
 
