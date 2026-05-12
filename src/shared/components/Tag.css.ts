@@ -18,6 +18,10 @@ export const sizeVariants = styleVariants({
     gap: '1rem',
     padding: '0.4rem 0.8rem',
   },
+  withIcon: {
+    gap: '0.4rem',
+    padding: '0.4rem 0.8rem',
+  },
 });
 
 export const colorVariants = styleVariants({
