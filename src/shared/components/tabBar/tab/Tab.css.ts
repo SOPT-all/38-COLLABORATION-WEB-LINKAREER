@@ -7,12 +7,17 @@ import { typography } from '@styles/tokens/typography';
 export const tab = recipe({
   base: {
     display: 'inline-flex',
-    flexShrink: 0,
+    flex: '1 0 max-content',
     ...typography.body_sb_16,
     alignItems: 'center',
     justifyContent: 'center',
     borderBottom: '0.3rem solid transparent',
     padding: '1rem 0.2rem 0.7rem',
+    selectors: {
+      '&:disabled': {
+        cursor: 'default',
+      },
+    },
   },
   variants: {
     selected: {

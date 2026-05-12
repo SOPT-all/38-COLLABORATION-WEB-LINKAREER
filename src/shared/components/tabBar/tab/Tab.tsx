@@ -10,6 +10,7 @@ interface TabProps extends TabItem {
 const Tab = ({
   label,
   value,
+  disabled = false,
   selected = false,
   hasDot = false,
   onClick,
@@ -23,6 +24,7 @@ const Tab = ({
       aria-controls={`panel-${value}`}
       className={styles.tab({ selected })}
       onClick={onClick}
+      disabled={disabled}
     >
       <span
         className={`${styles.textWrapper} ${hasDot ? styles.textWrapperWithDot : ''}`}
