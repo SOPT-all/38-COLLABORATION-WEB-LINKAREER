@@ -1,9 +1,9 @@
-import * as styles from './Pagenation.css';
-
-import IcChevronLeftGray700 from '@shared/assets/svg/IcChevronLeftGray700';
 import IcChevronLeftGray200 from '@shared/assets/svg/IcChevronLeftGray200';
-import IcChevronRightGray700 from '@shared/assets/svg/IcChevronRightGray700';
+import IcChevronLeftGray700 from '@shared/assets/svg/IcChevronLeftGray700';
 import IcChevronRightGray200 from '@shared/assets/svg/IcChevronRightGray200';
+import IcChevronRightGray700 from '@shared/assets/svg/IcChevronRightGray700';
+
+import * as styles from './Pagenation.css';
 
 interface AngleBracketProps {
   direction: 'left' | 'right';

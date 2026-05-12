@@ -1,8 +1,8 @@
 import { style } from '@vanilla-extract/css';
+import { recipe } from '@vanilla-extract/recipes';
 
 import { color } from '@styles/tokens/color';
 import { typography } from '@styles/tokens/typography';
-import { recipe } from '@vanilla-extract/recipes';
 
 export const pagenationWrapper = style({
   display: 'flex',
@@ -13,9 +13,9 @@ export const pagenationButtonBase = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  cursor: 'pointer',
   width: '3.6rem',
   height: '3.6rem',
-  cursor: 'pointer',
 });
 
 export const pageNumberRecipe = recipe({

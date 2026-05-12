@@ -1,6 +1,7 @@
-import * as styles from './Pagenation.css';
-import PageNumber from './PageNumber';
 import AngleBracket from './AngleBracket';
+import PageNumber from './PageNumber';
+
+import * as styles from './Pagenation.css';
 
 interface PaginationProps {
   currentPage: number;
