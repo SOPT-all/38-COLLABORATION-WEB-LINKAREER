@@ -48,7 +48,7 @@ const RecruitCard = ({
       <div className={styles.contentContainer}>
         <header className={styles.topContainer}>
           <div className={styles.textContainer}>
-            <h1 className={styles.title}>{title}</h1>
+            <h3 className={styles.title}>{title}</h3>
             <p className={styles.company}>{company}</p>
           </div>
           <button
