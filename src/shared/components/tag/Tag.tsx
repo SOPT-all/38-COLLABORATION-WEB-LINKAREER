@@ -5,7 +5,7 @@ import * as styles from './Tag.css';
 type TagProps = {
   text: string;
   color: 'gray' | 'red' | 'blue' | 'black';
-  size: 'small' | 'large' | 'withIcon';
+  size: 'small' | 'medium' | 'withIcon';
 };
 
 const Tag = ({ text, color, size }: TagProps) => {
