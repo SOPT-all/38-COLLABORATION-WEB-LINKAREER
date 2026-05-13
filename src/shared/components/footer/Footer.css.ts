@@ -10,6 +10,7 @@ export const wrapper = style({
   alignItems: 'center',
   backgroundColor: color.gray50,
   padding: '0.4rem 0 7.4rem 0',
+  width: '100%',
 });
 
 export const container = style({
@@ -25,14 +26,14 @@ export const titleContainer = style({
 
 export const text = recipe({
   base: {
-    cursor: 'pointer',
     color: color.gray600,
   },
   variants: {
     type: {
       menu: {
-        padding: '1.2rem 0.4rem',
+        cursor: 'pointer',
         ...typography.caption_m_12,
+        padding: '1.2rem 0.4rem',
       },
       copyright: {
         ...typography.caption_r_12,
