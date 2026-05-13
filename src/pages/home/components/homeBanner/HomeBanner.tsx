@@ -3,11 +3,16 @@ import * as style from './homeBanner.css';
 interface HomeBannerProps {
   imageUrl: string;
   imageAlt: string;
+  borderPosition: 'top' | 'bottom';
 }
 
-const HomeBanner = ({ imageUrl, imageAlt }: HomeBannerProps) => {
+const HomeBanner = ({
+  imageUrl,
+  imageAlt,
+  borderPosition,
+}: HomeBannerProps) => {
   return (
-    <div className={style.bannerContainer}>
+    <div className={style.bannerContainer({ borderPosition })}>
       <img className={style.bannerImage} src={imageUrl} alt={imageAlt} />
     </div>
   );
