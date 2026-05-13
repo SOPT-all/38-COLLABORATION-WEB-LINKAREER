@@ -51,6 +51,7 @@ export const aiSearchButton = style({
   alignItems: 'center',
   gap: '0.4rem',
   marginLeft: '0.8rem',
+  padding: 0,
   width: '6.5rem',
 });
 
