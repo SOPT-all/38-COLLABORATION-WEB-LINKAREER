@@ -17,25 +17,23 @@ const GlobalNavigationBar = () => {
   return (
     <>
       <header className={styles.container}>
-        <div className={styles.frame}>
-          <Link to="/" className={styles.logo} aria-label="Linkareer home">
-            <Logo className={styles.logoIcon} />
-          </Link>
+        <Link to="/" className={styles.logo} aria-label="Linkareer home">
+          <Logo className={styles.logoIcon} />
+        </Link>
 
-          <ul className={styles.content}>
-            {ACTION_ITEMS.map(({ label, Icon }) => (
-              <li key={label}>
-                <button
-                  className={styles.iconButton}
-                  type="button"
-                  aria-label={label}
-                >
-                  <Icon className={styles.icon} aria-hidden={true} />
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className={styles.content}>
+          {ACTION_ITEMS.map(({ label, Icon }) => (
+            <li key={label}>
+              <button
+                className={styles.iconButton}
+                type="button"
+                aria-label={label}
+              >
+                <Icon className={styles.icon} aria-hidden={true} />
+              </button>
+            </li>
+          ))}
+        </ul>
       </header>
     </>
   );

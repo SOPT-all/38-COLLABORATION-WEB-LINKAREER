@@ -4,21 +4,14 @@ import { color } from '@styles/tokens/color';
 
 export const container = style({
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-end',
-  gap: '2rem',
-  backgroundColor: color.blue500,
-  padding: '0 0.8rem 0 1.6rem',
-  width: '100%',
-  height: '6rem',
-});
-
-export const frame = style({
-  display: 'flex',
   flex: '1 0 0',
   alignItems: 'center',
   alignSelf: 'stretch',
   justifyContent: 'space-between',
+  backgroundColor: color.blue500,
+  padding: '0 0.8rem 0 1.6rem',
+  width: '100%',
+  height: '6rem',
 });
 
 export const logo = style({
