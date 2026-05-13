@@ -7,6 +7,14 @@ const BottomNavigationBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const handleNavigationClick = (path?: string) => {
+    if (!path) {
+      return;
+    }
+
+    void navigate(path);
+  };
+
   return (
     <nav className={styles.mainContainer}>
       {NAV_ITEMS.map((item) => {
@@ -19,11 +27,9 @@ const BottomNavigationBar = () => {
             key={item.key}
             type="button"
             className={styles.navItem({ active: isActive })}
-            onClick={() => {
-              if (hasPath) {
-                void navigate(item.path);
-              }
-            }}
+            onClick={() =>
+              handleNavigationClick(hasPath ? item.path : undefined)
+            }
           >
             <Icon width="2.4rem" height="2.4rem" />
             <span>{item.label}</span>
