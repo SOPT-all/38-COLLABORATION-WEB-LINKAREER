@@ -26,7 +26,6 @@ const RecruitCard = ({
   location,
   deadlineLabel,
   onCardClick,
-  ...props
 }: RecruitCardProps) => {
   const [isMarked, setIsMarked] = useState(false);
 
@@ -36,11 +35,7 @@ const RecruitCard = ({
   };
 
   return (
-    <div
-      className={styles.wrapper}
-      onClick={() => onCardClick?.(id)}
-      {...props}
-    >
+    <div className={styles.wrapper} onClick={() => onCardClick?.(id)}>
       <div className={styles.imgContainer}>
         <img src={imageUrl} alt={company ? `${company} 로고` : '회사 로고'} />
       </div>
