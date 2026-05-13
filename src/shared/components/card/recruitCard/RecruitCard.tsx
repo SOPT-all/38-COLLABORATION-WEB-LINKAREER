@@ -7,7 +7,7 @@ import Tag from '@components/tag/Tag';
 import * as styles from './RecruitCard.css';
 
 export interface RecruitCardProps {
-  recruitId: number;
+  id: number;
   title?: string;
   company?: string;
   employmentType?: string;
@@ -18,7 +18,7 @@ export interface RecruitCardProps {
 }
 
 const RecruitCard = ({
-  recruitId,
+  id,
   title,
   company,
   employmentType,
@@ -38,7 +38,7 @@ const RecruitCard = ({
   return (
     <div
       className={styles.wrapper}
-      onClick={() => onCardClick?.(recruitId)}
+      onClick={() => onCardClick?.(id)}
       {...props}
     >
       <div className={styles.imgContainer}>
