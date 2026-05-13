@@ -67,8 +67,10 @@ const RecruitCard = ({
 
         <div className={styles.bottomContainer}>
           <div className={styles.tagContainer}>
-            <Tag text={employmentType || ''} color="gray" size="small" />
-            <Tag text={location || ''} color="blue" size="small" />
+            {employmentType && (
+              <Tag text={employmentType} color="gray" size="small" />
+            )}
+            {location && <Tag text={location} color="blue" size="small" />}
           </div>
           <p className={styles.deadline}>{deadlineLabel}</p>
         </div>
