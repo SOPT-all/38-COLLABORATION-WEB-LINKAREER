@@ -47,7 +47,8 @@ const BottomNavigationBar = () => {
   return (
     <nav className={styles.mainContainer}>
       {NAV_ITEMS.map((item) => {
-        const isActive = 'path' in item && item.path === location.pathname;
+        const hasPath = 'path' in item;
+        const isActive = hasPath && item.path === location.pathname;
         const Icon = isActive ? item.activeIcon : item.icon;
 
         return (
@@ -56,7 +57,7 @@ const BottomNavigationBar = () => {
             type="button"
             className={styles.navItem({ active: isActive })}
             onClick={() => {
-              if ('path' in item) {
+              if (hasPath) {
                 navigate(item.path);
               }
             }}
