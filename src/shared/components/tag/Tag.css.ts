@@ -17,7 +17,7 @@ export const tag = recipe({
       small: {
         padding: '0.2rem 0.8rem',
       },
-      large: {
+      medium: {
         flexDirection: 'column',
         gap: '1rem',
         padding: '0.4rem 0.8rem',
