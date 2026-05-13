@@ -34,7 +34,6 @@ export const dotRecipe = recipe({
   base: {
     borderRadius: '9999px',
     height: '0.7rem',
-    transition: 'width 0.5s ease',
   },
 
   variants: {
