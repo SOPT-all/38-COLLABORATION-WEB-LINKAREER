@@ -11,12 +11,12 @@ interface BottomActionBarProps {
   onLabelClick?: () => void;
 }
 
-export default function BottomActionBar({
+const BottomActionBar = ({
   icon,
   label,
   onIconClick,
   onLabelClick,
-}: BottomActionBarProps) {
+}: BottomActionBarProps) => {
   return (
     <div className={styles.wrapper}>
       <button className={styles.iconButton} onClick={onIconClick}>
@@ -27,4 +27,6 @@ export default function BottomActionBar({
       </Button>
     </div>
   );
-}
+};
+
+export default BottomActionBar;
