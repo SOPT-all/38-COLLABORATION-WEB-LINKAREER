@@ -14,31 +14,35 @@ const MentoCard = ({ isFixed = false }: MentoCardProps) => {
       <header className={styles.cardHeader}>
         <div className={styles.headerTop}>
           <div className={styles.mentoNamePart}>
-            <div className={styles.mentoName}>링커멘토</div>
+            <strong className={styles.mentoName}>링커멘토</strong>
             <SvgIcCerti width="2.4rem" height="2.4rem" />
           </div>
           <SvgIcChevronRightGray600 width="2.4rem" height="2.4rem" />
         </div>
-        <div className={styles.filterRow}>
-          <span>모든 기업</span>
+        <p className={styles.filterRow}>
+          <span>신세계</span>
           <span className={styles.divider} aria-hidden="true" />
-          <span>모든 직무</span>
-        </div>
+          <span>프론트엔드 개발자</span>
+        </p>
       </header>
       <div className={styles.cardInfo}>
         <h3 className={styles.title}>
           "비전공자에서 대기업 프론트가 되기까지"
         </h3>
         <div className={styles.infoBox}>
-          <div className={styles.infoRow}>
+          <p className={styles.infoRow}>
             <span>채택률 90%</span>
             <span className={styles.circleDivider} aria-hidden="true" />
-            <span>채택률 90%</span>
-          </div>
-          <div className={styles.infoRow}>
-            <Tag text="#대기업" size="small" color="gray" />
-            <Tag text="#비전공자" size="small" color="gray" />
-          </div>
+            <span>답변 수 1,678</span>
+          </p>
+          <ul className={styles.infoRow}>
+            <li>
+              <Tag text="#대기업" size="small" color="gray" />
+            </li>
+            <li>
+              <Tag text="#비전공자" size="small" color="gray" />
+            </li>
+          </ul>
         </div>
       </div>
     </article>
