@@ -1,6 +1,6 @@
 import { keyframes, style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 
 const expandAnimation = keyframes({
   from: {
@@ -40,12 +40,12 @@ export const dotRecipe = recipe({
     active: {
       true: {
         width: '1.6rem',
-        background: color.blue500,
+        background: vars.color.blue500,
         animation: `${expandAnimation} 0.5s ease forwards`,
       },
       false: {
         width: '0.7rem',
-        background: color.gray200,
+        background: vars.color.gray200,
         animation: `${collapseAnimation} 0.5s ease forwards`,
       },
     },
