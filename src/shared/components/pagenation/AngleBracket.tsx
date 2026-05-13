@@ -11,11 +11,11 @@ interface AngleBracketProps {
   onClick?: () => void;
 }
 
-export default function AngleBracket({
+const AngleBracket = ({
   direction,
   disabled = false,
   onClick,
-}: AngleBracketProps) {
+}: AngleBracketProps) => {
   const Icon =
     direction === 'left'
       ? disabled
@@ -35,4 +35,6 @@ export default function AngleBracket({
       <Icon width={24} height={24} aria-hidden="true" />
     </button>
   );
-}
+};
+
+export default AngleBracket;

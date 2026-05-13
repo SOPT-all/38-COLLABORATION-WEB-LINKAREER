@@ -20,12 +20,12 @@ function getPageRange(current: number, total: number, maxVisible: number) {
   return { start, end };
 }
 
-export default function Pagination({
+const Pagination = ({
   currentPage,
   totalPages,
   onPageChange,
   maxVisible = 5,
-}: PaginationProps) {
+}: PaginationProps) => {
   if (totalPages <= 0) return null;
 
   const { start, end } = getPageRange(currentPage, totalPages, maxVisible);
@@ -55,4 +55,6 @@ export default function Pagination({
       />
     </nav>
   );
-}
+};
+
+export default Pagination;

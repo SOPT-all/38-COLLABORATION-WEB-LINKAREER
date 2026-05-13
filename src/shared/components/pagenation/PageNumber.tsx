@@ -6,11 +6,7 @@ interface PageNumberProps {
   onClick?: () => void;
 }
 
-export default function PageNumber({
-  page,
-  active = false,
-  onClick,
-}: PageNumberProps) {
+const PageNumber = ({ page, active = false, onClick }: PageNumberProps) => {
   return (
     <button
       onClick={() => !active && onClick?.()}
@@ -21,4 +17,6 @@ export default function PageNumber({
       {page}
     </button>
   );
-}
+};
+
+export default PageNumber;
