@@ -6,6 +6,7 @@ import * as styles from './BottomActionBar.css';
 
 interface BottomActionBarProps {
   icon: ReactNode;
+  iconAriaLabel: string;
   label: ReactNode;
   onIconClick?: () => void;
   onLabelClick?: () => void;
@@ -13,13 +14,19 @@ interface BottomActionBarProps {
 
 const BottomActionBar = ({
   icon,
+  iconAriaLabel,
   label,
   onIconClick,
   onLabelClick,
 }: BottomActionBarProps) => {
   return (
     <div className={styles.wrapper}>
-      <button className={styles.iconButton} onClick={onIconClick}>
+      <button
+        type="button"
+        className={styles.iconButton}
+        onClick={onIconClick}
+        aria-label={iconAriaLabel}
+      >
         {icon}
       </button>
       <Button color="filled" size="lg" onClick={onLabelClick}>
