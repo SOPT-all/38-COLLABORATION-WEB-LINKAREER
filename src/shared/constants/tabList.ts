@@ -27,7 +27,7 @@ export const MENTO_MAIN_TABLIST: TabItem[] = [
   },
 ];
 
-export const MENTO_CARTEGORY_TABLIST: TabItem[] = [
+export const MENTO_CATEGORY_TABLIST: TabItem[] = [
   { label: '대기업 멘토', value: 'corporate-mentor' },
   { label: '꿀팁 게시판', value: 'tips-board' },
   { label: '대학생 게시판', value: 'college-board' },

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import Tab from './tab/Tab';
 
 import * as styles from './TabBar.css';
@@ -13,13 +11,17 @@ export interface TabItem {
 
 interface TabBarProps {
   tabList: TabItem[];
-  defaultValue?: string;
+  selectedValue: string;
+  onChange: (value: string) => void;
   ariaLabel: string;
 }
 
-const TabBar = ({ tabList, defaultValue, ariaLabel }: TabBarProps) => {
-  const [selectedTab, setSelectedTab] = useState(defaultValue ?? '');
-
+const TabBar = ({
+  tabList,
+  selectedValue,
+  onChange,
+  ariaLabel,
+}: TabBarProps) => {
   return (
     <div className={styles.tabBar} role="tablist" aria-label={ariaLabel}>
       {tabList.map((tab) => (
@@ -29,8 +31,8 @@ const TabBar = ({ tabList, defaultValue, ariaLabel }: TabBarProps) => {
           label={tab.label}
           disabled={tab.disabled}
           hasDot={tab.hasDot}
-          selected={selectedTab === tab.value}
-          onClick={() => setSelectedTab(tab.value)}
+          selected={selectedValue === tab.value}
+          onClick={() => onChange(tab.value)}
         />
       ))}
     </div>
