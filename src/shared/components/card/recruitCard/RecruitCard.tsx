@@ -6,7 +6,7 @@ import Tag from '@components/tag/Tag';
 
 import * as styles from './RecruitCard.css';
 
-export interface RecruitCardProps extends React.ComponentProps<'div'> {
+export interface RecruitCardProps {
   recruitId: number;
   title?: string;
   company?: string;
