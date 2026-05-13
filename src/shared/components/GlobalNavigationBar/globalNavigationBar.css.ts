@@ -1,13 +1,13 @@
 import { style } from '@vanilla-extract/css';
 
-import { vars } from '@styles/theme.css';
+import { color } from '@styles/tokens/color';
 
 export const container = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-end',
   gap: '2rem',
-  backgroundColor: vars.color.blue500,
+  backgroundColor: color.blue500,
   padding: '0 0.8rem 0 1.6rem',
   width: '100%',
   height: '6rem',
