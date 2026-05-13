@@ -1,26 +1,27 @@
 import { keyframes, style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
+
 import { vars } from '@styles/theme.css';
 
 const expandAnimation = keyframes({
   from: {
-    width: '0.7rem',
     opacity: 0.5,
+    width: '0.7rem',
   },
   to: {
-    width: '1.6rem',
     opacity: 1,
+    width: '1.6rem',
   },
 });
 
 const collapseAnimation = keyframes({
   from: {
-    width: '1.6rem',
     opacity: 1,
+    width: '1.6rem',
   },
   to: {
-    width: '0.7rem',
     opacity: 0.5,
+    width: '0.7rem',
   },
 });
 
@@ -39,13 +40,13 @@ export const dotRecipe = recipe({
   variants: {
     active: {
       true: {
-        width: '1.6rem',
         background: vars.color.blue500,
+        width: '1.6rem',
         animation: `${expandAnimation} 0.5s ease forwards`,
       },
       false: {
-        width: '0.7rem',
         background: vars.color.gray200,
+        width: '0.7rem',
         animation: `${collapseAnimation} 0.5s ease forwards`,
       },
     },
