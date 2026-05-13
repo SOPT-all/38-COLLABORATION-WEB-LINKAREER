@@ -14,6 +14,9 @@ export const mainContainer = style({
   padding: '0 2.4rem',
   width: '100%',
   height: '5.8rem',
+  position: 'sticky',
+  bottom: 0,
+  zIndex: 10,
 });
 
 export const navItem = recipe({
