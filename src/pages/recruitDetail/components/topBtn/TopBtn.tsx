@@ -1,15 +1,15 @@
 import IcChevronUp from '@shared/assets/svg/IcChevronUp';
 
-import * as styles from './BtnTop.css';
+import * as styles from './TopBtn.css';
 
-const BtnTop = () => {
+const TopBtn = () => {
   const handleClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <button
-      className={styles.btnTop}
+      className={styles.topBtn}
       onClick={handleClick}
       aria-label="맨 위로"
     >
@@ -18,4 +18,4 @@ const BtnTop = () => {
   );
 };
 
-export default BtnTop;
+export default TopBtn;
