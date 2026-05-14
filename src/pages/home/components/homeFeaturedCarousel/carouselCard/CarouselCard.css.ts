@@ -38,6 +38,7 @@ export const ddayIndicator = style({
 });
 
 export const overlay = style({
+  position: 'relative',
   zIndex: 1,
   display: 'flex',
   flexDirection: 'column',
@@ -54,10 +55,12 @@ export const companyInfoContainer = style({
   display: 'flex',
   alignItems: 'center',
   gap: '0.8rem',
+  width: '100%',
 });
 
-export const companyIcon = style({
+export const companyLogo = style({
   aspectRatio: 1,
+  flexShrink: 0,
   borderRadius: '0.8rem',
   objectFit: 'cover',
   width: '4.4rem',
@@ -70,14 +73,23 @@ export const companyInfoText = style({
   alignItems: 'flex-start',
   justifyContent: 'center',
   gap: '0.2rem',
+  minWidth: 0,
   textShadow: vars.shadow.text_shadow,
   color: vars.color.white,
 });
 
 export const companyName = style({
+  width: '100%',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
   ...typography.body_sb_16,
 });
 
 export const companySize = style({
+  width: '100%',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
   ...typography.caption_r_12,
 });
