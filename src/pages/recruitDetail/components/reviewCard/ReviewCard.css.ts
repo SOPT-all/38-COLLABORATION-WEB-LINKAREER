@@ -17,7 +17,7 @@ export const container = recipe({
       true: {
         borderBottom: `1px solid ${color.gray100}`,
       },
-      false: {},
+      
     },
   },
 
@@ -28,18 +28,18 @@ export const container = recipe({
 
 export const title = style({
   ...typography.body_sb_16,
-  color: color.gray800,
   marginBottom: '0.4rem',
+  color: color.gray800,
 });
 
 export const body = style({
-  overflow: 'hidden',
-  ...typography.body_r_14,
   display: '-webkit-box',
+  ...typography.body_r_14,
+  marginBottom: '0.8rem',
+  overflow: 'hidden',
+  color: color.gray700,
   WebkitLineClamp: 3,
   WebkitBoxOrient: 'vertical',
-  color: color.gray700,
-  marginBottom: '0.8rem',
 });
 
 export const tagRow = style({
