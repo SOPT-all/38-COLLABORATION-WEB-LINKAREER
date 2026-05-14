@@ -8,17 +8,20 @@ export const container = recipe({
   base: {
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
     borderBottom: `1px solid ${vars.color.gray100}`,
     padding: '1.4rem 1.6rem',
+    height: '9.2rem',
   },
 
   variants: {
-    listType: {
-      announce: {
+    isNotice: {
+      true: {
         backgroundColor: vars.color.blue50,
       },
-      question: {
+      false: {
         backgroundColor: vars.color.white,
+        height: '11.8rem',
       },
     },
   },
@@ -42,7 +45,6 @@ export const mainContainer = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '0.4rem 0',
 });
 
 export const leftInfo = style({
@@ -82,8 +84,10 @@ export const rightInfo = style({
 });
 
 export const thumbnail = style({
+  display: 'block',
   borderRadius: '0.6rem',
   backgroundColor: vars.color.gray100,
+  objectFit: 'cover',
   width: '4.7rem',
   height: '4.6rem',
 });
