@@ -50,7 +50,8 @@ const RecruitCard = ({
           </div>
           <button
             type="button"
-            aria-label="북마크 저장"
+            aria-pressed={isMarked}
+            aria-label={isMarked ? '북마크 해제' : '북마크 저장'}
             className={styles.icContainer}
             onClick={handleBookmarkClick}
           >
