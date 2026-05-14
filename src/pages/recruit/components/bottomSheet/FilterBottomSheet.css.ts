@@ -2,15 +2,47 @@ import { style } from '@vanilla-extract/css';
 
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
+import { zIndex } from '@styles/tokens/zIndex';
+
+export const backdrop = style({
+  position: 'fixed',
+  zIndex: zIndex.backdrop,
+  top: 0,
+  left: 0,
+  transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
+  visibility: 'hidden',
+  opacity: 0,
+  backgroundColor: vars.color.opacity40,
+  pointerEvents: 'none',
+  touchAction: 'none',
+  width: '100%',
+  height: '100%',
+});
+
+export const backdropVisible = style({
+  visibility: 'visible',
+  opacity: 1,
+  pointerEvents: 'auto',
+});
 
 export const container = style({
+  position: 'fixed',
+  zIndex: zIndex.sheet,
+  bottom: 0,
+  left: 0,
   display: 'flex',
   flexDirection: 'column',
+  transform: 'translateY(100%)',
+  transition: 'transform 0.3s ease-in-out',
   borderRadius: '1.2rem 1.2rem 0 0',
   backgroundColor: vars.color.white,
   width: '100%',
   minHeight: '35rem',
   maxHeight: '43.8rem',
+});
+
+export const containerOpen = style({
+  transform: 'translateY(0)',
 });
 
 export const closeBtn = style({
