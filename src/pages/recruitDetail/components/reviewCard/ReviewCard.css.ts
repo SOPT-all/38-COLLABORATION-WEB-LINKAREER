@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 export const container = recipe({
@@ -15,7 +15,7 @@ export const container = recipe({
   variants: {
     isBorder: {
       true: {
-        borderBottom: `1px solid ${color.gray100}`,
+        borderBottom: `1px solid ${vars.color.gray100}`,
       },
     },
   },
@@ -28,7 +28,7 @@ export const container = recipe({
 export const title = style({
   ...typography.body_sb_16,
   marginBottom: '0.4rem',
-  color: color.gray800,
+  color: vars.color.gray800,
 });
 
 export const body = style({
@@ -36,7 +36,7 @@ export const body = style({
   ...typography.body_r_14,
   marginBottom: '0.8rem',
   overflow: 'hidden',
-  color: color.gray700,
+  color: vars.color.gray700,
   WebkitLineClamp: 3,
   WebkitBoxOrient: 'vertical',
 });
