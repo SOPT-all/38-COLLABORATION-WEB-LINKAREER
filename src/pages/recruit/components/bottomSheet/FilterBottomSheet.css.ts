@@ -11,7 +11,7 @@ export const backdrop = style({
   transition: 'opacity 0.3s ease-in-out, visibility 0.3s ease-in-out',
   visibility: 'hidden',
   opacity: 0,
-  backgroundColor: vars.color.opacity70,
+  backgroundColor: vars.color.opacity40,
   pointerEvents: 'none',
   touchAction: 'none',
   width: '37.5rem',
