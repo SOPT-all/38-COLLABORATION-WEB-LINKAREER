@@ -1,6 +1,6 @@
 import IcAi from '@assets/svg/IcAi';
 
-import * as styles from './searchBar.css';
+import * as styles from './SearchBar.css';
 
 const SearchBar = () => {
   return (

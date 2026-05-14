@@ -14,15 +14,15 @@ globalFontFace('Pretendard', {
 
 globalStyle('html, body', {
   margin: 0,
-  width: '100vw',
   minHeight: '100vh',
-  overflowX: 'hidden',
-  overscrollBehaviorY: 'none',
+  overflow: 'hidden',
+  scrollbarWidth: 'none',
 });
 
 globalStyle('body', {
   backgroundColor: vars.color.gray100,
   touchAction: 'manipulation',
+  scrollbarWidth: 'none',
   color: vars.color.gray900,
   fontFamily: font.pretendard,
   WebkitFontSmoothing: 'antialiased',
@@ -36,5 +36,14 @@ globalStyle('#root', {
   width: '100%',
   minWidth: '375px',
   maxWidth: '430px',
-  minHeight: '100dvh',
+  height: '100dvh',
+  overflowX: 'hidden',
+  overflowY: 'auto',
+  overscrollBehaviorY: 'none',
+  scrollBehavior: 'smooth',
+  WebkitOverflowScrolling: 'touch',
+});
+
+globalStyle('#root::-webkit-scrollbar', {
+  display: 'none',
 });

@@ -19,7 +19,6 @@ export const frame = style({
   flexShrink: '0',
   alignItems: 'center',
   alignSelf: 'stretch',
-  justifyContent: 'space-between',
   borderRadius: '0.8rem',
   background: vars.color.white,
   padding: '0.8rem 1.6rem',
@@ -28,6 +27,8 @@ export const frame = style({
 });
 
 export const searchField = style({
+  flex: 1,
+  minWidth: 0,
   ...typography.body_r_15,
   color: vars.color.gray800,
   selectors: {
@@ -42,6 +43,7 @@ export const searchField = style({
 
 export const verticalDivider = style({
   backgroundColor: vars.color.gray300,
+  padding: 0,
   width: '1px',
   height: '2rem',
 });
@@ -51,6 +53,7 @@ export const aiSearchButton = style({
   alignItems: 'center',
   gap: '0.4rem',
   marginLeft: '0.8rem',
+  padding: 0,
   width: '6.5rem',
 });
 
