@@ -79,20 +79,17 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
         className={clsx(styles.backdrop, isOpen && styles.backdropVisible)}
       />
 
-      <div
-        className={clsx(styles.container, isOpen && styles.containerOpen)}
-        onPointerDown={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          handleClose();
-        }}
-      >
+      <div className={clsx(styles.container, isOpen && styles.containerOpen)}>
         <header className={styles.headerContainer}>
           <h2 className={styles.title}>검색 필터</h2>
           <button
             type="button"
             className={styles.closeBtn}
-            onClick={handleClose}
+            onPointerDown={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleClose();
+            }}
           >
             <SvgIcXGray900 width={'2.4rem'} height={'2.4rem'} />
           </button>
