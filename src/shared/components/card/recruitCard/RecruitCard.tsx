@@ -29,13 +29,30 @@ const RecruitCard = ({
 }: RecruitCardProps) => {
   const [isBookmarked, setIsBookMarked] = useState(false);
 
+  const handleCardClick = () => {
+    onCardClick?.(id);
+  };
+
+  const handleCardKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleCardClick();
+    }
+  };
+
   const handleBookmarkClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsBookMarked((prev) => !prev);
   };
 
   return (
-    <div className={styles.container} onClick={() => onCardClick?.(id)}>
+    <div
+      className={styles.container}
+      role="button"
+      tabIndex={0}
+      onClick={handleCardClick}
+      onKeyDown={handleCardKeyDown}
+    >
       <div className={styles.imgContainer}>
         {imageUrl && (
           <img src={imageUrl} alt={company ? `${company} 로고` : '회사 로고'} />

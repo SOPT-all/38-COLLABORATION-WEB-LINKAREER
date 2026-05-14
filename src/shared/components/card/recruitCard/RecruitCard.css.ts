@@ -9,6 +9,7 @@ export const container = style({
   border: `1px solid ${vars.color.gray100}`,
   borderRadius: '1.2rem',
   backgroundColor: vars.color.white,
+  cursor: 'pointer',
   padding: '1.6rem',
   width: '30.7rem',
   minHeight: '11.8rem',
