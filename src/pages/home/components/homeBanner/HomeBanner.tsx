@@ -1,4 +1,4 @@
-import * as style from './homeBanner.css';
+import * as style from './HomeBanner.css';
 
 interface HomeBannerProps {
   imageUrl: string;

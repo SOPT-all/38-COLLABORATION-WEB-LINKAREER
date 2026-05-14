@@ -5,7 +5,7 @@ import IcBookmarkWhite from '@assets/svg/IcBookmarkWhite';
 import IcMenu2 from '@assets/svg/IcMenu2';
 import Logo from '@assets/svg/Logo';
 
-import * as styles from './globalNavigationBar.css';
+import * as styles from './GlobalNavigationBar.css';
 
 const ACTION_ITEMS = [
   { label: '알림', Icon: IcBell },
