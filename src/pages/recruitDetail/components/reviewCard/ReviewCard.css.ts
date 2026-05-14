@@ -17,7 +17,6 @@ export const container = recipe({
       true: {
         borderBottom: `1px solid ${color.gray100}`,
       },
-      
     },
   },
 
