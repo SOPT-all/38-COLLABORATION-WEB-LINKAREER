@@ -64,3 +64,9 @@ export const FILTER_TABS: { key: FilterTab; label: string }[] = [
   { key: 'companyTypes', label: '기업형태' },
   { key: 'employmentTypes', label: '채용형태' },
 ];
+
+// 선택 가능한 직무 영역
+export const ENABLED_JOB_CATEGORIES: readonly string[] = [
+  '영업/고객상담',
+  '경영/사무',
+];
