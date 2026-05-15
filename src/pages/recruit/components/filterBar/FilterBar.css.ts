@@ -7,7 +7,7 @@ export const container = style({
   alignItems: 'center',
   gap: '0.6rem',
   backgroundColor: vars.color.white,
-  padding: '0.8rem',
+  padding: '0.8rem 0',
 });
 
 export const icContainer = style({
@@ -15,6 +15,9 @@ export const icContainer = style({
 });
 
 export const icCircle = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   borderRadius: '50%',
   backgroundColor: vars.color.gray50,
   width: '3.8rem',
@@ -23,4 +26,12 @@ export const icCircle = style({
 
 export const filterContainer = style({
   display: 'flex',
+  gap: '0.6rem',
+  overflowX: 'auto',
+
+  selectors: {
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
+  },
 });
