@@ -10,7 +10,7 @@ export const card = style({
   gap: '1.6rem',
 });
 
-export const logoBox = style({
+export const textBox = style({
   display: 'flex',
   width: '16rem',
   height: '8.8rem',
@@ -18,6 +18,16 @@ export const logoBox = style({
   alignItems: 'flex-start',
   gap: '0.8rem',
   flexShrink: 0,
+});
+
+export const logoImage = style({
+  width: '8.8rem',
+  height: '8.8rem',
+  flexShrink: 0,
+  aspectRatio: 1 / 1,
+  borderRadius: '1.2rem',
+  border: `1px solid color: ${vars.color.gray300}`,
+  objectFit: 'cover',
 });
 
 export const title = style({
