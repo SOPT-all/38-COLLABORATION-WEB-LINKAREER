@@ -6,6 +6,7 @@ export const container = style({
   display: 'flex',
   alignItems: 'center',
   gap: '0.6rem',
+  borderBottom: `1px solid ${vars.color.gray100}`,
   backgroundColor: vars.color.white,
   padding: '0.8rem 0',
 });
@@ -32,6 +33,11 @@ export const filterContainer = style({
   selectors: {
     '&::-webkit-scrollbar': {
       display: 'none',
+    },
+    '&::after': {
+      flexShrink: '0',
+      width: '1.2rem',
+      content: '',
     },
   },
 });
