@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import clsx from 'clsx';
 
 import SvgIcRefresh from '@assets/svg/IcRefresh';
@@ -23,16 +23,6 @@ const FilterBottomSheet = ({ isOpen, onClose }: FilterBottomSheetProps) => {
     employmentTypes: [],
     regions: [],
   });
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
 
   // 결과 개수
   const getResultCount = (selectedFilters: FilterValues) => {
