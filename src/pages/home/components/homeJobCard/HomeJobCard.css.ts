@@ -3,39 +3,6 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
-export const mainContainer = style({
-  display: 'flex',
-  paddingLeft: '1.6rem',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  gap: '1.6rem',
-  alignSelf: 'stretch',
-});
-export const topBox = style({
-  display: 'flex',
-  width: '34.3rem',
-  height: '4.4rem',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-});
-export const mainTitle = style({
-  ...typography.title_b_20,
-  color: vars.color.gray900,
-});
-export const viewMoreButton = style({
-  textAlign: 'right',
-  ...typography.body_r_14,
-  color: vars.color.gray500,
-});
-
-export const mainBox = style({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'flex-start',
-  gap: '1.6rem',
-  alignSelf: 'stretch',
-});
-
 export const card = style({
   display: 'flex',
   width: '35.9rem',
@@ -43,7 +10,7 @@ export const card = style({
   gap: '1.6rem',
 });
 
-export const textBox = style({
+export const logoBox = style({
   display: 'flex',
   width: '16rem',
   height: '8.8rem',
@@ -81,6 +48,11 @@ export const bottomBox = style({
 export const dDay = style({
   ...typography.caption_m_12,
   color: vars.color.blue500,
+});
+
+export const category = style({
+  ...typography.caption_m_12,
+  color: vars.color.gray500,
 });
 
 export const bookmarkBox = style({
