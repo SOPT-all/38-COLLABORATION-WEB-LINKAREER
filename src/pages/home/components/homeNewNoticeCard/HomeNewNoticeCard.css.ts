@@ -29,7 +29,7 @@ export const ddayLayer = style({
 
 export const overlay = style({
   position: 'relative',
-  zIndex: 1,
+  zIndex: zIndex.overlay,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
