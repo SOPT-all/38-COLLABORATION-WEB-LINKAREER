@@ -1,7 +1,7 @@
 import Tag from '@components/tag/Tag';
 import type { CenterAd } from '@pages/mento/types/ad';
 
-import * as styles from './mentoCenterBanner.css';
+import * as styles from './MentoCenterBanner.css';
 
 interface MentoCenterBannerProps {
   ad: CenterAd;
