@@ -2,19 +2,19 @@ import Tag from '@components/tag/Tag';
 
 import * as styles from './ReviewCard.css';
 
-interface CardReviewProps {
+interface ReviewCardProps {
   title: string;
   body: string;
   tags: string[];
   isBorder?: boolean;
 }
 
-const CardReview = ({
+const ReviewCard = ({
   title,
   body,
   tags,
   isBorder = false,
-}: CardReviewProps) => {
+}: ReviewCardProps) => {
   return (
     <article className={styles.container({ isBorder })}>
       <h3 className={styles.title}>{title}</h3>
@@ -28,4 +28,4 @@ const CardReview = ({
   );
 };
 
-export default CardReview;
+export default ReviewCard;
