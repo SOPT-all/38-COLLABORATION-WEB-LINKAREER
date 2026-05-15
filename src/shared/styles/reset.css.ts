@@ -50,6 +50,7 @@ globalStyle('body', {
 
 globalStyle('button, input, textarea, select', {
   font: 'inherit',
+  WebkitTapHighlightColor: 'transparent',
 });
 
 globalStyle('button, input', {

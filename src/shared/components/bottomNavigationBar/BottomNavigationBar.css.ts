@@ -3,10 +3,11 @@ import { recipe } from '@vanilla-extract/recipes';
 
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
+import { zIndex } from '@styles/tokens/zIndex';
 
 export const mainContainer = style({
   position: 'sticky',
-  zIndex: 10,
+  zIndex: zIndex.sticky,
   bottom: 0,
   display: 'flex',
   alignItems: 'center',
