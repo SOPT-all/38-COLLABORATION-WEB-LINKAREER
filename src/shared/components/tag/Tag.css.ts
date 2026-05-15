@@ -22,6 +22,7 @@ export const tag = recipe({
         padding: '0.4rem 0.8rem',
       },
       withIcon: {
+        flexShrink: '0',
         gap: '0.4rem',
         padding: '0.4rem 0.8rem',
       },
