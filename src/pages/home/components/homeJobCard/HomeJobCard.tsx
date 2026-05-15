@@ -1,15 +1,9 @@
 import IcBookmarkFilled from '@assets/svg/IcBookmarkFilled';
 import IcBookmarkGray400 from '@assets/svg/IcBookmarkGray400';
+import type { HomeJobCardData } from '../../types/homeJobCard';
 import * as styles from './HomeJobCard.css';
 
-interface HomeJobCardProps {
-  logoUrl: string;
-  title: string;
-  companyName: string;
-  dDay: string;
-  category: string;
-  bookmarkCount: number;
-  isBookmarked: boolean;
+interface HomeJobCardProps extends HomeJobCardData {
   onCardClick: () => void;
   onBookmarkClick: () => void;
 }
