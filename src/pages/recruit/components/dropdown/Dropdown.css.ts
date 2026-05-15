@@ -28,6 +28,7 @@ export const options = style({
   backgroundColor: vars.color.white,
   padding: '0.4rem 0',
   width: '13.5rem',
+  whiteSpace: 'nowrap',
 });
 
 export const optionItem = style({
