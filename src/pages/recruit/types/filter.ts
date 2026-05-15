@@ -1,6 +1,13 @@
+import type {
+  CompanyType,
+  EmploymentType,
+  JobCategory,
+  Region,
+} from '@pages/recruit/constants/filterOptions';
+
 export interface FilterValues {
-  jobCategories: string[];
-  companyTypes: string[];
-  employmentTypes: string[];
-  regions: string[];
+  jobCategories: JobCategory[];
+  companyTypes: CompanyType[];
+  employmentTypes: EmploymentType[];
+  regions: Region[];
 }
