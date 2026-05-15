@@ -1,4 +1,5 @@
 import useCarouselDrag from '@pages/recruitDetail/hooks/useCarouselDrag';
+
 import * as styles from './ImageCarousel.css';
 
 interface ImageCarouselProps {
@@ -6,25 +7,12 @@ interface ImageCarouselProps {
 }
 
 const ImageCarousel = ({ images }: ImageCarouselProps) => {
-  const {
-    currentIndex,
-    trackRef,
-    handleDragStart,
-    handleDragMove,
-    handleDragEnd,
-  } = useCarouselDrag(images.length);
+  const { currentIndex, trackRef, dragHandlers } = useCarouselDrag(
+    images.length,
+  );
 
   return (
-    <div
-      className={styles.container}
-      onMouseDown={(e) => handleDragStart(e.clientX)}
-      onMouseMove={(e) => handleDragMove(e.clientX)}
-      onMouseUp={(e) => handleDragEnd(e.clientX)}
-      onMouseLeave={(e) => handleDragEnd(e.clientX)}
-      onTouchStart={(e) => handleDragStart(e.touches[0].clientX)}
-      onTouchMove={(e) => handleDragMove(e.touches[0].clientX)}
-      onTouchEnd={(e) => handleDragEnd(e.changedTouches[0].clientX)}
-    >
+    <div className={styles.container} {...dragHandlers}>
       <div ref={trackRef} className={styles.track}>
         {images.map((image) => (
           <div key={image.id} className={styles.slide}>

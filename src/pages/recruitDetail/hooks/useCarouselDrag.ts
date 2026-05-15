@@ -9,14 +9,19 @@ const useCarouselDrag = (totalCount: number) => {
   const startXRef = useRef(0);
   const isDraggingRef = useRef(false);
 
-  const handleDragStart = (clientX: number) => {
+  const handleDragStart = (e: React.PointerEvent) => {
+    e.currentTarget.setPointerCapture(e.pointerId);
     isDraggingRef.current = true;
-    startXRef.current = clientX;
+    startXRef.current = e.clientX;
   };
 
   const handleDragMove = (clientX: number) => {
     if (!isDraggingRef.current || !trackRef.current) return;
     const delta = clientX - startXRef.current;
+
+    if (currentIndex === 0 && delta > 0) return;
+    if (currentIndex === totalCount - 1 && delta < 0) return;
+
     const baseOffset = -currentIndex * SLIDE_WIDTH;
     trackRef.current.style.transform = `translateX(${baseOffset + delta}px)`;
   };
@@ -42,12 +47,16 @@ const useCarouselDrag = (totalCount: number) => {
     }, 300);
   };
 
+  const dragHandlers = {
+    onPointerDown: (e: React.PointerEvent) => handleDragStart(e),
+    onPointerMove: (e: React.PointerEvent) => handleDragMove(e.clientX),
+    onPointerUp: (e: React.PointerEvent) => handleDragEnd(e.clientX),
+  };
+
   return {
     currentIndex,
     trackRef,
-    handleDragStart,
-    handleDragMove,
-    handleDragEnd,
+    dragHandlers,
   };
 };
 

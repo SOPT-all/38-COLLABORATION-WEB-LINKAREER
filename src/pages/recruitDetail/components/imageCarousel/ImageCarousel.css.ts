@@ -8,6 +8,7 @@ export const container = style({
   overflow: 'hidden',
   width: '37.5rem',
   height: '24rem',
+  touchAction: 'none',
 });
 
 export const track = style({
