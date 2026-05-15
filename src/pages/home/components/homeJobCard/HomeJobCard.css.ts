@@ -16,8 +16,8 @@ export const textBox = style({
   height: '8.8rem',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  gap: '0.8rem',
   flexShrink: 0,
+  textAlign: 'left',
 });
 
 export const logoImage = style({
@@ -31,6 +31,7 @@ export const logoImage = style({
 });
 
 export const title = style({
+  marginBottom: '0.8rem',
   height: '4.2rem',
   flexShrink: 0,
   alignSelf: 'stretch',
