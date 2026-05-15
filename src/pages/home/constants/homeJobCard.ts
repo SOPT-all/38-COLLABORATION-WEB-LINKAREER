@@ -1,4 +1,4 @@
-import type { HomeJobCardData } from '../types/homeJobCard';
+import type { HomeJobCardData } from '@pages/home/types/homeJobCard';
 
 export const HOME_JOB_CARDS: HomeJobCardData[] = [
   {

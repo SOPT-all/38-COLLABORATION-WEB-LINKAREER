@@ -1,6 +1,7 @@
 import IcBookmarkFilled from '@assets/svg/IcBookmarkFilled';
 import IcBookmarkGray400 from '@assets/svg/IcBookmarkGray400';
-import type { HomeJobCardData } from '../../types/homeJobCard';
+import type { HomeJobCardData } from '@pages/home/types/homeJobCard';
+
 import * as styles from './HomeJobCard.css';
 
 interface HomeJobCardProps extends HomeJobCardData {
