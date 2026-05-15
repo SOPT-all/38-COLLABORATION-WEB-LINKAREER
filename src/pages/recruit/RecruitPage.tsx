@@ -14,17 +14,8 @@ const RecruitPage = () => {
   const [selectedTab, setSelectedTab] = useState('recruit');
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
-  // 칩 영역에 적용된 필터 상태
   const [appliedFilters, setAppliedFilters] = useState<FilterValues>({
     jobCategories: [FILTER_OPTIONS.jobCategories[0]],
-    companyTypes: [],
-    employmentTypes: [],
-    regions: [],
-  });
-
-  // 바텀시트 필터 상태
-  const [draftFilters, setDraftFilters] = useState<FilterValues>({
-    jobCategories: [],
     companyTypes: [],
     employmentTypes: [],
     regions: [],
@@ -35,7 +26,7 @@ const RecruitPage = () => {
   };
 
   const handleApplyFilters = () => {
-    setAppliedFilters(draftFilters);
+    setAppliedFilters(appliedFilters);
     setIsSheetOpen(false);
   };
 
@@ -65,12 +56,13 @@ const RecruitPage = () => {
         appliedFilters={appliedFilters}
         onOpenSheet={handleOpenSheet}
       />
-      <ListControlBar />
+
+      <ListControlBar resultCount={517} />
 
       <FilterBottomSheet
         isOpen={isSheetOpen}
-        draftFilters={draftFilters}
-        setDraftFilters={setDraftFilters}
+        appliedFilters={appliedFilters}
+        setAppliedFilters={setAppliedFilters}
         onClose={handleCloseSheet}
         onApply={handleApplyFilters}
       />

@@ -12,24 +12,24 @@ import * as styles from './FilterBottomSheet.css';
 
 interface FilterBottomSheetProps {
   isOpen: boolean;
-  draftFilters: FilterValues;
-  setDraftFilters: React.Dispatch<React.SetStateAction<FilterValues>>;
+  appliedFilters: FilterValues;
+  setAppliedFilters: React.Dispatch<React.SetStateAction<FilterValues>>;
   onClose: () => void;
   onApply: () => void;
 }
 
 const FilterBottomSheet = ({
   isOpen,
-  draftFilters,
-  setDraftFilters,
+  appliedFilters,
+  setAppliedFilters,
   onClose,
   onApply,
 }: FilterBottomSheetProps) => {
-  const resultCount = getResultCount(draftFilters);
+  const resultCount = getResultCount(appliedFilters);
 
   // 새로고침 버튼
   const handleRefreshClick = () => {
-    setDraftFilters({
+    setAppliedFilters({
       jobCategories: [],
       companyTypes: [],
       employmentTypes: [],
@@ -68,8 +68,8 @@ const FilterBottomSheet = ({
 
         <FilterSelector
           isOpen={isOpen}
-          selectedFilters={draftFilters}
-          setSelectedFilters={setDraftFilters}
+          selectedFilters={appliedFilters}
+          setSelectedFilters={setAppliedFilters}
         />
 
         <BottomActionBar
