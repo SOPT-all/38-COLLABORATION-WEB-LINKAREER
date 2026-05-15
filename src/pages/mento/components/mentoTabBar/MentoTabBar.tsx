@@ -9,7 +9,9 @@ import {
 import * as styles from './MentoTabBar.css';
 
 const MentoTabBar = () => {
-  const [selectedChip, setSelectedChip] = useState<MentoCompanyChip>('삼성');
+  const [selectedChip, setSelectedChip] = useState<MentoCompanyChip>(
+    MENTO_COMPANY_CHIPS[0],
+  );
   return (
     <div className={styles.container}>
       {MENTO_COMPANY_CHIPS.map((chip) => (
