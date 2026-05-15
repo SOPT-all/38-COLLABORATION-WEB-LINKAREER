@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
+import { zIndex } from '@styles/tokens/zIndex';
 
 export const container = style({
   position: 'relative',
@@ -21,14 +22,14 @@ export const thumbnail = style({
 
 export const ddayLayer = style({
   position: 'absolute',
-  zIndex: 1,
+  zIndex: zIndex.overlay,
   top: 0,
   right: 0,
 });
 
 export const overlay = style({
   position: 'relative',
-  zIndex: 1,
+  zIndex: zIndex.overlay,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
