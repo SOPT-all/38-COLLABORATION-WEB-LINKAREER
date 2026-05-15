@@ -29,7 +29,6 @@ const RecruitPage = () => {
   };
 
   const handleApplyFilters = () => {
-    setAppliedFilters(appliedFilters);
     setIsSheetOpen(false);
   };
 

@@ -9,7 +9,15 @@ export const getResultCount = (selectedFilters: FilterValues): string => {
     return CONTENT_RESULT.default.toLocaleString();
 
   const total = jobCategories.reduce((acc, cur) => {
-    const count = CONTENT_RESULT[cur as keyof typeof CONTENT_RESULT] || 0;
+    const count =
+      cur === '마케팅/광고/홍보'
+        ? CONTENT_RESULT.marketing
+        : cur === '영업/고객상담'
+          ? CONTENT_RESULT.sales
+          : cur === '경영/사무'
+            ? CONTENT_RESULT.business
+            : 0;
+
     return acc + count;
   }, 0);
 
