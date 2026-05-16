@@ -91,15 +91,6 @@ const RecruitPage = () => {
             location={mockData.location}
             deadlineLabel={mockData.deadlineLabel}
           />
-          <RecruitCard
-            id={1}
-            title={mockData.title}
-            company={mockData.company}
-            imageUrl={mockData.imageUrl}
-            employmentType={mockData.employmentType}
-            location={mockData.location}
-            deadlineLabel={mockData.deadlineLabel}
-          />
         </section>
       )}
 
