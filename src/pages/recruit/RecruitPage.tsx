@@ -7,6 +7,7 @@ import SearchBar from '@components/searchBar/SearchBar';
 import TabBar from '@components/tabBar/TabBar';
 
 import FilterBottomSheet from './components/bottomSheet/FilterBottomSheet';
+import EmptySection from './components/emptySection/EmptySection';
 import FilterBar from './components/filterBar/FilterBar';
 import ListControlBar from './components/listControlBar/listControlBar';
 import {
@@ -37,6 +38,7 @@ const RecruitPage = () => {
     selectedJob === SALES_JOB || selectedJob === BUSINESS_JOB ? 1 : 25;
 
   const resultCount = getResultCount(appliedFilters);
+  const isEmpty = resultCount === '0';
 
   const handleTabChange = (value: string) => {
     setSelectedTab(value);
@@ -76,34 +78,40 @@ const RecruitPage = () => {
       <ListControlBar resultCount={resultCount} />
 
       {/* 채용공고 리스트 */}
-      <section className={styles.listContainer}>
-        <RecruitCard
-          id={1}
-          title={mockData.title}
-          company={mockData.company}
-          imageUrl={mockData.imageUrl}
-          employmentType={mockData.employmentType}
-          location={mockData.location}
-          deadlineLabel={mockData.deadlineLabel}
-        />
-        <RecruitCard
-          id={1}
-          title={mockData.title}
-          company={mockData.company}
-          imageUrl={mockData.imageUrl}
-          employmentType={mockData.employmentType}
-          location={mockData.location}
-          deadlineLabel={mockData.deadlineLabel}
-        />
-      </section>
+      {isEmpty ? (
+        <EmptySection />
+      ) : (
+        <section className={styles.listContainer}>
+          <RecruitCard
+            id={1}
+            title={mockData.title}
+            company={mockData.company}
+            imageUrl={mockData.imageUrl}
+            employmentType={mockData.employmentType}
+            location={mockData.location}
+            deadlineLabel={mockData.deadlineLabel}
+          />
+          <RecruitCard
+            id={1}
+            title={mockData.title}
+            company={mockData.company}
+            imageUrl={mockData.imageUrl}
+            employmentType={mockData.employmentType}
+            location={mockData.location}
+            deadlineLabel={mockData.deadlineLabel}
+          />
+        </section>
+      )}
 
-      <section className={styles.pagenationContainer}>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-        />
-      </section>
+      {!isEmpty && (
+        <section className={styles.pagenationContainer}>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        </section>
+      )}
 
       <FilterBottomSheet
         isOpen={isSheetOpen}
