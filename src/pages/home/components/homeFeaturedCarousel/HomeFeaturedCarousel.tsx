@@ -1,31 +1,31 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, MouseEvent, PointerEvent } from 'react';
 
-import CarouselCard from '@pages/home/components/homeFeaturedCarousel/carouselCard/CarouselCard';
+import HomeFeaturedCarouselCard from '@pages/home/components/homeFeaturedCarousel/homeFeaturedCarouselCard/HomeFeaturedCarouselCard';
 import {
-  CAROUSEL_INDEX,
-  CAROUSEL_ITEM_COUNT,
   DRAG_CLICK_THRESHOLD_PX,
+  HOME_FEATURED_CAROUSEL_INDEX,
+  HOME_FEATURED_CAROUSEL_ITEM_COUNT,
   SLIDE_INTERVAL_MS,
   SWIPE_THRESHOLD_PX,
-} from '@pages/home/constants/carousel';
-import type { CarouselItem } from '@pages/home/types/homeFeaturedCarousel';
+} from '@pages/home/constants/homeFeaturedCarousel';
+import type { HomeFeaturedCarouselItem } from '@pages/home/types/homeFeaturedCarousel';
 import {
-  getCarouselItemKey,
   getClonedFirstSlideIndex,
   getCssVarName,
+  getHomeFeaturedCarouselItemKey,
   getLastRealSlideIndex,
   getRealIndex,
-} from '@pages/home/utils/carousel';
+} from '@pages/home/utils/homeFeaturedCarousel';
 
-import * as styles from './Carousel.css';
+import * as styles from './HomeFeaturedCarousel.css';
 
-interface CarouselProps {
-  items: CarouselItem[];
+interface HomeFeaturedCarouselProps {
+  items: HomeFeaturedCarouselItem[];
 }
 
-interface CarouselSlide {
-  item: CarouselItem;
+interface HomeFeaturedCarouselSlide {
+  item: HomeFeaturedCarouselItem;
   key: string;
 }
 
@@ -37,10 +37,10 @@ const getTrackStyle = (
   [getCssVarName(styles.dragOffsetVar)]: `${dragOffset}px`,
 });
 
-const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
+const HomeFeaturedCarousel = ({ items }: HomeFeaturedCarouselProps) => {
   const itemCount = items.length;
   const [activeIndex, setActiveIndex] = useState<number>(
-    CAROUSEL_INDEX.FIRST_REAL_SLIDE,
+    HOME_FEATURED_CAROUSEL_INDEX.FIRST_REAL_SLIDE,
   );
   const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
   const [isAutoSlidePaused, setIsAutoSlidePaused] = useState(false);
@@ -51,15 +51,16 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
   const shouldPreventClick = useRef(false);
   const transitionFrameIdsRef = useRef<number[]>([]);
 
-  const carouselItems = useMemo<CarouselSlide[]>(() => {
+  const homeFeaturedCarouselItems = useMemo<HomeFeaturedCarouselSlide[]>(() => {
     const realSlides = items.map((item) => ({
       item,
-      key: getCarouselItemKey(item),
+      key: getHomeFeaturedCarouselItemKey(item),
     }));
 
-    if (itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP) return realSlides;
+    if (itemCount <= HOME_FEATURED_CAROUSEL_ITEM_COUNT.MIN_LOOP)
+      return realSlides;
 
-    const firstSlide = realSlides[CAROUSEL_INDEX.FIRST_ITEM];
+    const firstSlide = realSlides[HOME_FEATURED_CAROUSEL_INDEX.FIRST_ITEM];
     const lastSlide = realSlides[getLastRealSlideIndex(itemCount)];
 
     return [
@@ -70,21 +71,31 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
   }, [itemCount, items]);
 
   const goToNextSlide = useCallback(() => {
-    if (itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP || isAnimatingRef.current)
+    if (
+      itemCount <= HOME_FEATURED_CAROUSEL_ITEM_COUNT.MIN_LOOP ||
+      isAnimatingRef.current
+    )
       return;
 
     isAnimatingRef.current = true;
     setIsTransitionEnabled(true);
-    setActiveIndex((prevIndex) => prevIndex + CAROUSEL_INDEX.STEP);
+    setActiveIndex(
+      (prevIndex) => prevIndex + HOME_FEATURED_CAROUSEL_INDEX.STEP,
+    );
   }, [itemCount]);
 
   const goToPrevSlide = useCallback(() => {
-    if (itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP || isAnimatingRef.current)
+    if (
+      itemCount <= HOME_FEATURED_CAROUSEL_ITEM_COUNT.MIN_LOOP ||
+      isAnimatingRef.current
+    )
       return;
 
     isAnimatingRef.current = true;
     setIsTransitionEnabled(true);
-    setActiveIndex((prevIndex) => prevIndex - CAROUSEL_INDEX.STEP);
+    setActiveIndex(
+      (prevIndex) => prevIndex - HOME_FEATURED_CAROUSEL_INDEX.STEP,
+    );
   }, [itemCount]);
 
   const cancelTransitionFrames = useCallback(() => {
@@ -111,7 +122,10 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
   };
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
-    if (itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP || isAnimatingRef.current)
+    if (
+      itemCount <= HOME_FEATURED_CAROUSEL_ITEM_COUNT.MIN_LOOP ||
+      isAnimatingRef.current
+    )
       return;
 
     dragStartX.current = event.clientX;
@@ -170,7 +184,7 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
   };
 
   const handleTransitionEnd = () => {
-    if (activeIndex === CAROUSEL_INDEX.CLONED_LAST_SLIDE) {
+    if (activeIndex === HOME_FEATURED_CAROUSEL_INDEX.CLONED_LAST_SLIDE) {
       setIsTransitionEnabled(false);
       setActiveIndex(itemCount);
       restoreTransitionAfterJump();
@@ -180,7 +194,7 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
 
     if (activeIndex === getClonedFirstSlideIndex(itemCount)) {
       setIsTransitionEnabled(false);
-      setActiveIndex(CAROUSEL_INDEX.FIRST_REAL_SLIDE);
+      setActiveIndex(HOME_FEATURED_CAROUSEL_INDEX.FIRST_REAL_SLIDE);
       restoreTransitionAfterJump();
 
       return;
@@ -191,7 +205,7 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
 
   useEffect(() => {
     if (
-      itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP ||
+      itemCount <= HOME_FEATURED_CAROUSEL_ITEM_COUNT.MIN_LOOP ||
       isAutoSlidePaused ||
       dragStartX.current !== null
     )
@@ -206,7 +220,7 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
 
   useEffect(() => cancelTransitionFrames, [cancelTransitionFrames]);
 
-  if (itemCount === CAROUSEL_ITEM_COUNT.EMPTY) return null;
+  if (itemCount === HOME_FEATURED_CAROUSEL_ITEM_COUNT.EMPTY) return null;
 
   const currentSlideIndex = getRealIndex(activeIndex, itemCount);
   const currentItem = items[currentSlideIndex];
@@ -219,7 +233,7 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
       aria-label="추천 공고 캐러셀"
     >
       <span className={styles.screenReaderOnly} aria-live="polite">
-        {`${currentSlideIndex + CAROUSEL_INDEX.CARD_NUMBER_OFFSET} / ${itemCount}, ${currentItem.announcementTitle}`}
+        {`${currentSlideIndex + HOME_FEATURED_CAROUSEL_INDEX.CARD_NUMBER_OFFSET} / ${itemCount}, ${currentItem.announcementTitle}`}
       </span>
       <div
         className={styles.viewport}
@@ -232,22 +246,22 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
         <div
           className={styles.track({ isTransitionEnabled })}
           style={getTrackStyle(
-            itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP
-              ? CAROUSEL_INDEX.CLONED_LAST_SLIDE
+            itemCount <= HOME_FEATURED_CAROUSEL_ITEM_COUNT.MIN_LOOP
+              ? HOME_FEATURED_CAROUSEL_INDEX.CLONED_LAST_SLIDE
               : activeIndex,
             dragOffset,
           )}
           onTransitionEnd={handleTransitionEnd}
         >
-          {carouselItems.map(({ item, key }, index) => {
+          {homeFeaturedCarouselItems.map(({ item, key }, index) => {
             const currentCardNumber =
               getRealIndex(index, itemCount) +
-              CAROUSEL_INDEX.CARD_NUMBER_OFFSET;
+              HOME_FEATURED_CAROUSEL_INDEX.CARD_NUMBER_OFFSET;
 
             return (
               <div className={styles.slide} key={key}>
-                <CarouselCard
-                  carouselItem={item}
+                <HomeFeaturedCarouselCard
+                  homeFeaturedCarouselItem={item}
                   totalCardCount={itemCount}
                   currentCardNumber={currentCardNumber}
                 />

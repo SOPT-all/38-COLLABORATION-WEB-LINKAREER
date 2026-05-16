@@ -2,21 +2,21 @@ import { Link } from 'react-router';
 
 import Tag from '@components/tag/Tag';
 import DdayTag from '@pages/home/components/ddayTag/DdayTag';
-import type { CarouselItem } from '@pages/home/types/homeFeaturedCarousel';
+import type { HomeFeaturedCarouselItem } from '@pages/home/types/homeFeaturedCarousel';
 
-import * as styles from './CarouselCard.css';
+import * as styles from './HomeFeaturedCarouselCard.css';
 
-interface CarouselCardProps {
-  carouselItem: CarouselItem;
+interface HomeFeaturedCarouselCardProps {
+  homeFeaturedCarouselItem: HomeFeaturedCarouselItem;
   totalCardCount: number;
   currentCardNumber: number;
 }
 
-const CarouselCard = ({
-  carouselItem,
+const HomeFeaturedCarouselCard = ({
+  homeFeaturedCarouselItem,
   totalCardCount,
   currentCardNumber,
-}: CarouselCardProps) => {
+}: HomeFeaturedCarouselCardProps) => {
   const {
     to,
     companyName,
@@ -29,7 +29,7 @@ const CarouselCard = ({
     announcementTitle,
     announcementDeadline,
     announcementCategory,
-  } = carouselItem;
+  } = homeFeaturedCarouselItem;
 
   return (
     <article className={styles.container}>
@@ -73,4 +73,4 @@ const CarouselCard = ({
   );
 };
 
-export default CarouselCard;
+export default HomeFeaturedCarouselCard;
