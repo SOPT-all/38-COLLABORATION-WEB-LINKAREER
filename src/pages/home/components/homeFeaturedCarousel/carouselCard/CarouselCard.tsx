@@ -2,40 +2,35 @@ import { Link } from 'react-router';
 
 import Tag from '@components/tag/Tag';
 import DdayTag from '@pages/home/components/ddayTag/DdayTag';
+import type { CarouselItem } from '@pages/home/types/homeFeaturedCarousel';
 
 import * as styles from './CarouselCard.css';
 
 interface CarouselCardProps {
-  to: string;
+  carouselItem: CarouselItem;
   totalCardCount: number;
   currentCardNumber: number;
-  companyName: string;
-  companySize: string;
-  daysLeft: number;
-  thumbnailUrl: string;
-  thumbnailAlt: string;
-  companyLogoUrl: string;
-  companyLogoAlt: string;
-  announcementTitle: string;
-  announcementDeadline: string;
-  announcementCategory: string;
 }
 
 const CarouselCard = ({
-  to,
+  carouselItem,
   totalCardCount,
   currentCardNumber,
-  companyName,
-  companySize,
-  daysLeft,
-  thumbnailUrl,
-  thumbnailAlt,
-  companyLogoUrl,
-  companyLogoAlt,
-  announcementTitle,
-  announcementDeadline,
-  announcementCategory,
 }: CarouselCardProps) => {
+  const {
+    to,
+    companyName,
+    companySize,
+    daysLeft,
+    thumbnailUrl,
+    thumbnailAlt,
+    companyLogoUrl,
+    companyLogoAlt,
+    announcementTitle,
+    announcementDeadline,
+    announcementCategory,
+  } = carouselItem;
+
   return (
     <article className={styles.container}>
       <Link className={styles.card} to={to} aria-label={announcementTitle}>

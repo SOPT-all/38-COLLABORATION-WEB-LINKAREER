@@ -2,13 +2,23 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, MouseEvent, PointerEvent } from 'react';
 
 import CarouselCard from '@pages/home/components/homeFeaturedCarousel/carouselCard/CarouselCard';
+import {
+  CAROUSEL_INDEX,
+  CAROUSEL_ITEM_COUNT,
+  DRAG_CLICK_THRESHOLD_PX,
+  SLIDE_INTERVAL_MS,
+  SWIPE_THRESHOLD_PX,
+} from '@pages/home/constants/carousel';
 import type { CarouselItem } from '@pages/home/types/homeFeaturedCarousel';
+import {
+  getCarouselItemKey,
+  getClonedFirstSlideIndex,
+  getCssVarName,
+  getLastRealSlideIndex,
+  getRealIndex,
+} from '@pages/home/utils/carousel';
 
 import * as styles from './Carousel.css';
-
-const SLIDE_INTERVAL_MS = 3000;
-const SWIPE_THRESHOLD_PX = 50;
-const DRAG_CLICK_THRESHOLD_PX = 5;
 
 interface CarouselProps {
   items: CarouselItem[];
@@ -18,17 +28,6 @@ interface CarouselSlide {
   item: CarouselItem;
   key: string;
 }
-
-const getCarouselItemKey = (item: CarouselItem) =>
-  `${item.to}-${item.announcementTitle}`;
-
-const getRealIndex = (activeIndex: number, itemCount: number) => {
-  if (activeIndex === 0) return itemCount - 1;
-  if (activeIndex === itemCount + 1) return 0;
-  return activeIndex - 1;
-};
-
-const getCssVarName = (cssVar: string) => cssVar.slice('var('.length, -1);
 
 const getTrackStyle = (
   activeIndex: number,
@@ -40,7 +39,9 @@ const getTrackStyle = (
 
 const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
   const itemCount = items.length;
-  const [activeIndex, setActiveIndex] = useState(1); // [0]은 마지막 카드의 클론 카드
+  const [activeIndex, setActiveIndex] = useState<number>(
+    CAROUSEL_INDEX.FIRST_REAL_SLIDE,
+  );
   const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
   const [isAutoSlidePaused, setIsAutoSlidePaused] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
@@ -48,6 +49,7 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
   const dragOffsetRef = useRef(0);
   const isAnimatingRef = useRef(false);
   const shouldPreventClick = useRef(false);
+  const transitionFrameIdsRef = useRef<number[]>([]);
 
   const carouselItems = useMemo<CarouselSlide[]>(() => {
     const realSlides = items.map((item) => ({
@@ -55,10 +57,10 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
       key: getCarouselItemKey(item),
     }));
 
-    if (itemCount <= 1) return realSlides;
+    if (itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP) return realSlides;
 
-    const firstSlide = realSlides[0];
-    const lastSlide = realSlides[itemCount - 1];
+    const firstSlide = realSlides[CAROUSEL_INDEX.FIRST_ITEM];
+    const lastSlide = realSlides[getLastRealSlideIndex(itemCount)];
 
     return [
       { ...lastSlide, key: `clone-prev-${lastSlide.key}` },
@@ -68,32 +70,49 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
   }, [itemCount, items]);
 
   const goToNextSlide = useCallback(() => {
-    if (itemCount <= 1 || isAnimatingRef.current) return;
+    if (itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP || isAnimatingRef.current)
+      return;
 
     isAnimatingRef.current = true;
     setIsTransitionEnabled(true);
-    setActiveIndex((prevIndex) => prevIndex + 1);
+    setActiveIndex((prevIndex) => prevIndex + CAROUSEL_INDEX.STEP);
   }, [itemCount]);
 
   const goToPrevSlide = useCallback(() => {
-    if (itemCount <= 1 || isAnimatingRef.current) return;
+    if (itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP || isAnimatingRef.current)
+      return;
 
     isAnimatingRef.current = true;
     setIsTransitionEnabled(true);
-    setActiveIndex((prevIndex) => prevIndex - 1);
+    setActiveIndex((prevIndex) => prevIndex - CAROUSEL_INDEX.STEP);
   }, [itemCount]);
 
+  const cancelTransitionFrames = useCallback(() => {
+    transitionFrameIdsRef.current.forEach((frameId) => {
+      window.cancelAnimationFrame(frameId);
+    });
+    transitionFrameIdsRef.current = [];
+  }, []);
+
   const restoreTransitionAfterJump = () => {
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
+    cancelTransitionFrames();
+
+    const firstFrameId = window.requestAnimationFrame(() => {
+      const secondFrameId = window.requestAnimationFrame(() => {
+        transitionFrameIdsRef.current = [];
         isAnimatingRef.current = false;
         setIsTransitionEnabled(true);
       });
+
+      transitionFrameIdsRef.current = [secondFrameId];
     });
+
+    transitionFrameIdsRef.current = [firstFrameId];
   };
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
-    if (itemCount <= 1 || isAnimatingRef.current) return;
+    if (itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP || isAnimatingRef.current)
+      return;
 
     dragStartX.current = event.clientX;
     dragOffsetRef.current = 0;
@@ -111,7 +130,15 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
     setDragOffset(nextDragOffset);
   };
 
-  const handlePointerUp = () => {
+  const releasePointerCapture = (event: PointerEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.hasPointerCapture(event.pointerId)) return;
+
+    event.currentTarget.releasePointerCapture(event.pointerId);
+  };
+
+  const handlePointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    releasePointerCapture(event);
+
     if (dragStartX.current === null) return;
 
     const currentDragOffset = dragOffsetRef.current;
@@ -143,7 +170,7 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
   };
 
   const handleTransitionEnd = () => {
-    if (activeIndex === 0) {
+    if (activeIndex === CAROUSEL_INDEX.CLONED_LAST_SLIDE) {
       setIsTransitionEnabled(false);
       setActiveIndex(itemCount);
       restoreTransitionAfterJump();
@@ -151,9 +178,9 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
       return;
     }
 
-    if (activeIndex === itemCount + 1) {
+    if (activeIndex === getClonedFirstSlideIndex(itemCount)) {
       setIsTransitionEnabled(false);
-      setActiveIndex(1);
+      setActiveIndex(CAROUSEL_INDEX.FIRST_REAL_SLIDE);
       restoreTransitionAfterJump();
 
       return;
@@ -163,7 +190,11 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
   };
 
   useEffect(() => {
-    if (itemCount <= 1 || isAutoSlidePaused || dragStartX.current !== null)
+    if (
+      itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP ||
+      isAutoSlidePaused ||
+      dragStartX.current !== null
+    )
       return;
 
     const slideTimer = window.setTimeout(() => {
@@ -173,10 +204,23 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
     return () => window.clearTimeout(slideTimer);
   }, [activeIndex, goToNextSlide, isAutoSlidePaused, itemCount]);
 
-  if (itemCount === 0) return null;
+  useEffect(() => cancelTransitionFrames, [cancelTransitionFrames]);
+
+  if (itemCount === CAROUSEL_ITEM_COUNT.EMPTY) return null;
+
+  const currentSlideIndex = getRealIndex(activeIndex, itemCount);
+  const currentItem = items[currentSlideIndex];
 
   return (
-    <section className={styles.container}>
+    <section
+      className={styles.container}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="추천 공고 캐러셀"
+    >
+      <span className={styles.screenReaderOnly} aria-live="polite">
+        {`${currentSlideIndex + CAROUSEL_INDEX.CARD_NUMBER_OFFSET} / ${itemCount}, ${currentItem.announcementTitle}`}
+      </span>
       <div
         className={styles.viewport}
         onPointerDown={handlePointerDown}
@@ -187,28 +231,25 @@ const HomeFeaturedCarousel = ({ items }: CarouselProps) => {
       >
         <div
           className={styles.track({ isTransitionEnabled })}
-          style={getTrackStyle(itemCount <= 1 ? 0 : activeIndex, dragOffset)}
+          style={getTrackStyle(
+            itemCount <= CAROUSEL_ITEM_COUNT.MIN_LOOP
+              ? CAROUSEL_INDEX.CLONED_LAST_SLIDE
+              : activeIndex,
+            dragOffset,
+          )}
           onTransitionEnd={handleTransitionEnd}
         >
           {carouselItems.map(({ item, key }, index) => {
-            const currentCardNumber = getRealIndex(index, itemCount) + 1;
+            const currentCardNumber =
+              getRealIndex(index, itemCount) +
+              CAROUSEL_INDEX.CARD_NUMBER_OFFSET;
 
             return (
               <div className={styles.slide} key={key}>
                 <CarouselCard
-                  to={item.to}
+                  carouselItem={item}
                   totalCardCount={itemCount}
                   currentCardNumber={currentCardNumber}
-                  companyName={item.companyName}
-                  companySize={item.companySize}
-                  daysLeft={item.daysLeft}
-                  thumbnailUrl={item.thumbnailUrl}
-                  thumbnailAlt={item.thumbnailAlt}
-                  companyLogoUrl={item.companyLogoUrl}
-                  companyLogoAlt={item.companyLogoAlt}
-                  announcementTitle={item.announcementTitle}
-                  announcementDeadline={item.announcementDeadline}
-                  announcementCategory={item.announcementCategory}
                 />
               </div>
             );
