@@ -7,13 +7,13 @@ import type { HomeFeaturedCarouselItem } from '@pages/home/types/homeFeaturedCar
 import * as styles from './HomeFeaturedCarouselCard.css';
 
 interface HomeFeaturedCarouselCardProps {
-  homeFeaturedCarouselItem: HomeFeaturedCarouselItem;
+  carouselItem: HomeFeaturedCarouselItem;
   totalCardCount: number;
   currentCardNumber: number;
 }
 
 const HomeFeaturedCarouselCard = ({
-  homeFeaturedCarouselItem,
+  carouselItem,
   totalCardCount,
   currentCardNumber,
 }: HomeFeaturedCarouselCardProps) => {
@@ -29,7 +29,7 @@ const HomeFeaturedCarouselCard = ({
     announcementTitle,
     announcementDeadline,
     announcementCategory,
-  } = homeFeaturedCarouselItem;
+  } = carouselItem;
 
   return (
     <article className={styles.container}>
