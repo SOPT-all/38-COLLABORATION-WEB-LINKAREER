@@ -30,6 +30,8 @@ export const logoShadow = style({
   right: 0,
   bottom: 0,
   height: '8rem',
+  borderRadius: '0 0 1.2rem 1.2rem',
+  background: vars.color.overlay90,
 });
 
 export const textBox = style({
