@@ -1,14 +1,14 @@
 import type { HomeActivityCardData } from '@pages/home/types/homeActivityCard';
 
 import * as styles from './HomeActivityCard.css';
-interface HomeActivityCardProps extends HomeActivityCardData {}
+
 const HomeActivityCard = ({
   imageUrl,
   title,
   companyName,
   dDay,
   category,
-}: HomeActivityCardProps) => {
+}: HomeActivityCardData) => {
   return (
     <article className={styles.card}>
       <div className={styles.logoBox}>
