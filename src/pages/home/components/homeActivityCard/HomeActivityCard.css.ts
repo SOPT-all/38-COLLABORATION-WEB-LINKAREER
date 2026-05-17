@@ -12,33 +12,28 @@ export const card = style({
 });
 
 export const logoBox = style({
-  aspectRatio: '1/1',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  alignSelf: 'stretch',
-  justifyContent: 'flex-end',
-  gap: '1rem',
-  padding: '0 0.8rem',
+  aspectRatio: '1 / 1',
+  position: 'relative',
+  border: 'none',
+  borderRadius: '1.2rem',
+  width: '16rem',
   height: '16rem',
+  overflow: 'hidden',
 });
 
 export const image = style({
   display: 'block',
+  objectFit: 'cover',
   width: '100%',
   height: '100%',
 });
 
 export const logoShadow = style({
-  display: 'flex',
-  flexDirection: 'column',
-  flexShrink: 0,
-  alignItems: 'flex-start',
-  gap: '1rem',
-  borderRadius: '0 0 1.2rem 1.2rem',
+  position: 'absolute',
+  right: 0,
+  bottom: 0,
+  left: 0,
   background: vars.color.overlay90,
-  padding: '1rem',
-  width: '16rem',
   height: '8rem',
 });
 
