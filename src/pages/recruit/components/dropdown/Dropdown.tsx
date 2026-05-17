@@ -26,7 +26,14 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
   };
 
   return (
-    <div className={styles.container} onBlur={() => setIsOpen(false)}>
+    <div
+      className={styles.container}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          setIsOpen(false);
+        }
+      }}
+    >
       <button
         type="button"
         className={styles.trigger}
@@ -39,16 +46,15 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
       {isOpen && (
         <ul className={styles.options}>
           {options.map((option) => (
-            <li
-              key={option.value}
-              className={styles.optionItem}
-              data-selected={value === option.value}
-              onPointerDown={(e) => {
-                e.stopPropagation();
-                handleOptionClick(option.value);
-              }}
-            >
-              {option.label}
+            <li key={option.value}>
+              <button
+                type="button"
+                className={styles.optionItem}
+                data-selected={value === option.value}
+                onPointerDown={() => handleOptionClick(option.value)}
+              >
+                {option.label}
+              </button>
             </li>
           ))}
         </ul>
