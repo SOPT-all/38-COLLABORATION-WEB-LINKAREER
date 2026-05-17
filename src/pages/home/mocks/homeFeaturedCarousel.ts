@@ -19,6 +19,7 @@ export const HOME_FEATURED_CAROUSEL_ITEMS: HomeFeaturedCarouselItem[] = [
     announcementCategory: '마케팅',
   },
   {
+    // 두 번째 데이터는 to 없음 (명세상, 클릭해도 페이지 이동하지 않음)
     companyName: '기아',
     companySize: '대기업',
     daysLeft: 24,
