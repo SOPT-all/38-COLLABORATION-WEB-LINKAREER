@@ -7,7 +7,6 @@ export const container = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1.6rem',
-  margin: '4.8rem 0',
   width: '100%',
 });
 

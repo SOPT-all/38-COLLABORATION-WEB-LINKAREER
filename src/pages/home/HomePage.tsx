@@ -24,10 +24,10 @@ const HomePage = () => {
           void navigate(`/${value}`);
         }}
       />
-      <div className={styles.carouselContainer}>
+      <div className={styles.sectionContainer}>
         <HomeFeaturedCarousel items={HOME_FEATURED_CAROUSEL_ITEMS} />
+        <HomeNewNoticeSection />
       </div>
-      <HomeNewNoticeSection />
     </main>
   );
 };
