@@ -40,6 +40,7 @@ const RecruitPage = () => {
     selectedJob === SALES_JOB || selectedJob === BUSINESS_JOB ? 1 : 25;
 
   const resultCount = getResultCount(appliedFilters);
+  const draftResultCount = getResultCount(draftFilters);
   const isEmpty = resultCount === '0';
 
   const handleTabChange = (value: string) => {
@@ -110,7 +111,7 @@ const RecruitPage = () => {
 
       <FilterBottomSheet
         isOpen={isSheetOpen}
-        resultCount={resultCount}
+        resultCount={draftResultCount}
         selectedFilters={draftFilters}
         setSelectedFilters={setDraftFilters}
         onClose={handleCloseSheet}
