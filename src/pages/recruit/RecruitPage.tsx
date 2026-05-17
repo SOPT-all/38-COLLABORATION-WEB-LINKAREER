@@ -32,7 +32,8 @@ const RecruitPage = () => {
     employmentTypes: [],
     regions: [],
   });
-  const [draftFilters, setDraftFilters] = useState<FilterValues>(appliedFilters);
+  const [draftFilters, setDraftFilters] =
+    useState<FilterValues>(appliedFilters);
 
   const selectedJob = appliedFilters.jobCategories[0];
   const totalPages =
