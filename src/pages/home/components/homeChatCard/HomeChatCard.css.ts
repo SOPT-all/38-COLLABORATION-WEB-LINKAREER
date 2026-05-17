@@ -1,39 +1,40 @@
-import { typography } from '@styles/tokens/typography';
 import { style } from '@vanilla-extract/css';
+
 import { vars } from '@styles/theme.css';
+import { typography } from '@styles/tokens/typography';
 
 export const card = style({
   display: 'flex',
-  width: '13.6rem',
-  height: '21rem',
-  padding: '0.8rem',
   alignItems: 'flex-start',
   gap: '1rem',
-  borderRadius: '1.2rem',
   border: `1px solid ${vars.color.gray300}`,
+  borderRadius: '1.2rem',
+  padding: '0.8rem',
+  width: '13.6rem',
+  height: '21rem',
 });
 
 export const innerBox = style({
   display: 'flex',
-  width: '12rem',
   flexDirection: 'column',
+  flexShrink: 0,
   alignItems: 'flex-start',
   gap: '1.6rem',
-  flexShrink: 0,
+  width: '12rem',
 });
 
 export const topBox = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  gap: '0.8rem',
   alignSelf: 'stretch',
+  gap: '0.8rem',
 });
 
 export const imageBox = style({
-  height: '7.3rem',
   alignSelf: 'stretch',
   borderRadius: '0.8rem',
+  height: '7.3rem',
 });
 
 export const image = style({
@@ -47,16 +48,16 @@ export const textBox = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  gap: '0.2rem',
   alignSelf: 'stretch',
+  gap: '0.2rem',
   minWidth: 0,
 });
 
 export const statusBox = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '0.2rem',
   alignSelf: 'stretch',
+  gap: '0.2rem',
 });
 
 export const statusIcon = style({
@@ -71,12 +72,12 @@ export const statusText = style({
 
 export const companyName = style({
   ...typography.body_b_14,
-  color: vars.color.gray900,
   alignSelf: 'stretch',
   minWidth: 0,
   overflow: 'hidden',
-  whiteSpace: 'nowrap',
   textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  color: vars.color.gray900,
 });
 
 export const participantCount = style({
@@ -86,14 +87,14 @@ export const participantCount = style({
 
 export const buttonBox = style({
   display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '1rem',
+  border: `1px solid ${vars.color.blue500}`,
+  borderRadius: '0.8rem',
+  padding: '0.8rem 1.2rem',
   width: '12rem',
   height: '3.6rem',
-  padding: '0.8rem 1.2rem',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '1rem',
-  borderRadius: '0.8rem',
-  border: `1px solid ${vars.color.blue500}`,
   selectors: {
     '&:focus': {
       outline: 'none',

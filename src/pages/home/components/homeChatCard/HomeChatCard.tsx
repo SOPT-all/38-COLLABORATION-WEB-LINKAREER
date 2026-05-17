@@ -1,5 +1,5 @@
-import type { HomeChatCardData } from '@pages/home/types/homeChatCard';
 import IcCerti from '@assets/svg/IcCerti';
+import type { HomeChatCardData } from '@pages/home/types/homeChatCard';
 
 import * as styles from './HomeChatCard.css';
 
