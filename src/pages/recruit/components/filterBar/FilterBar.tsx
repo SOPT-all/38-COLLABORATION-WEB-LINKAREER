@@ -34,17 +34,15 @@ const FilterBar = ({ appliedFilters, onOpenSheet }: FilterBarProps) => {
           const isSelected = appliedFilters[tab.key].length > 0;
 
           return (
-            <span key={tab.key}>
-              {isSelected ? (
-                <Chip variant="outlineFilled" rightIcon>
-                  {chipLabel}
-                </Chip>
-              ) : (
-                <Chip variant="default" rightIcon>
-                  {chipLabel}
-                </Chip>
-              )}
-            </span>
+            <>
+              <Chip
+                key={tab.key}
+                variant={isSelected ? 'outlineFilled' : 'default'}
+                rightIcon
+              >
+                {chipLabel}
+              </Chip>
+            </>
           );
         })}
       </div>
