@@ -8,6 +8,7 @@ export const wrapper = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  marginTop: 'auto',
   backgroundColor: color.gray50,
   padding: '0.4rem 0 7.4rem 0',
   width: '100%',
