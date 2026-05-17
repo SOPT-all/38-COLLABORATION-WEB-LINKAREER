@@ -1,3 +1,8 @@
+import {
+  BUSINESS_JOB,
+  MARKETING_JOB,
+  SALES_JOB,
+} from '@pages/recruit/constants/filterOptions';
 import { CONTENT_RESULT } from '@pages/recruit/constants/resultNumber';
 import type { FilterValues } from '@pages/recruit/types/filter';
 
@@ -10,11 +15,11 @@ export const getResultCount = (selectedFilters: FilterValues): string => {
 
   const total = jobCategories.reduce((acc, cur) => {
     const count =
-      cur === '마케팅/광고/홍보'
+      cur === MARKETING_JOB
         ? CONTENT_RESULT.marketing
-        : cur === '영업/고객상담'
+        : cur === SALES_JOB
           ? CONTENT_RESULT.sales
-          : cur === '경영/사무'
+          : cur === BUSINESS_JOB
             ? CONTENT_RESULT.business
             : 0;
 
