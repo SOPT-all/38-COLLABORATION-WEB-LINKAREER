@@ -11,6 +11,8 @@ import DetailImageSection from './components/detailImageSection/DetailImageSecti
 import ImageCarousel from './components/imageCarousel/ImageCarousel';
 import RecruitDetailContent from './components/recruitDetailContent/RecruitDetailContent';
 import RecruitDetailInfoSection from './components/recruitDetailInfoSection/RecruitDetailInfoSection';
+import ReviewSection from './components/reviewSection/ReviewSection';
+import { MOCK_PASS_COVER_LETTER } from './mockPassCoverLetter';
 import { MOCK_RECRUIT_DETAIL } from './mockRecruitDetail';
 
 const RECRUIT_DETAIL_TABS = [
@@ -68,6 +70,7 @@ const RecruitDetailPage = () => {
         employmentType={employmentType}
       />
       <ChatBanner />
+
       <TabBar
         tabList={RECRUIT_DETAIL_TABS}
         selectedValue={selectedTab}
@@ -82,16 +85,42 @@ const RecruitDetailPage = () => {
           qualifications={[...qualifications]}
           preferences={[...preferences]}
         />
-      </div>
-      <RecruitDetailContent
-        recruitmentPeriod={recruitmentPeriod}
-        responsibilities={[...responsibilities]}
-        qualifications={[...qualifications]}
-        preferences={[...preferences]}
-      />
-      <DetailImageSection imageUrl={detailImg4} />
 
-      <div ref={passDataRef}>{/* TODO: 합격 자료 컴포넌트 */}</div>
+        <RecruitDetailContent
+          recruitmentPeriod={recruitmentPeriod}
+          responsibilities={[...responsibilities]}
+          qualifications={[...qualifications]}
+          preferences={[...preferences]}
+        />
+
+        <DetailImageSection imageUrl={detailImg4} />
+        {/* TODO: 스크랩 유저 통계 머지시 반영 예정 */}
+      </div>
+
+      <div ref={passDataRef}>
+        <ReviewSection
+          sectionTitle="합격 자소서"
+          items={MOCK_PASS_COVER_LETTER.map(
+            ({ id, companyName, content, tags }) => ({
+              id,
+              title: companyName,
+              body: content,
+              tags,
+            }),
+          )}
+        />
+        <ReviewSection
+          sectionTitle="합격 후기"
+          items={MOCK_PASS_COVER_LETTER.map(
+            ({ id, companyName, content, tags }) => ({
+              id,
+              title: companyName,
+              body: content,
+              tags,
+            }),
+          )}
+        />
+      </div>
     </>
   );
 };
