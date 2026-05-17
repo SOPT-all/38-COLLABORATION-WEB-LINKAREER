@@ -85,8 +85,8 @@ export const bookmarkBox = style({
 });
 
 export const bookmarkIcon = style({
-  width: '1.0667rem',
-  height: '1.3333rem',
+  width: '1.6rem',
+  height: '1.6rem',
 });
 
 export const bookmarkText = style({
