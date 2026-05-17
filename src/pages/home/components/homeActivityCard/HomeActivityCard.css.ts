@@ -6,17 +6,21 @@ import { typography } from '@styles/tokens/typography';
 export const card = style({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'stretch',
+  alignItems: 'flex-start',
   gap: '1.6rem',
   width: '16rem',
 });
 
 export const logoBox = style({
-  aspectRatio: '1 / 1',
-  position: 'relative',
-  borderRadius: '1.2rem',
-  width: '16rem',
-  overflow: 'hidden',
+  aspectRatio: '1/1',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  alignSelf: 'stretch',
+  justifyContent: 'flex-end',
+  gap: '1rem',
+  padding: '0 0.8rem',
+  height: '16rem',
 });
 
 export const image = style({
@@ -26,12 +30,15 @@ export const image = style({
 });
 
 export const logoShadow = style({
-  position: 'absolute',
-  right: 0,
-  bottom: 0,
-  left: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  flexShrink: 0,
+  alignItems: 'flex-start',
+  gap: '1rem',
   borderRadius: '0 0 1.2rem 1.2rem',
   background: vars.color.overlay90,
+  padding: '1rem',
+  width: '16rem',
   height: '8rem',
 });
 
@@ -39,21 +46,24 @@ export const textBox = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  gap: '0.8rem',
 });
 
 export const title = style({
   display: '-webkit-box',
+  alignSelf: 'stretch',
+  marginBottom: '0.8rem',
   height: '4.2rem',
   overflow: 'hidden',
   color: vars.color.gray900,
-  WebkitLineClamp: 2,
   ...typography.body_b_14,
+  WebkitLineClamp: 2,
   WebkitBoxOrient: 'vertical',
 });
 
 export const companyName = style({
+  alignSelf: 'stretch',
   ...typography.caption_m_12,
+  marginBottom: '0.2rem',
   color: vars.color.gray900,
 });
 
