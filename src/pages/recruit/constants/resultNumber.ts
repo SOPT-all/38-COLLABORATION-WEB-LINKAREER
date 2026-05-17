@@ -1,7 +1,7 @@
 // bottomSheet 내 버튼의 공고 결과 개수
 export const CONTENT_RESULT = {
-  default: '120,316',
-  business: '2',
-  sales: '3',
-  salesAndBusiness: '5',
-};
+  default: 120316,
+  marketing: 21,
+  business: 2,
+  sales: 3,
+} as const;

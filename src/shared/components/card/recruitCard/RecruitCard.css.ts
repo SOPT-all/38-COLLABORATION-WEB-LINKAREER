@@ -11,7 +11,6 @@ export const container = style({
   backgroundColor: vars.color.white,
   cursor: 'pointer',
   padding: '1.6rem',
-  width: '30.7rem',
   minHeight: '11.8rem',
 });
 

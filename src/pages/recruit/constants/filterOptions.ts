@@ -67,6 +67,11 @@ export const FILTER_TABS: { key: FilterTab; label: string }[] = [
 
 // 선택 가능한 직무 영역
 export const ENABLED_JOB_CATEGORIES: readonly string[] = [
+  '마케팅/광고/홍보',
   '영업/고객상담',
   '경영/사무',
 ];
+
+export const MARKETING_JOB = FILTER_OPTIONS.jobCategories[0];
+export const SALES_JOB = FILTER_OPTIONS.jobCategories[1];
+export const BUSINESS_JOB = FILTER_OPTIONS.jobCategories[2];

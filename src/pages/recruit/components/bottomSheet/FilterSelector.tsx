@@ -34,7 +34,7 @@ const FilterSelector = ({
   }, [isOpen]);
 
   // 탭에 해당하는 값 꺼내기
-  const selectedOptions = selectedFilters[activeTab];
+  const selectedOptions = selectedFilters[activeTab] as string[];
   const isSelected = (option: string) => {
     return selectedOptions.includes(option);
   };
@@ -42,7 +42,7 @@ const FilterSelector = ({
   // 옵션 클릭
   const handleOptionClick = (option: string) => {
     setSelectedFilters((prev) => {
-      const current = prev[activeTab];
+      const current = prev[activeTab] as string[];
       const alreadySelected = current.includes(option);
 
       return {
