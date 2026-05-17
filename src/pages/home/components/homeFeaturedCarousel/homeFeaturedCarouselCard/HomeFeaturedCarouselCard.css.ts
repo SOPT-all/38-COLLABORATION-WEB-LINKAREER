@@ -16,6 +16,7 @@ export const card = style({
   flexDirection: 'column',
   alignItems: 'flex-end',
   borderRadius: '12px',
+  cursor: 'pointer',
   paddingTop: '7.8rem',
   width: '34.3rem',
   overflow: 'hidden',
@@ -106,6 +107,7 @@ export const announcementInfo = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.4rem',
+  cursor: 'pointer',
   width: '100%',
 });
 

@@ -1,0 +1,33 @@
+import carousel_1_thumbnail from '@assets/images/img_home1.webp';
+import carousel_1_logo from '@assets/images/img_home2.webp';
+import carousel_2_thumbnail from '@assets/images/img_home3.webp';
+import carousel_2_logo from '@assets/images/img_home4.webp';
+import type { HomeFeaturedCarouselItem } from '@pages/home/types/homeFeaturedCarousel';
+
+export const HOME_FEATURED_CAROUSEL_ITEMS: HomeFeaturedCarouselItem[] = [
+  {
+    to: '/recruit/detail',
+    companyName: '(주)메디쿼터스',
+    companySize: '중소기업',
+    daysLeft: 19,
+    thumbnailUrl: carousel_1_thumbnail,
+    thumbnailAlt: '기업 채용공고 이미지',
+    companyLogoUrl: carousel_1_logo,
+    companyLogoAlt: '기업 로고',
+    announcementTitle: '[메디쿼터스] [와이엠헬스케어] 마케터 (인턴)',
+    announcementDeadline: '채용 시 마감',
+    announcementCategory: '마케팅',
+  },
+  {
+    companyName: '기아',
+    companySize: '대기업',
+    daysLeft: 24,
+    thumbnailUrl: carousel_2_thumbnail,
+    thumbnailAlt: '기업 채용공고 이미지',
+    companyLogoUrl: carousel_2_logo,
+    companyLogoAlt: '기업 로고',
+    announcementTitle: '[기아] [계약직] 국내 채용 홍보 & 마케팅',
+    announcementDeadline: '~05.29',
+    announcementCategory: '마케팅',
+  },
+];

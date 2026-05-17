@@ -1,7 +1,7 @@
 export type CompanySize = '대기업' | '중견기업' | '중소기업';
 
 export interface HomeFeaturedCarouselItem {
-  to: string;
+  to?: string;
   companyName: string;
   companySize: CompanySize;
   daysLeft: number;

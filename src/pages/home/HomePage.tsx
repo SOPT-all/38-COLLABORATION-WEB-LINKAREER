@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router';
 import SearchBar from '@components/searchBar/SearchBar';
 import TabBar from '@components/tabBar/TabBar';
 
+import HomeFeaturedCarousel from './components/homeFeaturedCarousel/HomeFeaturedCarousel';
+import { HOME_FEATURED_CAROUSEL_ITEMS } from './mocks/homeFeaturedCarousel';
+
 const HomePage = () => {
   const navigate = useNavigate();
 
@@ -18,6 +21,7 @@ const HomePage = () => {
           void navigate(`/${value}`);
         }}
       />
+      <HomeFeaturedCarousel items={HOME_FEATURED_CAROUSEL_ITEMS} />
     </>
   );
 };
