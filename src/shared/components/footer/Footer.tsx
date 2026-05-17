@@ -2,8 +2,8 @@ import * as styles from './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className={styles.wrapper}>
-      <div className={styles.container}>
+    <footer className={styles.container}>
+      <div className={styles.topContainer}>
         <span className={styles.text({ type: 'menu' })}>이용약관</span>
         <span className={styles.text({ type: 'menu' })}>개인정보처리방침</span>
         <span className={styles.text({ type: 'menu' })}>고객문의</span>

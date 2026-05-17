@@ -4,7 +4,6 @@ import { color } from '@styles/tokens/color';
 
 export const container = style({
   display: 'flex',
-  flex: '1 0 0',
   alignItems: 'center',
   alignSelf: 'stretch',
   justifyContent: 'space-between',

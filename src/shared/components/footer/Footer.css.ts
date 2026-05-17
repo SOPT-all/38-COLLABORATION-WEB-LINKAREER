@@ -4,16 +4,17 @@ import { recipe } from '@vanilla-extract/recipes';
 import { color } from '@styles/tokens/color';
 import { typography } from '@styles/tokens/typography';
 
-export const wrapper = style({
+export const container = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
+  marginTop: 'auto',
   backgroundColor: color.gray50,
   padding: '0.4rem 0 7.4rem 0',
   width: '100%',
 });
 
-export const container = style({
+export const topContainer = style({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
