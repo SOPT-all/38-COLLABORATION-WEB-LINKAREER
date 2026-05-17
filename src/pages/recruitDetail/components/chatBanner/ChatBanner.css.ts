@@ -7,7 +7,7 @@ export const container = style({
   display: 'flex',
   alignItems: 'flex-start',
   justifyContent: 'space-between',
-  margin: '0 1.6rem',
+  margin: '1.8rem 1.6rem',
   border: `1px solid ${color.gray100}`,
   borderRadius: '1.2rem',
   backgroundColor: color.white,

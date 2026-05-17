@@ -32,19 +32,17 @@ const RecruitDetailInfoSection = ({
   employmentType,
 }: RecruitDetailInfoSectionProps) => {
   return (
-    <>
+    <div className={styles.infoWrapper}>
       <div className={styles.container}>
         <p className={styles.companyName}>{companyName}</p>
         <h1 className={styles.title}>{title}</h1>
+      </div>
+
+      <div className={styles.conditionTable}>
         <div className={styles.tagRow}>
           <Tag size="small" color="gray" text={jobCategory} />
           <Tag size="small" color="gray" text={location} />
         </div>
-      </div>
-
-      <div className={styles.divider} />
-
-      <div className={styles.conditionTable}>
         <div className={styles.conditionRow}>
           <span className={styles.conditionLabel}>기업형태</span>
           <span className={styles.conditionValue}>{companyType}</span>
@@ -61,7 +59,7 @@ const RecruitDetailInfoSection = ({
           <span className={styles.conditionValue}>{employmentType}</span>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
