@@ -10,7 +10,7 @@ export const card = style({
   alignItems: 'flex-start',
   gap: '1rem',
   borderRadius: '1.2rem',
-  border: '1px solid ${vars.color.gray300}',
+  border: `1px solid ${vars.color.gray300}`,
 });
 
 export const innerBox = style({
@@ -49,6 +49,7 @@ export const textBox = style({
   alignItems: 'flex-start',
   gap: '0.2rem',
   alignSelf: 'stretch',
+  minWidth: 0,
 });
 
 export const statusBox = style({
@@ -71,6 +72,11 @@ export const statusText = style({
 export const companyName = style({
   ...typography.body_b_14,
   color: vars.color.gray900,
+  alignSelf: 'stretch',
+  minWidth: 0,
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
 });
 
 export const participantCount = style({
@@ -87,7 +93,7 @@ export const buttonBox = style({
   alignItems: 'center',
   gap: '1rem',
   borderRadius: '0.8rem',
-  border: '1px solid ${vars.color.blue500}',
+  border: `1px solid ${vars.color.blue500}`,
 });
 
 export const buttonText = style({
