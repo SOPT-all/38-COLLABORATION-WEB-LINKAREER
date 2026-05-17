@@ -5,7 +5,10 @@ import SearchBar from '@components/searchBar/SearchBar';
 import TabBar from '@components/tabBar/TabBar';
 
 import HomeFeaturedCarousel from './components/homeFeaturedCarousel/HomeFeaturedCarousel';
+import HomeNewNoticeSection from './components/homeNewNoticeSection/HomeNewNoticeSection';
 import { HOME_FEATURED_CAROUSEL_ITEMS } from './mocks/homeFeaturedCarousel';
+
+import * as styles from './HomePage.css';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -21,7 +24,10 @@ const HomePage = () => {
           void navigate(`/${value}`);
         }}
       />
-      <HomeFeaturedCarousel items={HOME_FEATURED_CAROUSEL_ITEMS} />
+      <div className={styles.carouselContainer}>
+        <HomeFeaturedCarousel items={HOME_FEATURED_CAROUSEL_ITEMS} />
+      </div>
+      <HomeNewNoticeSection />
     </main>
   );
 };

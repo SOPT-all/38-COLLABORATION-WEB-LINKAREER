@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import ClipBoardImage from '@assets/svg/Graphic1';
 import ClockImage from '@assets/svg/Graphic2';
 import Button from '@components/button/Button';
+import type { HomeCuratedCardProps } from '@pages/home/types/homeCuratedCard';
 
 import * as style from './HomeCuratedCard.css';
 
@@ -10,14 +11,6 @@ const CARD_IMAGE = {
   clipboard: ClipBoardImage,
   clock: ClockImage,
 } as const;
-
-interface HomeCuratedCardProps {
-  eyebrowText: string;
-  cardTitle: string[];
-  buttonText?: string;
-  imageType?: keyof typeof CARD_IMAGE;
-  to: string;
-}
 
 const HomeCuratedCard = ({
   eyebrowText,
