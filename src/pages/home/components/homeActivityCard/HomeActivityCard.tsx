@@ -12,7 +12,7 @@ const HomeActivityCard = ({
   return (
     <article className={styles.card}>
       <div className={styles.logoBox}>
-        <img src={imageUrl} alt="" className={styles.image} />
+        <img src={imageUrl} alt="{title}" className={styles.image} />
         <div className={styles.logoShadow} />
       </div>
 
