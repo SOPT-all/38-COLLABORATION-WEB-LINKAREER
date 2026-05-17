@@ -1,8 +1,7 @@
-import StatsCarousel from '@pages/recruitDetail/components/statsCarousel/StatsCarousel';
 const RecruitDetailPage = () => {
   return (
     <>
-      <StatsCarousel />
+      <h1>채용공고 상세 페이지</h1>
     </>
   );
 };
