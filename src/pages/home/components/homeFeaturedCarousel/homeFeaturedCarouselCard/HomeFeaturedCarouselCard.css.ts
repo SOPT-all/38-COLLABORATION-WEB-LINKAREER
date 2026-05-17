@@ -69,7 +69,8 @@ export const companyLogo = style({
   aspectRatio: 1,
   flexShrink: 0,
   borderRadius: '0.8rem',
-  objectFit: 'cover',
+  backgroundColor: vars.color.white,
+  objectFit: 'contain',
   width: '4.4rem',
   height: '4.4rem',
 });
