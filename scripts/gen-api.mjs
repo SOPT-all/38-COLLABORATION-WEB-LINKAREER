@@ -19,6 +19,8 @@ const result = spawnSync(
     '-o',
     'src/shared/apis/__generated__',
     '--no-client',
+    '--modular',
+    '-d',
     '--extract-request-body',
     '--extract-response-body',
   ],
