@@ -11,7 +11,8 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "preview": "vite preview",
-    "svgr": "svgr -d src/shared/assets/svg --no-index --ignore-existing --typescript --no-dimensions --jsx-runtime automatic public/svg"
+    "svgr": "svgr -d src/shared/assets/svg --no-index --ignore-existing --typescript --no-dimensions --jsx-runtime automatic public/svg",
+    "api:generate": "node scripts/gen-api.mjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.100.9",
@@ -44,6 +45,7 @@
     "eslint-plugin-unused-imports": "^4.4.1",
     "globals": "^17.5.0",
     "prettier": "^3.8.3",
+    "swagger-typescript-api": "^13.9.2",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
     "vite": "^8.0.10",

@@ -20,7 +20,7 @@ const BottomActionBar = ({
   onLabelClick,
 }: BottomActionBarProps) => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
       <button
         type="button"
         className={styles.iconButton}
@@ -29,9 +29,11 @@ const BottomActionBar = ({
       >
         {icon}
       </button>
-      <Button color="filled" size="lg" onClick={onLabelClick}>
-        {label}
-      </Button>
+      <div className={styles.buttonContainer}>
+        <Button color="filled" size="lg" onClick={onLabelClick}>
+          {label}
+        </Button>
+      </div>
     </div>
   );
 };
