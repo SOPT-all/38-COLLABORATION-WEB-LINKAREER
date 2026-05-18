@@ -6,14 +6,14 @@ interface HomeSectionHeaderProps {
   title: string;
   description?: string;
   to?: string;
-  showViewMore?: boolean;
+  isViewMoreVisible?: boolean;
 }
 
 const HomeSectionHeader = ({
   title,
   description,
   to,
-  showViewMore = Boolean(to),
+  isViewMoreVisible = Boolean(to),
 }: HomeSectionHeaderProps) => {
   return (
     <div className={styles.topTextContainer}>
@@ -22,7 +22,7 @@ const HomeSectionHeader = ({
         {description && <p className={styles.description}>{description}</p>}
       </div>
 
-      {showViewMore &&
+      {isViewMoreVisible &&
         (to ? (
           <Link to={to} className={styles.viewMoreButton}>
             더보기
