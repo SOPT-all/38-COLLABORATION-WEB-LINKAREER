@@ -13,7 +13,7 @@ import * as styles from './HomeNewNoticeSection.css';
 const HomeNewNoticeSection = () => {
   const cardContainerRef = useRef<HTMLDivElement>(null);
   const [selectedCategory, setSelectedCategory] =
-    useState<HomeNewNoticeCategory>('콘텐츠 마케팅');
+    useState<HomeNewNoticeCategory>(HOME_NEW_NOTICE_CATEGORIES[0]);
 
   const filteredItems = HOME_NEW_NOTICE_ITEMS.filter(
     (item) => item.category === selectedCategory,
