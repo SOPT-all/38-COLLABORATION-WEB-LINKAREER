@@ -6,12 +6,14 @@ import detailImg3 from '@assets/images/detail_thumbnail_img3.webp';
 import detailImg4 from '@assets/images/detail_thumbnail_img4.webp';
 import TabBar from '@components/tabBar/TabBar';
 
+import AiRecommendSection from './components/aiRecommendSection/AiRecommendSection';
 import ChatBanner from './components/chatBanner/ChatBanner';
 import DetailImageSection from './components/detailImageSection/DetailImageSection';
 import ImageCarousel from './components/imageCarousel/ImageCarousel';
 import RecruitDetailContent from './components/recruitDetailContent/RecruitDetailContent';
 import RecruitDetailInfoSection from './components/recruitDetailInfoSection/RecruitDetailInfoSection';
 import ReviewSection from './components/reviewSection/ReviewSection';
+import { MOCK_AI_RECOMMEND } from './mockAiRecommend';
 import { MOCK_PASS_COVER_LETTER } from './mockPassCoverLetter';
 import { MOCK_RECRUIT_DETAIL } from './mockRecruitDetail';
 
@@ -100,26 +102,14 @@ const RecruitDetailPage = () => {
       <div ref={passDataRef}>
         <ReviewSection
           sectionTitle="합격 자소서"
-          items={MOCK_PASS_COVER_LETTER.map(
-            ({ id, companyName, content, tags }) => ({
-              id,
-              title: companyName,
-              body: content,
-              tags,
-            }),
-          )}
+          items={MOCK_PASS_COVER_LETTER}
         />
         <ReviewSection
           sectionTitle="합격 후기"
-          items={MOCK_PASS_COVER_LETTER.map(
-            ({ id, companyName, content, tags }) => ({
-              id,
-              title: companyName,
-              body: content,
-              tags,
-            }),
-          )}
+          items={MOCK_PASS_COVER_LETTER}
         />
+
+        <AiRecommendSection items={MOCK_AI_RECOMMEND} />
       </div>
     </>
   );
