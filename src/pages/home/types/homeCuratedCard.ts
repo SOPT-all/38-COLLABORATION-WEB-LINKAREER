@@ -7,3 +7,7 @@ export interface HomeCuratedCardProps {
   imageType?: HomeCuratedCardImageType;
   to: string;
 }
+
+export interface HomeCuratedItem extends HomeCuratedCardProps {
+  id: number;
+}

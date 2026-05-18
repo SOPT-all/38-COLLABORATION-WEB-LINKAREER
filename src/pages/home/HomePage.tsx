@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import SearchBar from '@components/searchBar/SearchBar';
 import TabBar from '@components/tabBar/TabBar';
 
+import HomeCuratedSection from './components/homeCuratedSection/HomeCuratedSection';
 import HomeFeaturedCarousel from './components/homeFeaturedCarousel/HomeFeaturedCarousel';
 import HomeNewNoticeSection from './components/homeNewNoticeSection/HomeNewNoticeSection';
 import { HOME_FEATURED_CAROUSEL_ITEMS } from './mocks/homeFeaturedCarousel';
@@ -27,6 +28,7 @@ const HomePage = () => {
       <div className={styles.sectionContainer}>
         <HomeFeaturedCarousel items={HOME_FEATURED_CAROUSEL_ITEMS} />
         <HomeNewNoticeSection />
+        <HomeCuratedSection />
       </div>
     </main>
   );
