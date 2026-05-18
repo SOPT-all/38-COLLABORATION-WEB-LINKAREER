@@ -14,16 +14,15 @@ export const card = style({
   height: '21rem',
 });
 
-export const innerBox = style({
+export const contentContainer = style({
   display: 'flex',
   flexDirection: 'column',
   flexShrink: 0,
-  alignItems: 'flex-start',
   gap: '1.6rem',
-  width: '12rem',
+  width: '100%',
 });
 
-export const topBox = style({
+export const infoContainer = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -47,7 +46,6 @@ export const image = style({
 export const textBox = style({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-start',
   alignSelf: 'stretch',
   gap: '0.2rem',
   minWidth: 0,
@@ -58,11 +56,6 @@ export const statusBox = style({
   alignItems: 'center',
   alignSelf: 'stretch',
   gap: '0.2rem',
-});
-
-export const statusIcon = style({
-  width: '1.6rem',
-  height: '1.6rem',
 });
 
 export const statusText = style({
@@ -83,31 +76,4 @@ export const companyName = style({
 export const participantCount = style({
   ...typography.caption_r_12,
   color: vars.color.gray700,
-});
-
-export const buttonBox = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  gap: '1rem',
-  border: `1px solid ${vars.color.blue500}`,
-  borderRadius: '0.8rem',
-  padding: '0.8rem 1.2rem',
-  width: '12rem',
-  height: '3.6rem',
-  selectors: {
-    '&:focus': {
-      outline: 'none',
-    },
-    '&:focus-visible': {
-      outline: `2px solid ${vars.color.blue200}`,
-      outlineOffset: '2px',
-    },
-  },
-});
-
-export const buttonText = style({
-  textAlign: 'center',
-  color: vars.color.blue500,
-  ...typography.caption_m_12,
 });

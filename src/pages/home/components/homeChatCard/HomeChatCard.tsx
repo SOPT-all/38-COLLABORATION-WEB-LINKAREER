@@ -1,6 +1,7 @@
 import IcCerti from '@assets/svg/IcCerti';
 
 import * as styles from './HomeChatCard.css';
+import Button from '@shared/components/button/Button';
 
 interface HomeChatCardProps {
   logoUrl: string;
@@ -39,13 +40,9 @@ const HomeChatCard = ({
           </div>
         </div>
 
-        <button
-          type="button"
-          className={styles.buttonBox}
-          onClick={onJoinClick}
-        >
-          <span className={styles.buttonText}>참여하기</span>
-        </button>
+        <Button color="outlined" size="md" onClick={onJoinClick}>
+          참여하기
+        </Button>
       </div>
     </article>
   );
