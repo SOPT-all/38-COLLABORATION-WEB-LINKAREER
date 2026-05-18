@@ -29,7 +29,7 @@ export const titleBlue = style({
 export const updateTitle = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '0.6rem',
+  gap: '0.4rem',
   color: vars.color.gray500,
   ...typography.body_r_14,
   selectors: {
@@ -37,7 +37,7 @@ export const updateTitle = style({
       display: 'block',
       borderRadius: '50%',
       backgroundColor: vars.color.blue500,
-      width: '0.6rem',
+      width: '0.4rem',
       height: '0.6rem',
       content: '',
     },
