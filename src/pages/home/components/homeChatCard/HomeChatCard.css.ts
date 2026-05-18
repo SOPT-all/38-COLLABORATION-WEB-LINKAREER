@@ -10,7 +10,7 @@ export const card = style({
   border: `1px solid ${vars.color.gray300}`,
   borderRadius: '1.2rem',
   padding: '0.8rem',
-  width: '13.6rem',
+  width: 'calc(13.6rem + 2px)',
   height: '21rem',
 });
 
