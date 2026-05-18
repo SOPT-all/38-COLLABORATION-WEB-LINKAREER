@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import Button from '@components/button/Button';
+
 import * as styles from './DetailImageSection.css';
 
 interface DetailImageSectionProps {
@@ -17,13 +19,9 @@ const DetailImageSection = ({ imageUrl }: DetailImageSectionProps) => {
           <img src={imageUrl} alt="상세요강" className={styles.image} />
         </div>
         {!isExpanded && (
-          <button
-            type="button"
-            className={styles.expandButton}
-            onClick={() => setIsExpanded(true)}
-          >
+          <Button color="ghost" size="lg" onClick={() => setIsExpanded(true)}>
             상세 정보 더 보기
-          </button>
+          </Button>
         )}
       </div>
     </section>

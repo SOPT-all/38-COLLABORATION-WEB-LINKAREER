@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 export const container = style({
@@ -12,7 +12,7 @@ export const container = style({
 
 export const sectionTitle = style({
   ...typography.title_b_18,
-  color: color.gray900,
+  color: vars.color.gray900,
 });
 
 export const imageWrapper = style({
@@ -29,18 +29,4 @@ export const imageCollapsed = style({
 export const image = style({
   objectFit: 'cover',
   width: '100%',
-});
-
-export const expandButton = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  border: `1px solid ${color.gray200}`,
-  borderRadius: '0.8rem',
-  backgroundColor: color.white,
-  cursor: 'pointer',
-  padding: '1.2rem',
-  width: '100%',
-  ...typography.body_m_14,
-  color: color.gray700,
 });
