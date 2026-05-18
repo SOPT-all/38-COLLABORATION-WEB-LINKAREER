@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { MENTO_CATEGORY_TABLIST, MENTO_MAIN_TABLIST } from '@constants/tabList';
 
 import mentoTopBannerImg from '@assets/images/img-mento-top-banner.webp';
-import Pagination from '@components/pagenation/Pagenation';
+import Pagination from '@components/pagination/Pagination';
 import TabBar from '@components/tabBar/TabBar';
 
 import MentoCenterBanner from './components/mentoBanner/mentoCenterBanner/MentoCenterBanner';
@@ -60,7 +60,7 @@ const MentoPage = () => {
           <MentoCenterBanner ad={CENTER_AD_DATA} />
         </div>
       </section>
-      <div className={styles.pagenationContainer}>
+      <div className={styles.paginationContainer}>
         <Pagination
           currentPage={currentPage}
           totalPages={5}

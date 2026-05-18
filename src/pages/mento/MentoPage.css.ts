@@ -39,7 +39,7 @@ export const postList = style({
   flexDirection: 'column',
 });
 
-export const pagenationContainer = style({
+export const paginationContainer = style({
   display: 'flex',
   justifyContent: 'center',
   padding: '4rem 0',

@@ -7,7 +7,7 @@ export const listContainer = style({
   padding: '0.8rem 1.6rem',
 });
 
-export const pagenationContainer = style({
+export const paginationContainer = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

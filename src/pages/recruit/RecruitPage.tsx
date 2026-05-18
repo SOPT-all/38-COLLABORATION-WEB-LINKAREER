@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { HOME_TABLIST } from '@constants/tabList';
 
 import RecruitCard from '@components/card/recruitCard/RecruitCard';
-import Pagination from '@components/pagenation/Pagenation';
+import Pagination from '@components/pagination/Pagination';
 import SearchBar from '@components/searchBar/SearchBar';
 import TabBar from '@components/tabBar/TabBar';
 
@@ -101,7 +101,7 @@ const RecruitPage = () => {
       )}
 
       {!isEmpty && (
-        <section className={styles.pagenationContainer}>
+        <section className={styles.paginationContainer}>
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}

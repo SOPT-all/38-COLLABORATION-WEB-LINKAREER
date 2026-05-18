@@ -4,12 +4,12 @@ import { recipe } from '@vanilla-extract/recipes';
 import { color } from '@styles/tokens/color';
 import { typography } from '@styles/tokens/typography';
 
-export const pagenationWrapper = style({
+export const paginationWrapper = style({
   display: 'flex',
   alignItems: 'center',
 });
 
-export const pagenationButtonBase = style({
+export const paginationButtonBase = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -18,7 +18,7 @@ export const pagenationButtonBase = style({
 });
 
 export const pageNumberRecipe = recipe({
-  base: [pagenationButtonBase],
+  base: [paginationButtonBase],
 
   variants: {
     active: {
