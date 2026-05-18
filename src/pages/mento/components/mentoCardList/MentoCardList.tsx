@@ -12,7 +12,7 @@ const MentoCardList = ({ cardList }: MentoCardListProps) => {
   return (
     <div className={styles.container}>
       {cardList.map((card) => (
-        <MentoCard card={card} />
+        <MentoCard key={card.id} card={card} />
       ))}
     </div>
   );

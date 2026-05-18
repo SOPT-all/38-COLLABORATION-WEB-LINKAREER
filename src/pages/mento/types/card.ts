@@ -1,4 +1,5 @@
 export interface Card {
+  id: number;
   isFixed: boolean;
   name: string;
   company: string;

@@ -36,7 +36,7 @@ const MentoCard = ({ card }: MentoCardProps) => {
           </p>
           <ul className={styles.infoRow}>
             {card.tag.map((tag) => (
-              <li>
+              <li key={tag}>
                 <Tag text={tag} size="small" color="gray" />
               </li>
             ))}

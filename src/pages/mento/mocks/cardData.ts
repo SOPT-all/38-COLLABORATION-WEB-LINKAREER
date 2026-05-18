@@ -1,5 +1,6 @@
 export const CARD_DATA = [
   {
+    id: 1,
     isFixed: true,
     name: '링커멘토',
     company: '신세계',
@@ -10,6 +11,7 @@ export const CARD_DATA = [
     tag: ['#대기업', '#비전공자'],
   },
   {
+    id: 2,
     isFixed: false,
     name: '커드멘토',
     company: '네이버',
