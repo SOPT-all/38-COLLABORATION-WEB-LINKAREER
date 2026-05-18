@@ -6,6 +6,7 @@ import Pagination from '@components/pagenation/Pagenation';
 import SearchBar from '@components/searchBar/SearchBar';
 import TabBar from '@components/tabBar/TabBar';
 
+import { useGetRecruitQuery } from './apis/useRecruitFilterQuery';
 import FilterBottomSheet from './components/bottomSheet/FilterBottomSheet';
 import EmptySection from './components/emptySection/EmptySection';
 import FilterBar from './components/filterBar/FilterBar';
@@ -15,7 +16,6 @@ import {
   FILTER_OPTIONS,
   SALES_JOB,
 } from './constants/filterOptions';
-import { mockData } from './mocks/mockData';
 import type { FilterValues } from './types/filter';
 import { getResultCount } from './utils/resultNumber';
 
@@ -39,9 +39,15 @@ const RecruitPage = () => {
   const totalPages =
     selectedJob === SALES_JOB || selectedJob === BUSINESS_JOB ? 1 : 25;
 
+  const {
+    data: recruitList = [],
+    isLoading,
+    isError,
+  } = useGetRecruitQuery(appliedFilters);
+
   const resultCount = getResultCount(appliedFilters);
   const draftResultCount = getResultCount(draftFilters);
-  const isEmpty = resultCount === '0';
+  const isListEmpty = !isLoading && recruitList.length === 0;
 
   const handleTabChange = (value: string) => {
     setSelectedTab(value);
@@ -67,6 +73,10 @@ const RecruitPage = () => {
     hasDot: false,
   }));
 
+  if (isLoading) return <div className={styles.loading}>로딩중...</div>;
+  if (isError)
+    return <div className={styles.loading}>에러가 발생했습니다.</div>;
+
   return (
     <>
       <SearchBar />
@@ -84,23 +94,17 @@ const RecruitPage = () => {
       <ListControlBar resultCount={resultCount} />
 
       {/* 채용공고 리스트 */}
-      {isEmpty ? (
+      {isListEmpty ? (
         <EmptySection />
       ) : (
         <section className={styles.listContainer}>
-          <RecruitCard
-            id={1}
-            title={mockData.title}
-            company={mockData.company}
-            imageUrl={mockData.imageUrl}
-            employmentType={mockData.employmentType}
-            location={mockData.location}
-            deadlineLabel={mockData.deadlineLabel}
-          />
+          {recruitList.map((recruit) => (
+            <RecruitCard key={recruit.id} {...recruit} />
+          ))}
         </section>
       )}
 
-      {!isEmpty && (
+      {!isListEmpty && (
         <section className={styles.pagenationContainer}>
           <Pagination
             currentPage={currentPage}
