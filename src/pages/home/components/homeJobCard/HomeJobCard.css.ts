@@ -3,14 +3,14 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
-export const card = style({
+export const cardContainer = style({
   display: 'flex',
   alignItems: 'center',
   gap: '1.6rem',
   width: '35.9rem',
 });
 
-export const textBox = style({
+export const textContainer = style({
   display: 'flex',
   flexDirection: 'column',
   flexShrink: 0,
@@ -49,7 +49,7 @@ export const companyName = style({
   color: vars.color.gray900,
 });
 
-export const bottomBox = style({
+export const bottomContainer = style({
   display: 'flex',
   alignItems: 'center',
   alignSelf: 'stretch',
@@ -73,7 +73,7 @@ export const category = style({
   color: vars.color.gray500,
 });
 
-export const bookmarkBox = style({
+export const bookmarkContainer = style({
   display: 'flex',
   flexDirection: 'column',
   flexShrink: 0,
