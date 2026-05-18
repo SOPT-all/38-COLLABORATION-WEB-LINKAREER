@@ -1,6 +1,13 @@
-import type { HomeActivityCardData } from '@pages/home/types/homeActivityCard';
-
 import * as styles from './HomeActivityCard.css';
+
+export interface HomeActivityCardProps {
+  id: number;
+  imageUrl: string;
+  title: string;
+  companyName: string;
+  dDay: string;
+  category: string;
+}
 
 const HomeActivityCard = ({
   imageUrl,
@@ -8,15 +15,15 @@ const HomeActivityCard = ({
   companyName,
   dDay,
   category,
-}: HomeActivityCardData) => {
+}: HomeActivityCardProps) => {
   return (
-    <article className={styles.card}>
-      <div className={styles.logoBox}>
-        <img src={imageUrl} alt="{title}" className={styles.image} />
+    <article className={styles.cardContainer}>
+      <div className={styles.logoContainer}>
+        <img src={imageUrl} alt={title} className={styles.image} />
         <div className={styles.logoShadow} />
       </div>
 
-      <div className={styles.textBox}>
+      <div className={styles.textContainer}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.companyName}>{companyName}</p>
 
