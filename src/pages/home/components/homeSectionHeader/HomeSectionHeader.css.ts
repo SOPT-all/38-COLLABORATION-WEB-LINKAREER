@@ -1,12 +1,13 @@
 import { style } from '@vanilla-extract/css';
+
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 export const topTextContainer = style({
   display: 'flex',
-  width: '34.3rem',
-  justifyContent: 'space-between',
   alignItems: 'center',
+  justifyContent: 'space-between',
+  width: '34.3rem',
 });
 
 export const titleContainer = style({

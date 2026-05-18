@@ -1,9 +1,8 @@
-import type { HomeChatCardProps } from '@pages/home/components/homeChatCard/HomeChatCard';
-
 import imgHome19 from '@assets/images/image-home-19.webp';
 import imgHome20 from '@assets/images/image-home-20.webp';
 import imgHome21 from '@assets/images/image-home-21.webp';
 import imgHome22 from '@assets/images/image-home-22.webp';
+import type { HomeChatCardProps } from '@pages/home/components/homeChatCard/HomeChatCard';
 
 export const HOME_CHAT_CARDS: HomeChatCardProps[] = [
   {

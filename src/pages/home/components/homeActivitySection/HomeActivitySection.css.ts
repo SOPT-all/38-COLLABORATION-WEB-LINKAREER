@@ -2,18 +2,18 @@ import { style } from '@vanilla-extract/css';
 
 export const mainContainer = style({
   display: 'flex',
-  paddingLeft: '1.6rem',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  gap: '1.6rem',
   alignSelf: 'stretch',
+  gap: '1.6rem',
+  paddingLeft: '1.6rem',
 });
 
 export const activityList = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '1.6rem',
   alignSelf: 'stretch',
+  gap: '1.6rem',
   overflowX: 'auto',
   scrollBehavior: 'smooth',
 

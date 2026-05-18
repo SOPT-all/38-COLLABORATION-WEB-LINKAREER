@@ -7,8 +7,8 @@ export const cardContainer = style({
   display: 'flex',
   alignItems: 'center',
   gap: '1.6rem',
-  width: '35.9rem',
   cursor: 'pointer',
+  width: '35.9rem',
 });
 
 export const textContainer = style({

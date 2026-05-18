@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router';
 import HomeJobCard from '@pages/home/components/homeJobCard/HomeJobCard';
 import HomeSectionHeader from '@pages/home/components/homeSectionHeader/HomeSectionHeader';
 import { HOME_JOB_CARDS } from '@pages/home/mocks/homeJobCard';
+import type { HomeJobCardData } from '@pages/home/types/homeJobCard';
 
 import * as styles from './HomeJobSection.css';
-import type { HomeJobCardData } from '@pages/home/types/homeJobCard';
 
 const HomeJobSection = () => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
-import type { HomeJobCardData } from '@pages/home/types/homeJobCard';
 import imgHome16 from '@assets/images/image-home-16.webp';
 import imgHome17 from '@assets/images/image-home-17.webp';
 import imgHome18 from '@assets/images/image-home-18.webp';
+import type { HomeJobCardData } from '@pages/home/types/homeJobCard';
 
 export const HOME_JOB_CARDS: HomeJobCardData[] = [
   {

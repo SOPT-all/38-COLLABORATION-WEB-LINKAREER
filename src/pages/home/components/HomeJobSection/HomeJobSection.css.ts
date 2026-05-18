@@ -2,16 +2,16 @@ import { style } from '@vanilla-extract/css';
 
 export const mainContainer = style({
   display: 'flex',
-  paddingLeft: '1.6rem',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  gap: '1.6rem',
   alignSelf: 'stretch',
+  gap: '1.6rem',
+  paddingLeft: '1.6rem',
 });
 
 export const jobList = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '1.6rem',
   alignSelf: 'stretch',
+  gap: '1.6rem',
 });

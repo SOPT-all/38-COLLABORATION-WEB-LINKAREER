@@ -1,7 +1,6 @@
+import HomeActivityCard from '@pages/home/components/homeActivityCard/HomeActivityCard';
+import HomeSectionHeader from '@pages/home/components/homeSectionHeader/HomeSectionHeader';
 import { HOME_ACTIVITY_CARDS } from '@pages/home/mocks/homeActivitySection';
-
-import HomeActivityCard from '../homeActivityCard/HomeActivityCard';
-import HomeSectionHeader from '../homeSectionHeader/HomeSectionHeader';
 
 import * as styles from './HomeActivitySection.css';
 
