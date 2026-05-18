@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { color } from '@styles/tokens/color';
 
-export const wrapper = style({
+export const container = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -20,4 +20,8 @@ export const iconButton = style({
   borderRadius: '0.8rem',
   width: '4.8rem',
   height: '4.8rem',
+});
+
+export const buttonContainer = style({
+  flex: 1,
 });
