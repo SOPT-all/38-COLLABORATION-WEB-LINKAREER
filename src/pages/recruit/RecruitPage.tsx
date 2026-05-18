@@ -47,8 +47,7 @@ const RecruitPage = () => {
     isError,
   } = useGetRecruitQuery(appliedFilters);
 
-  const resultCount = getResultCount(appliedFilters);
-  const draftResultCount = getResultCount(draftFilters);
+  const resultCount = getResultCount(appliedFilters, recruitList.length);
   const isListEmpty = !isLoading && recruitList.length === 0;
 
   const handleTabChange = (value: string) => {
@@ -105,7 +104,11 @@ const RecruitPage = () => {
       ) : (
         <section className={styles.listContainer}>
           {recruitList.map((recruit) => (
-            <RecruitCard key={recruit.id} {...recruit} />
+            <RecruitCard
+              recrutCardItem={{ ...recruit }}
+              key={recruit.id}
+              onCardClick={goToDetailPage}
+            />
           ))}
         </section>
       )}
@@ -122,7 +125,6 @@ const RecruitPage = () => {
 
       <FilterBottomSheet
         isOpen={isSheetOpen}
-        resultCount={draftResultCount}
         selectedFilters={draftFilters}
         setSelectedFilters={setDraftFilters}
         onClose={handleCloseSheet}

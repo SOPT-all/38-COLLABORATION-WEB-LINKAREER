@@ -1,6 +1,6 @@
 import { API_ENDPOINT } from '@constants/apiEndpoints';
 import { QUERY_KEY } from '@constants/queryKey';
-import { useQuery } from '@tanstack/react-query';
+import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
 import type { RecruitmentResponse } from '@apis/__generated__/data-contracts';
 import { HTTPMethod, request, type RequestConfig } from '@apis/config/request';
@@ -38,10 +38,16 @@ export const getRecruitData = (filters?: FilterValues) => {
   });
 };
 
-export const useGetRecruitQuery = (filters?: FilterValues) => {
+export const useGetRecruitQuery = (
+  filters?: FilterValues,
+  enabled?: boolean,
+  p0?: boolean,
+) => {
   return useQuery<RecruitmentResponse[], Error, RecruitListItem[]>({
     queryKey: [...QUERY_KEY.RECRUIT, filters],
     queryFn: () => getRecruitData(filters),
+    enabled,
+    placeholderData: keepPreviousData,
     select: (data) =>
       data
         .filter(
