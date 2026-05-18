@@ -7,6 +7,7 @@ export const container = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.8rem',
+  backgroundColor: color.white,
   padding: '2.4rem 1.6rem',
 });
 

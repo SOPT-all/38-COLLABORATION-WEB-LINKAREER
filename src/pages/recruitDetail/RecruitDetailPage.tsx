@@ -77,6 +77,7 @@ const RecruitDetailPage = () => {
         employmentType={employmentType}
       />
       <ChatBanner />
+
       <TabBar
         tabList={RECRUIT_DETAIL_TABS}
         selectedValue={selectedTab}
@@ -95,7 +96,7 @@ const RecruitDetailPage = () => {
         {/* TODO: 스크랩 유저 통계 머지시 반영 예정 */}
       </div>
 
-      <div ref={passDataRef}>
+      <div ref={passDataRef} className={styles.passDataWrapper}>
         <ReviewSection
           sectionTitle="합격 자소서"
           items={MOCK_PASS_COVER_LETTER}
