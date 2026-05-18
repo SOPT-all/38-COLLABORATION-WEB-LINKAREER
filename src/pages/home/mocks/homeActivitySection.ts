@@ -3,7 +3,8 @@ import imgHome12 from '@assets/images/home12.png';
 import imgHome13 from '@assets/images/home13.png';
 import imgHome14 from '@assets/images/home14.png';
 import imgHome15 from '@assets/images/home15.png';
-export const homeActivityCardData: HomeActivityCardProps[] = [
+
+export const HOME_ACTIVITY_CARDS: HomeActivityCardProps[] = [
   {
     id: 1,
     imageUrl: imgHome12,
