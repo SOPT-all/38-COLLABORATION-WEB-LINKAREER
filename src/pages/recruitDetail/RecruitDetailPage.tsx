@@ -59,7 +59,7 @@ const RecruitDetailPage = () => {
 
   return (
     <>
-      <div ref={pageTopRef} />
+      <div ref={pageTopRef} className={styles.pageTopAnchor} />
       <ImageCarousel
         images={[
           { id: 1, url: detailImg1, alt: '대표 이미지 1' },

@@ -16,3 +16,8 @@ export const passDataWrapper = style({
   backgroundColor: color.gray50,
   padding: '1.6rem 0',
 });
+
+export const pageTopAnchor = style({
+  position: 'relative',
+  top: '-4.4rem',
+});

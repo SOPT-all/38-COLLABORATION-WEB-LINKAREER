@@ -12,7 +12,7 @@ export const header = style({
   backgroundColor: color.blue500,
   padding: '0 1.6rem',
   width: '100%',
-  height: '5.6rem',
+  height: '4.4rem',
 });
 
 export const iconButton = style({
