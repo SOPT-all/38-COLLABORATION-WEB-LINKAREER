@@ -3,7 +3,7 @@ export const API_ENDPOINT = {
     JOB_POSTINGS: '/api/v1/home/job-postings', // 맞춤 공고 조회, 지금 지원 가능한 공고 조회
   },
   RECRUIT: {
-    LIST: '/api/v1/job-postings', // 필터링 조회
+    LIST: '/api/v1/recruitments', // 필터링 조회
     DETAIL: (jobPostingId: number) =>
       `/api/v1/job-postings/${jobPostingId}/reviews`, // 공고 상세
     PASS_LETTERS: (jobPostingId: number) =>
