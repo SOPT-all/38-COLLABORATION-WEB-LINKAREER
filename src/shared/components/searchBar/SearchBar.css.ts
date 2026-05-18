@@ -2,8 +2,12 @@ import { style } from '@vanilla-extract/css';
 
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
+import { zIndex } from '@styles/tokens/zIndex';
 
 export const container = style({
+  position: 'sticky',
+  zIndex: zIndex.sticky,
+  top: 0,
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -16,7 +20,7 @@ export const container = style({
 
 export const frame = style({
   display: 'flex',
-  flexShrink: '0',
+  flexShrink: 0,
   alignItems: 'center',
   alignSelf: 'stretch',
   borderRadius: '0.8rem',
