@@ -59,7 +59,7 @@ const RecruitDetailPage = () => {
 
   return (
     <>
-      <div ref={pageTopRef} className={styles.pageTopAnchor} />
+      <div ref={pageTopRef} className={styles.sectionAnchor} />
       <ImageCarousel
         images={[
           { id: 1, url: imgDetail1, alt: '대표 이미지 1' },
@@ -86,7 +86,7 @@ const RecruitDetailPage = () => {
         ariaLabel="채용 상세 탭"
       />
 
-      <div ref={detailRef}>
+      <div ref={detailRef} className={` ${styles.sectionAnchor}`}>
         <RecruitDetailContent
           recruitmentPeriod={recruitmentPeriod}
           responsibilities={[...responsibilities]}
@@ -97,7 +97,10 @@ const RecruitDetailPage = () => {
         <StatsCarousel />
       </div>
 
-      <div ref={passDataRef} className={styles.passDataWrapper}>
+      <div
+        ref={passDataRef}
+        className={`${styles.passDataWrapper} ${styles.sectionAnchor}`}
+      >
         <ReviewSection
           sectionTitle="합격 자소서"
           items={MOCK_PASS_COVER_LETTER}

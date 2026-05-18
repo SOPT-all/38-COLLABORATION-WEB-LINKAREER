@@ -7,7 +7,7 @@ export const topBtnWrapper = style({
   position: 'fixed',
   zIndex: zIndex.floating,
   right: 'calc((100vw - 37.5rem) / 2 + 1.6rem)',
-  bottom: '8rem',
+  bottom: '8.8rem',
 });
 
 export const passDataWrapper = style({
@@ -18,7 +18,6 @@ export const passDataWrapper = style({
   padding: '1.6rem 0',
 });
 
-export const pageTopAnchor = style({
-  position: 'relative',
-  top: '-4.4rem',
+export const sectionAnchor = style({
+  scrollMarginTop: `4.4rem`,
 });
