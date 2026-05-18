@@ -41,5 +41,20 @@ export const useGetRecruitQuery = (filters?: FilterValues) => {
   return useQuery({
     queryKey: [...QUERY_KEY.RECRUIT, filters],
     queryFn: () => getRecruitData(filters),
+    select: (data) =>
+      data
+        .filter(
+          (recruit): recruit is typeof recruit & { id: number } =>
+            recruit.id != null,
+        )
+        .map((recruit) => ({
+          id: recruit.id,
+          title: recruit.title ?? '',
+          company: recruit.company ?? '',
+          imageUrl: recruit.imageUrl ?? '',
+          employmentType: recruit.employmentType ?? '',
+          location: recruit.location ?? '',
+          deadlineLabel: recruit.deadlineLabel ?? '',
+        })),
   });
 };
