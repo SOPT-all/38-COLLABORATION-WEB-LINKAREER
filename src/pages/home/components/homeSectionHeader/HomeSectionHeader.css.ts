@@ -9,6 +9,12 @@ export const topTextContainer = style({
   alignItems: 'center',
 });
 
+export const titleContainer = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.2rem',
+});
+
 export const mainTitle = style({
   color: vars.color.gray900,
   ...typography.title_b_20,
@@ -18,4 +24,9 @@ export const viewMoreButton = style({
   textAlign: 'right',
   ...typography.body_r_14,
   color: vars.color.gray500,
+});
+
+export const description = style({
+  ...typography.caption_m_12,
+  color: vars.color.gray700,
 });
