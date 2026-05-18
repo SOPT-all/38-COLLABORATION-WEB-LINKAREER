@@ -1,24 +1,10 @@
 import {
   BUSINESS_JOB,
-  type JobCategory,
   MARKETING_JOB,
   SALES_JOB,
 } from '@pages/recruit/constants/filterOptions';
 import { CONTENT_RESULT } from '@pages/recruit/constants/resultNumber';
 import type { FilterValues } from '@pages/recruit/types/filter';
-
-const getJobResultCount = (selectedJob: JobCategory): number => {
-  switch (selectedJob) {
-    case MARKETING_JOB:
-      return CONTENT_RESULT.marketing;
-    case SALES_JOB:
-      return CONTENT_RESULT.sales;
-    case BUSINESS_JOB:
-      return CONTENT_RESULT.business;
-    default:
-      return 0;
-  }
-};
 
 // 직무 제외 카테고리에서 하나라도 선택된 경우
 const hasAndFilters = (selectedFilters: FilterValues) => {
@@ -44,6 +30,18 @@ export const getResultCount = (
   if (jobCategories.length === 0)
     return CONTENT_RESULT.default.toLocaleString();
 
-  const selectedJob = jobCategories[0];
-  return getJobResultCount(selectedJob).toLocaleString();
+  const count = jobCategories.reduce((acc, job) => {
+    switch (job) {
+      case MARKETING_JOB:
+        return acc + CONTENT_RESULT.marketing;
+      case SALES_JOB:
+        return acc + CONTENT_RESULT.sales;
+      case BUSINESS_JOB:
+        return acc + CONTENT_RESULT.business;
+      default:
+        return acc;
+    }
+  }, 0);
+
+  return count.toLocaleString();
 };
