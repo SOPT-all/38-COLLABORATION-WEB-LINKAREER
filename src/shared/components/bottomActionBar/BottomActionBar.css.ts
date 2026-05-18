@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 
 export const container = style({
   display: 'flex',
@@ -8,8 +8,8 @@ export const container = style({
   justifyContent: 'center',
   gap: '0.8rem',
   margin: '0 auto',
-  borderTop: `1px solid ${color.gray200}`,
-  backgroundColor: color.white,
+  borderTop: `1px solid ${vars.color.gray200}`,
+  backgroundColor: vars.color.white,
   padding: '1.2rem 1.6rem',
   maxWidth: '37.5rem',
 });
@@ -19,7 +19,7 @@ export const iconButton = style({
   flexShrink: 0,
   alignItems: 'center',
   justifyContent: 'center',
-  border: `1px solid ${color.gray200}`,
+  border: `1px solid ${vars.color.gray200}`,
   borderRadius: '0.8rem',
   width: '4.8rem',
   height: '4.8rem',

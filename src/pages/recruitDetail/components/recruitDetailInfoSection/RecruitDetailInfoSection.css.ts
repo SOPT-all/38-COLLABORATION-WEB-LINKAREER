@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 export const infoWrapper = style({
@@ -18,12 +18,12 @@ export const container = style({
 
 export const companyName = style({
   ...typography.body_r_14,
-  color: color.gray500,
+  color: vars.color.gray500,
 });
 
 export const title = style({
   ...typography.title_b_20,
-  color: color.gray900,
+  color: vars.color.gray900,
 });
 
 export const tagRow = style({
@@ -49,7 +49,7 @@ export const conditionLabel = style({
   ...typography.body_r_14,
   flexShrink: 0,
   width: '6rem',
-  color: color.gray500,
+  color: vars.color.gray500,
 });
 
 export const conditionValue = style({
@@ -57,5 +57,5 @@ export const conditionValue = style({
   alignItems: 'center',
   gap: '0.8rem',
   ...typography.body_r_14,
-  color: color.gray900,
+  color: vars.color.gray900,
 });

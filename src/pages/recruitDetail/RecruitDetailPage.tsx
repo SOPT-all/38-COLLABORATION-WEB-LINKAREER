@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
 
-import detailImg1 from '@assets/images/detail_thumbnail_img1.webp';
-import detailImg2 from '@assets/images/detail_thumbnail_img2.webp';
-import detailImg3 from '@assets/images/detail_thumbnail_img3.webp';
+import imgDetail1 from '@assets/images/detail_thumbnail_img1.webp';
+import imgDetail2 from '@assets/images/detail_thumbnail_img2.webp';
+import imgDetail3 from '@assets/images/detail_thumbnail_img3.webp';
 import detailImg4 from '@assets/images/detail_thumbnail_img4.webp';
 import TabBar from '@components/tabBar/TabBar';
 
@@ -62,9 +62,9 @@ const RecruitDetailPage = () => {
       <div ref={pageTopRef} className={styles.pageTopAnchor} />
       <ImageCarousel
         images={[
-          { id: 1, url: detailImg1, alt: '대표 이미지 1' },
-          { id: 2, url: detailImg2, alt: '대표 이미지 2' },
-          { id: 3, url: detailImg3, alt: '대표 이미지 3' },
+          { id: 1, url: imgDetail1, alt: '대표 이미지 1' },
+          { id: 2, url: imgDetail2, alt: '대표 이미지 2' },
+          { id: 3, url: imgDetail3, alt: '대표 이미지 3' },
         ]}
       />
       <RecruitDetailInfoSection

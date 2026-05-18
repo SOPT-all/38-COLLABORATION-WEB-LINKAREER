@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 
 export const header = style({
   position: 'sticky',
@@ -9,7 +9,7 @@ export const header = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  backgroundColor: color.blue500,
+  backgroundColor: vars.color.blue500,
   padding: '0 1.6rem',
   width: '100%',
   height: '4.4rem',

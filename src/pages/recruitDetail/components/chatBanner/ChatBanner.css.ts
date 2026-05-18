@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 export const container = style({
@@ -8,9 +8,9 @@ export const container = style({
   alignItems: 'flex-start',
   justifyContent: 'space-between',
   margin: '1.8rem 1.6rem',
-  border: `1px solid ${color.gray100}`,
+  border: `1px solid ${vars.color.gray100}`,
   borderRadius: '1.2rem',
-  backgroundColor: color.white,
+  backgroundColor: vars.color.white,
   padding: '1.6rem',
 });
 
@@ -28,10 +28,10 @@ export const textContent = style({
 
 export const description = style({
   ...typography.body_r_14,
-  color: color.gray700,
+  color: vars.color.gray700,
 });
 
 export const joinButton = style({
   ...typography.body_m_14,
-  color: color.blue500,
+  color: vars.color.blue500,
 });

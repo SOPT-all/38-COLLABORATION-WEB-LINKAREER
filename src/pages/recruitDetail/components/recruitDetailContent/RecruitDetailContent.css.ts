@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { color } from '@styles/tokens/color';
+import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
 export const wrapper = style({
@@ -10,7 +10,7 @@ export const wrapper = style({
 export const mainTitle = style({
   ...typography.title_b_18,
   marginBottom: '1.6rem',
-  color: color.gray900,
+  color: vars.color.gray900,
 });
 
 export const container = style({
@@ -27,7 +27,7 @@ export const section = style({
 
 export const sectionTitle = style({
   ...typography.title_b_18,
-  color: color.gray900,
+  color: vars.color.gray900,
 });
 
 export const list = style({
@@ -39,7 +39,7 @@ export const list = style({
 export const listItem = style({
   ...typography.body_r_14,
   paddingLeft: '1.2rem',
-  color: color.gray700,
+  color: vars.color.gray700,
   selectors: {
     '&::before': {
       content: '"• "',
@@ -49,5 +49,5 @@ export const listItem = style({
 
 export const periodText = style({
   ...typography.body_r_14,
-  color: color.gray700,
+  color: vars.color.gray700,
 });
