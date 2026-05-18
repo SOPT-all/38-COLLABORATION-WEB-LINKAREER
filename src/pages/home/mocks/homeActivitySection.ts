@@ -1,8 +1,8 @@
 import type { HomeActivityCardProps } from '@pages/home/components/homeActivityCard/HomeActivityCard';
-import imgHome12 from '@assets/images/home12.png';
-import imgHome13 from '@assets/images/home13.png';
-import imgHome14 from '@assets/images/home14.png';
-import imgHome15 from '@assets/images/home15.png';
+import imgHome12 from '@assets/images/image-home-12.webp';
+import imgHome13 from '@assets/images/image-home-13.webp';
+import imgHome14 from '@assets/images/image-home-14.webp';
+import imgHome15 from '@assets/images/image-home-15.webp';
 
 export const HOME_ACTIVITY_CARDS: HomeActivityCardProps[] = [
   {
