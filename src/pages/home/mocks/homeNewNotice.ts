@@ -1,9 +1,9 @@
-import notice_1_thumbnail from '@assets/images/img_home5.webp';
-import notice_2_thumbnail from '@assets/images/img_home6.webp';
-import notice_3_thumbnail from '@assets/images/img_home7.webp';
-import notice_4_thumbnail from '@assets/images/img_home8.webp';
-import notice_5_thumbnail from '@assets/images/img_home9.webp';
-import notice_6_thumbnail from '@assets/images/img_home10.webp';
+import imgHome5 from '@assets/images/image-home-5.webp';
+import imgHome6 from '@assets/images/image-home-6.webp';
+import imgHome7 from '@assets/images/image-home-7.webp';
+import imgHome8 from '@assets/images/image-home-8.webp';
+import imgHome9 from '@assets/images/image-home-9.webp';
+import imgHome10 from '@assets/images/image-home-10.webp';
 import type { HomeNewNoticeItem } from '@pages/home/types/homeNewNoticeCard';
 
 export const HOME_NEW_NOTICE_ITEMS: HomeNewNoticeItem[] = [
@@ -13,7 +13,7 @@ export const HOME_NEW_NOTICE_ITEMS: HomeNewNoticeItem[] = [
     tagText: '공모전',
     titleText: ['[배스킨라빈스]', '2026 그래이맛 콘테스트'],
     daysLeft: 2,
-    imageUrl: notice_1_thumbnail,
+    imageUrl: imgHome5,
     imageAlt: '공고 이미지',
   },
   {
@@ -22,7 +22,7 @@ export const HOME_NEW_NOTICE_ITEMS: HomeNewNoticeItem[] = [
     tagText: '대외활동',
     titleText: ['2026 대학혁신지원사업', '총괄협의회 서포터즈 모집'],
     daysLeft: 13,
-    imageUrl: notice_2_thumbnail,
+    imageUrl: imgHome6,
     imageAlt: '공고 이미지',
   },
   {
@@ -34,7 +34,7 @@ export const HOME_NEW_NOTICE_ITEMS: HomeNewNoticeItem[] = [
       '기획 과제]프로그램 기획, A to Z 미니인턴으로 직접 제안해보세요!(~5/5)',
     ],
     daysLeft: 15,
-    imageUrl: notice_3_thumbnail,
+    imageUrl: imgHome7,
     imageAlt: '공고 이미지',
   },
   {
@@ -43,7 +43,7 @@ export const HOME_NEW_NOTICE_ITEMS: HomeNewNoticeItem[] = [
     tagText: '대외활동',
     titleText: ['2026 NEW 월간베네통', '2기 서포터즈 모집'],
     daysLeft: 9,
-    imageUrl: notice_4_thumbnail,
+    imageUrl: imgHome8,
     imageAlt: '공고 이미지',
   },
   {
@@ -52,7 +52,7 @@ export const HOME_NEW_NOTICE_ITEMS: HomeNewNoticeItem[] = [
     tagText: '공모전',
     titleText: ['[STK 2026] 제1회', 'GenAI 활용 STK 광고영상 공모전'],
     daysLeft: 34,
-    imageUrl: notice_5_thumbnail,
+    imageUrl: imgHome9,
     imageAlt: '공고 이미지',
   },
   {
@@ -61,7 +61,7 @@ export const HOME_NEW_NOTICE_ITEMS: HomeNewNoticeItem[] = [
     tagText: '대외활동',
     titleText: ['마케팅 인턴 전 필수 경험 |', 'SNS 실무 프로젝트 10주 완성'],
     daysLeft: 8,
-    imageUrl: notice_6_thumbnail,
+    imageUrl: imgHome10,
     imageAlt: '공고 이미지',
   },
 ];

@@ -1,8 +1,8 @@
-import bannerImage1 from '@assets/images/img_home11.webp';
+import imgHome11 from '@assets/images/image-home-11.webp';
 import type { HomeBannerProps } from '@pages/home/types/homeBanner';
 
 export const HOME_TOP_BANNER: HomeBannerProps = {
-  imageUrl: bannerImage1,
+  imageUrl: imgHome11,
   imageAlt: '홈 상단 배너 이미지',
 };
 
