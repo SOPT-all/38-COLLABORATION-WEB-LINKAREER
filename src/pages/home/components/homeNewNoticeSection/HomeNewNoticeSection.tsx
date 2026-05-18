@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 
 import Chip from '@components/chip/Chip';
 import HomeNewNoticeCard from '@pages/home/components/homeNewNoticeCard/HomeNewNoticeCard';
@@ -15,15 +15,19 @@ const HomeNewNoticeSection = () => {
   const [selectedCategory, setSelectedCategory] =
     useState<HomeNewNoticeCategory>(HOME_NEW_NOTICE_CATEGORIES[0]);
 
-  const filteredItems = HOME_NEW_NOTICE_ITEMS.filter(
-    (item) => item.category === selectedCategory,
+  const filteredItems = useMemo(
+    () =>
+      HOME_NEW_NOTICE_ITEMS.filter(
+        (item) => item.category === selectedCategory,
+      ),
+    [selectedCategory],
   );
 
   const handleChipClick = (category: HomeNewNoticeCategory) => {
     if (selectedCategory === category) return;
 
     setSelectedCategory(category);
-    cardContainerRef.current?.scrollTo({ left: 0 });
+    cardContainerRef.current?.scrollTo({ left: 0, behavior: 'smooth' });
   };
 
   return (
