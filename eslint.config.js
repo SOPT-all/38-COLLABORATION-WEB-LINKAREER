@@ -13,7 +13,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import pluginQuery from '@tanstack/eslint-plugin-query';
 
 export default defineConfig([
-  globalIgnores(['dist', 'coverage']),
+  globalIgnores(['dist', 'coverage', 'src/shared/apis/__generated__/**']),
   ...pluginQuery.configs['flat/recommended'],
   {
     files: ['**/*.{ts,tsx}'],
