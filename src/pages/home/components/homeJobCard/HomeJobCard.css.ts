@@ -84,11 +84,6 @@ export const bookmarkContainer = style({
   height: '4.4rem',
 });
 
-export const bookmarkIcon = style({
-  width: '1.6rem',
-  height: '1.6rem',
-});
-
 export const bookmarkText = style({
   textAlign: 'center',
   ...typography.caption_r_12,
