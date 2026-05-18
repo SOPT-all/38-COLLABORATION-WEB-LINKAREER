@@ -4,8 +4,8 @@ import { Outlet, useNavigate } from 'react-router';
 import IcBookmarkFilled from '@assets/svg/IcBookmarkFilled';
 import IcBookmarkGray400 from '@assets/svg/IcBookmarkGray400';
 import BottomActionBar from '@components/bottomActionBar/BottomActionBar';
+import Footer from '@components/footer/Footer';
 import RecruitDetailHeader from '@pages/recruitDetail/components/recruitDetailHeader/RecruitDetailHeader';
-import TopBtn from '@pages/recruitDetail/components/topBtn/TopBtn';
 
 import * as styles from './RecruitDetailLayout.css';
 
@@ -21,9 +21,9 @@ const RecruitDetailLayout = () => {
         onBack={() => void navigate(-1)}
         onShare={() => {}}
       />
-      <Outlet />
-      <div className={styles.topBtnWrapper}>
-        <TopBtn />
+      <div className={styles.contentWrapper}>
+        <Outlet />
+        <Footer />
       </div>
       <div className={styles.bottomBarWrapper}>
         <BottomActionBar
