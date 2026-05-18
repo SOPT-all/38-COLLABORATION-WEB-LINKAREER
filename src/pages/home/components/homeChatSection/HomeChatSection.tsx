@@ -10,7 +10,7 @@ const HomeChatSection = () => {
       <HomeSectionHeader
         title="관심 기업 채팅방"
         description="기업의 채용 정보, 합격 스펙 등 정보를 공유하세요"
-        showViewMore
+        isViewMoreVisible
       />
 
       <div className={styles.chatList}>
