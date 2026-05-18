@@ -1,18 +1,24 @@
 import IcCerti from '@assets/svg/IcCerti';
-import type { HomeChatCardData } from '@pages/home/types/homeChatCard';
 
 import * as styles from './HomeChatCard.css';
+
+interface HomeChatCardProps {
+  logoUrl: string;
+  companyName: string;
+  participantCount: number;
+  onJoinClick?: () => void;
+}
 
 const HomeChatCard = ({
   logoUrl,
   companyName,
   participantCount,
   onJoinClick,
-}: HomeChatCardData) => {
+}: HomeChatCardProps) => {
   return (
     <article className={styles.card}>
-      <div className={styles.innerBox}>
-        <div className={styles.topBox}>
+      <div className={styles.contentContainer}>
+        <div className={styles.infoContainer}>
           <div className={styles.imageBox}>
             <img
               src={logoUrl}
@@ -23,7 +29,7 @@ const HomeChatCard = ({
 
           <div className={styles.textBox}>
             <div className={styles.statusBox}>
-              <IcCerti className={styles.statusIcon} />
+              <IcCerti width="1.6rem" height="1.6rem" />
               <span className={styles.statusText}>현직자 대화중</span>
             </div>
 
