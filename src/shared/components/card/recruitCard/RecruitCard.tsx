@@ -43,7 +43,7 @@ const RecruitCard = ({ recruitCardItem, onCardClick }: RecruitCardProps) => {
       <div className={styles.imgContainer}>
         {recruitCardItem.imageUrl && (
           <img
-            src={recruitCardItem.imageUrl || imgFallback}
+            src={recruitCardItem.imageUrl}
             alt={
               recruitCardItem.company
                 ? `${recruitCardItem.company} 로고`
