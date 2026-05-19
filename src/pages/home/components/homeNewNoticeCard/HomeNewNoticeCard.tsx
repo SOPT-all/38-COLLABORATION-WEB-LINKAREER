@@ -1,15 +1,8 @@
 import Tag from '@components/tag/Tag';
 import DdayTag from '@pages/home/components/ddayTag/DdayTag';
+import type { HomeNewNoticeCardProps } from '@pages/home/types/homeNewNoticeCard';
 
 import * as styles from './HomeNewNoticeCard.css';
-
-interface HomeNewNoticeCardProps {
-  tagText: string;
-  titleText: string[];
-  daysLeft: number;
-  imageUrl: string;
-  imageAlt: string;
-}
 
 const HomeNewNoticeCard = ({
   tagText,
