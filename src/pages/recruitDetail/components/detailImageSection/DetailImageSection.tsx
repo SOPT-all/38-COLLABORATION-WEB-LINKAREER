@@ -16,7 +16,12 @@ const DetailImageSection = ({ imageUrl }: DetailImageSectionProps) => {
       <h3 className={styles.sectionTitle}>상세요강</h3>
       <div className={styles.imageWrapper}>
         <div className={!isExpanded ? styles.imageCollapsed : undefined}>
-          <img src={imageUrl} alt="상세요강" className={styles.image} />
+          <img
+            src={imageUrl}
+            alt="상세요강"
+            className={styles.image}
+            loading="lazy"
+          />
         </div>
         {!isExpanded && (
           <Button color="ghost" size="lg" onClick={() => setIsExpanded(true)}>

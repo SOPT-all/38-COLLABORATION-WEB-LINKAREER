@@ -27,7 +27,7 @@ const ReviewSection = ({ sectionTitle, items }: ReviewSectionProps) => {
       </div>
       {items.map((item, index) => (
         <ReviewCard
-          key={item.id}
+          key={`${sectionTitle}-${item.id}`}
           title={item.title}
           body={item.body}
           tags={item.tags}
