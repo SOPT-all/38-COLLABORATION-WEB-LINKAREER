@@ -5,8 +5,8 @@ import imgDetail2 from '@assets/images/detail_thumbnail_img2.webp';
 import imgDetail3 from '@assets/images/detail_thumbnail_img3.webp';
 import detailImg4 from '@assets/images/detail_thumbnail_img4.webp';
 import TabBar from '@components/tabBar/TabBar';
-import { useTabScrollSync } from '@hooks/useTabScrollSync';
 import { layout } from '@pages/recruitDetail/constants/layout';
+import { useTabScrollSync } from '@pages/recruitDetail/hooks/useTabScrollSync';
 
 import AiRecommendSection from './components/aiRecommendSection/AiRecommendSection';
 import ChatBanner from './components/chatBanner/ChatBanner';
