@@ -4,8 +4,7 @@ export const API_ENDPOINT = {
   },
   RECRUIT: {
     LIST: '/api/v1/recruitments', // 필터링 조회
-    DETAIL: (jobPostingId: number) =>
-      `/api/v1/job-postings/${jobPostingId}/reviews`, // 공고 상세
+    DETAIL: (recruitmentId: number) => `/api/v1/recruitments/${recruitmentId}`, // 공고 상세
     PASS_LETTERS: (jobPostingId: number) =>
       `/api/v1/job-postings/${jobPostingId}/pass-letters`, // 합격 자소서
     PASS_REVIEWS: (jobPostingId: number) =>

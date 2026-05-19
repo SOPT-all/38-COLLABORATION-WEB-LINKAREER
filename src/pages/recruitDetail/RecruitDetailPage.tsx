@@ -8,6 +8,7 @@ import TabBar from '@components/tabBar/TabBar';
 import { layout } from '@pages/recruitDetail/constants/layout';
 import { useTabScrollSync } from '@pages/recruitDetail/hooks/useTabScrollSync';
 
+import { useGetRecruitDetailQuery } from './apis/useRecruitDetailQuery';
 import AiRecommendSection from './components/aiRecommendSection/AiRecommendSection';
 import ChatBanner from './components/chatBanner/ChatBanner';
 import DetailImageSection from './components/detailImageSection/DetailImageSection';
@@ -19,7 +20,6 @@ import StatsCarousel from './components/statsCarousel/StatsCarousel';
 import TopBtn from './components/topBtn/TopBtn';
 import { MOCK_AI_RECOMMEND } from './mocks/mockAiRecommend';
 import { MOCK_PASS_COVER_LETTER } from './mocks/mockPassCoverLetter';
-import { MOCK_RECRUIT_DETAIL } from './mocks/mockRecruitDetail';
 
 import * as styles from './RecruitDetailPage.css';
 
@@ -29,6 +29,8 @@ const RECRUIT_DETAIL_TABS = [
 ];
 
 const RecruitDetailPage = () => {
+  const { data, isLoading, isError } = useGetRecruitDetailQuery();
+
   const [selectedTab, setSelectedTab] = useState('detail');
   const pageTopRef = useRef<HTMLDivElement>(null);
   const detailRef = useRef<HTMLDivElement>(null);
@@ -48,6 +50,9 @@ const RecruitDetailPage = () => {
       passDataRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  if (isLoading) return <div>로딩중...</div>;
+  if (isError || !data) return <div>에러가 발생했습니다.</div>;
+
   const {
     company,
     title,
@@ -61,7 +66,7 @@ const RecruitDetailPage = () => {
     responsibilities,
     qualifications,
     preferences,
-  } = MOCK_RECRUIT_DETAIL;
+  } = data;
 
   return (
     <>
@@ -74,14 +79,14 @@ const RecruitDetailPage = () => {
         ]}
       />
       <RecruitDetailInfoSection
-        companyName={company}
-        title={title}
-        jobCategory={jobCategory}
-        location={location}
-        companyType={companyType}
-        deadline={deadlineLabel}
+        companyName={company ?? ''}
+        title={title ?? ''}
+        jobCategory={jobCategory ?? ''}
+        location={location ?? ''}
+        companyType={companyType ?? ''}
+        deadline={deadlineLabel ?? ''}
         daysLeft={recruitmentDeadlineType === 'UNTIL_FILLED' ? null : 0}
-        employmentType={employmentType}
+        employmentType={employmentType ?? ''}
       />
       <ChatBanner />
 
@@ -97,10 +102,10 @@ const RecruitDetailPage = () => {
       {/* 상세 내용 섹션 */}
       <div ref={detailRef} className={styles.sectionAnchor}>
         <RecruitDetailContent
-          recruitmentPeriod={recruitmentPeriod}
-          responsibilities={[...responsibilities]}
-          qualifications={[...qualifications]}
-          preferences={[...preferences]}
+          recruitmentPeriod={recruitmentPeriod ?? ''}
+          responsibilities={[...(responsibilities ?? [])]}
+          qualifications={[...(qualifications ?? [])]}
+          preferences={[...(preferences ?? [])]}
         />
         <DetailImageSection imageUrl={detailImg4} />
         <StatsCarousel />
