@@ -99,7 +99,7 @@ const RecruitPage = () => {
         <section className={styles.listContainer}>
           {recruitList.map((recruit) => (
             <RecruitCard
-              recrutCardItem={{ ...recruit }}
+              recruitCardItem={{ ...recruit }}
               key={recruit.id}
               onCardClick={goToDetailPage}
             />

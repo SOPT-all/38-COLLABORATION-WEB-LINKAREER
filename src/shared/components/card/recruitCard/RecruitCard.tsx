@@ -9,15 +9,15 @@ import type { RecruitListItem } from '@shared/types/recruitCard';
 import * as styles from './RecruitCard.css';
 
 export interface RecruitCardProps {
-  recrutCardItem: RecruitListItem;
+  recruitCardItem: RecruitListItem;
   onCardClick?: (id: number) => void;
 }
 
-const RecruitCard = ({ recrutCardItem, onCardClick }: RecruitCardProps) => {
+const RecruitCard = ({ recruitCardItem, onCardClick }: RecruitCardProps) => {
   const [isBookmarked, setIsBookMarked] = useState(false);
 
   const handleCardClick = () => {
-    onCardClick?.(recrutCardItem.id);
+    onCardClick?.(recruitCardItem.id);
   };
 
   const handleCardKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -41,12 +41,12 @@ const RecruitCard = ({ recrutCardItem, onCardClick }: RecruitCardProps) => {
       onKeyDown={handleCardKeyDown}
     >
       <div className={styles.imgContainer}>
-        {recrutCardItem.imageUrl && (
+        {recruitCardItem.imageUrl && (
           <img
-            src={recrutCardItem.imageUrl || imgFallback}
+            src={recruitCardItem.imageUrl || imgFallback}
             alt={
-              recrutCardItem.company
-                ? `${recrutCardItem.company} 로고`
+              recruitCardItem.company
+                ? `${recruitCardItem.company} 로고`
                 : '회사 로고'
             }
             // 이미지 로드 실패 시 (임시 환경)
@@ -63,8 +63,8 @@ const RecruitCard = ({ recrutCardItem, onCardClick }: RecruitCardProps) => {
       <div className={styles.contentContainer}>
         <header className={styles.topContainer}>
           <div className={styles.textContainer}>
-            <h3 className={styles.title}>{recrutCardItem.title}</h3>
-            <p className={styles.company}>{recrutCardItem.company}</p>
+            <h3 className={styles.title}>{recruitCardItem.title}</h3>
+            <p className={styles.company}>{recruitCardItem.company}</p>
           </div>
           <button
             type="button"
@@ -83,18 +83,18 @@ const RecruitCard = ({ recrutCardItem, onCardClick }: RecruitCardProps) => {
 
         <div className={styles.bottomContainer}>
           <div className={styles.tagContainer}>
-            {recrutCardItem.employmentType && (
+            {recruitCardItem.employmentType && (
               <Tag
-                text={recrutCardItem.employmentType}
+                text={recruitCardItem.employmentType}
                 color="gray"
                 size="small"
               />
             )}
-            {recrutCardItem.location && (
-              <Tag text={recrutCardItem.location} color="blue" size="small" />
+            {recruitCardItem.location && (
+              <Tag text={recruitCardItem.location} color="blue" size="small" />
             )}
           </div>
-          <p className={styles.deadline}>{recrutCardItem.deadlineLabel}</p>
+          <p className={styles.deadline}>{recruitCardItem.deadlineLabel}</p>
         </div>
       </div>
     </div>
