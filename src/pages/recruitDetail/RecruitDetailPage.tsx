@@ -79,12 +79,14 @@ const RecruitDetailPage = () => {
       />
       <ChatBanner />
 
-      <TabBar
-        tabList={RECRUIT_DETAIL_TABS}
-        selectedValue={selectedTab}
-        onChange={handleTabChange}
-        ariaLabel="채용 상세 탭"
-      />
+      <div className={styles.stickyTabBar}>
+        <TabBar
+          tabList={RECRUIT_DETAIL_TABS}
+          selectedValue={selectedTab}
+          onChange={handleTabChange}
+          ariaLabel="채용 상세 탭"
+        />
+      </div>
 
       {/* 상세 내용 섹션 */}
 
