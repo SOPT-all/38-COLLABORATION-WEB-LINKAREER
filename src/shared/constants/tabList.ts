@@ -6,7 +6,7 @@ export const HOME_TABLIST: TabItem[] = [
   { label: '신입/인턴', value: 'recruit', hasDot: true },
   { label: '자기소개서', value: 'cover-letter', disabled: true },
   { label: '시험정보', value: 'exam-info', disabled: true },
-  { label: '멘토게시판', value: 'mento-board' },
+  { label: '멘토게시판', value: 'mento' },
   { label: '커뮤니티', value: 'community', disabled: true },
 ];
 
