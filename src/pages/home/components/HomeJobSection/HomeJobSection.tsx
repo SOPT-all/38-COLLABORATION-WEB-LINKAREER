@@ -40,7 +40,7 @@ const HomeJobSection = () => {
             key={job.id}
             {...job}
             onCardClick={() => {
-              void navigate('/recruit/detail/');
+              void navigate('/recruit/detail');
             }}
             onBookmarkClick={() => {
               handleBookmarkClick(job.id);
