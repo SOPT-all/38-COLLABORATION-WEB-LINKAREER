@@ -2,7 +2,10 @@ import { API_ENDPOINT } from '@constants/apiEndpoints';
 import { QUERY_KEY } from '@constants/queryKey';
 import { useQuery } from '@tanstack/react-query';
 
-import type { PassCoverLetterResponse } from '@apis/__generated__/data-contracts';
+import type {
+  PassCoverLetterResponse,
+  PassReviewResponse,
+} from '@apis/__generated__/data-contracts';
 import { HTTPMethod, request } from '@apis/config/request';
 
 export const getPassCoverLetters = () => {
@@ -20,7 +23,7 @@ export const usePassCoverLettersQuery = () => {
 };
 
 export const getPassReviews = () => {
-  return request<PassCoverLetterResponse[]>({
+  return request<PassReviewResponse[]>({
     method: HTTPMethod.GET,
     url: API_ENDPOINT.RECRUIT.PASS_REVIEWS,
   });
@@ -28,7 +31,7 @@ export const getPassReviews = () => {
 
 export const usePassReviewsQuery = () => {
   return useQuery({
-    queryKey: [...QUERY_KEY.RECRUIT_DETAIL, 'pass-review'],
+    queryKey: [...QUERY_KEY.RECRUIT_DETAIL, 'pass-reviews'],
     queryFn: getPassReviews,
   });
 };
