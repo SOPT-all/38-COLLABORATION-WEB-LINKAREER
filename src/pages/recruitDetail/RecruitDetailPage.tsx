@@ -8,6 +8,10 @@ import TabBar from '@components/tabBar/TabBar';
 import { layout } from '@pages/recruitDetail/constants/layout';
 import { useTabScrollSync } from '@pages/recruitDetail/hooks/useTabScrollSync';
 
+import {
+  usePassCoverLettersQuery,
+  usePassReviewsQuery,
+} from './apis/recruitDetailApi';
 import { useGetRecruitDetailQuery } from './apis/useRecruitDetailQuery';
 import AiRecommendSection from './components/aiRecommendSection/AiRecommendSection';
 import ChatBanner from './components/chatBanner/ChatBanner';
@@ -19,7 +23,6 @@ import ReviewSection from './components/reviewSection/ReviewSection';
 import StatsCarousel from './components/statsCarousel/StatsCarousel';
 import TopBtn from './components/topBtn/TopBtn';
 import { MOCK_AI_RECOMMEND } from './mocks/mockAiRecommend';
-import { MOCK_PASS_COVER_LETTER } from './mocks/mockPassCoverLetter';
 
 import * as styles from './RecruitDetailPage.css';
 
@@ -29,7 +32,22 @@ const RECRUIT_DETAIL_TABS = [
 ];
 
 const RecruitDetailPage = () => {
-  const { data, isLoading, isError } = useGetRecruitDetailQuery();
+  const {
+    data: recruitDetail,
+    isPending: isRecruitDetailPending,
+    isError: isRecruitDetailError,
+  } = useGetRecruitDetailQuery();
+  const {
+    data: passCoverLetters = [],
+    isPending: isPassCoverLettersPending,
+    isError: isPassCoverLettersError,
+  } = usePassCoverLettersQuery();
+
+  const {
+    data: passReviews = [],
+    isPending: isPassReviewsPending,
+    isError: isPassReviewsError,
+  } = usePassReviewsQuery();
 
   const [selectedTab, setSelectedTab] = useState('detail');
   const pageTopRef = useRef<HTMLDivElement>(null);
@@ -50,8 +68,14 @@ const RecruitDetailPage = () => {
       passDataRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  if (isLoading) return <div>로딩중...</div>;
-  if (isError || !data) return <div>에러가 발생했습니다.</div>;
+  const isPending =
+    isRecruitDetailPending || isPassCoverLettersPending || isPassReviewsPending;
+
+  const isError =
+    isRecruitDetailError || isPassCoverLettersError || isPassReviewsError;
+
+  if (isPending) return <div>로딩중...</div>;
+  if (isError || !recruitDetail) return <div>에러가 발생했습니다.</div>;
 
   const {
     company,
@@ -66,7 +90,21 @@ const RecruitDetailPage = () => {
     responsibilities,
     qualifications,
     preferences,
-  } = data;
+  } = recruitDetail;
+
+  const passCoverLetterItems = passCoverLetters.map((item) => ({
+    id: item.id ?? 0,
+    title: item.companyName ?? '',
+    body: item.content ?? '',
+    tags: [],
+  }));
+
+  const passReviewItems = passReviews.map((item) => ({
+    id: item.id ?? 0,
+    title: item.title ?? '',
+    body: item.content ?? '',
+    tags: item.createdAt ? [item.createdAt.slice(0, 10)] : [],
+  }));
 
   return (
     <>
@@ -118,12 +156,9 @@ const RecruitDetailPage = () => {
       >
         <ReviewSection
           sectionTitle="합격 자소서"
-          items={MOCK_PASS_COVER_LETTER}
+          items={passCoverLetterItems}
         />
-        <ReviewSection
-          sectionTitle="합격 후기"
-          items={MOCK_PASS_COVER_LETTER}
-        />
+        <ReviewSection sectionTitle="합격 후기" items={passReviewItems} />
         <AiRecommendSection items={MOCK_AI_RECOMMEND} />
       </div>
 

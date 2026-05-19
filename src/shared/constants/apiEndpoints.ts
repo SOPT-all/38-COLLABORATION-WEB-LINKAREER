@@ -5,10 +5,8 @@ export const API_ENDPOINT = {
   RECRUIT: {
     LIST: '/api/v1/recruitments', // 필터링 조회
     DETAIL: (recruitmentId: number) => `/api/v1/recruitments/${recruitmentId}`, // 공고 상세
-    PASS_LETTERS: (jobPostingId: number) =>
-      `/api/v1/job-postings/${jobPostingId}/pass-letters`, // 합격 자소서
-    PASS_REVIEWS: (jobPostingId: number) =>
-      `/api/v1/job-postings/${jobPostingId}/pass-reviews`, // 합격 후기
+    PASS_COVER_LETTERS: '/api/v1/pass-cover-letters', // 합격 자소서
+    PASS_REVIEWS: '/api/v1/pass-reviews', // 합격 후기
   },
   COMMUNITY: {
     POSTS: '/api/v1/posts', // 게시글 조회
