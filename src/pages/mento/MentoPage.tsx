@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { MENTO_CATEGORY_TABLIST, MENTO_MAIN_TABLIST } from '@constants/tabList';
 
-import mentoTopBannerImg from '@assets/images/img-mento-top-banner.webp';
+import imgMentoTopBanner from '@assets/images/img_mento4.webp';
 import Pagination from '@components/pagination/Pagination';
 import TabBar from '@components/tabBar/TabBar';
 
@@ -43,7 +43,7 @@ const MentoPage = () => {
           onChange={setSelectedCategoryTab}
         />
       </div>
-      <MentoTopBanner imgSrc={mentoTopBannerImg} />
+      <MentoTopBanner imgSrc={imgMentoTopBanner} />
       <MentoSearchBar />
       <section className={styles.mentoSection}>
         <h2 className={styles.sectionTitle}>
@@ -53,12 +53,14 @@ const MentoPage = () => {
       </section>
       <section className={styles.postSection}>
         <MentoTabBar />
-        <div className={styles.postList}>
+        <ul className={styles.postList}>
           {POST_DATA.map((post) => (
             <MentoListItem key={post.id} post={post} />
           ))}
-          <MentoCenterBanner ad={CENTER_AD_DATA} />
-        </div>
+          <li>
+            <MentoCenterBanner ad={CENTER_AD_DATA} />
+          </li>
+        </ul>
       </section>
       <div className={styles.paginationContainer}>
         <Pagination
