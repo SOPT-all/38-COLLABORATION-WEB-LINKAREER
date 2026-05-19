@@ -5,16 +5,14 @@ import imgMentoTopBanner from '@assets/images/img_mento4.webp';
 import Pagination from '@components/pagination/Pagination';
 import TabBar from '@components/tabBar/TabBar';
 
-import MentoCenterBanner from './components/mentoBanner/mentoCenterBanner/MentoCenterBanner';
+import { useGetPostQuery } from './apis/useMentoPostQuery';
 import MentoTopBanner from './components/mentoBanner/mentoTopBanner/MentoTopBanner';
 import MentoCardList from './components/mentoCardList/MentoCardList';
-import MentoListItem from './components/mentoListItem/MentoListItem';
+import MentoPostList from './components/mentoPostList/MentoPostList';
 import MentoSearchBar from './components/mentoSearchBar/MentoSearchBar';
 import MentoTabBar from './components/mentoTabBar/MentoTabBar';
 import WriteButton from './components/writeButton/WriteButton';
 import { CARD_DATA } from './mocks/cardData';
-import { CENTER_AD_DATA } from './mocks/centerAdData';
-import { POST_DATA } from './mocks/postData';
 
 import * as styles from './MentoPage.css';
 
@@ -26,6 +24,8 @@ const MentoPage = () => {
     MENTO_CATEGORY_TABLIST[0].value,
   );
   const [currentPage, setCurrentPage] = useState(1);
+
+  const { data: postList = [], isPending, isError } = useGetPostQuery();
 
   return (
     <div className={styles.pageContainer}>
@@ -53,14 +53,11 @@ const MentoPage = () => {
       </section>
       <section className={styles.postSection}>
         <MentoTabBar />
-        <ul className={styles.postList}>
-          {POST_DATA.map((post) => (
-            <MentoListItem key={post.id} post={post} />
-          ))}
-          <li>
-            <MentoCenterBanner ad={CENTER_AD_DATA} />
-          </li>
-        </ul>
+        <MentoPostList
+          postList={postList}
+          isPending={isPending}
+          isError={isError}
+        />
       </section>
       <div className={styles.paginationContainer}>
         <Pagination

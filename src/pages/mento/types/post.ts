@@ -12,7 +12,3 @@ export interface Post {
   scrapCount: number;
   commentCount: number;
 }
-
-export interface PostListResponse {
-  data: Post[];
-}
