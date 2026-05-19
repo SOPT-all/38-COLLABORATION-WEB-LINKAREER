@@ -5,6 +5,8 @@ import imgDetail2 from '@assets/images/detail_thumbnail_img2.webp';
 import imgDetail3 from '@assets/images/detail_thumbnail_img3.webp';
 import detailImg4 from '@assets/images/detail_thumbnail_img4.webp';
 import TabBar from '@components/tabBar/TabBar';
+import { useTabScrollSync } from '@hooks/useTabScrollSync';
+import { layout } from '@pages/recruitDetail/constants/layout';
 
 import AiRecommendSection from './components/aiRecommendSection/AiRecommendSection';
 import ChatBanner from './components/chatBanner/ChatBanner';
@@ -32,14 +34,18 @@ const RecruitDetailPage = () => {
   const detailRef = useRef<HTMLDivElement>(null);
   const passDataRef = useRef<HTMLDivElement>(null);
 
+  useTabScrollSync({
+    passDataRef,
+    onTabChange: setSelectedTab,
+    offset: layout.headerHeight + layout.tabBarHeight,
+  });
+
   const handleTabChange = (value: string) => {
     setSelectedTab(value);
-    if (value === 'detail') {
+    if (value === 'detail')
       detailRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (value === 'pass-data') {
+    if (value === 'pass-data')
       passDataRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   const {
@@ -89,8 +95,7 @@ const RecruitDetailPage = () => {
       </div>
 
       {/* 상세 내용 섹션 */}
-
-      <div ref={detailRef} className={` ${styles.sectionAnchor}`}>
+      <div ref={detailRef} className={styles.sectionAnchor}>
         <RecruitDetailContent
           recruitmentPeriod={recruitmentPeriod}
           responsibilities={[...responsibilities]}
@@ -102,7 +107,6 @@ const RecruitDetailPage = () => {
       </div>
 
       {/* 합격 자료 섹션 */}
-
       <div
         ref={passDataRef}
         className={`${styles.passDataWrapper} ${styles.sectionAnchor}`}
@@ -119,7 +123,6 @@ const RecruitDetailPage = () => {
       </div>
 
       {/* 플로팅 버튼 */}
-
       <div className={styles.topBtnWrapper}>
         <TopBtn
           onClick={() =>
