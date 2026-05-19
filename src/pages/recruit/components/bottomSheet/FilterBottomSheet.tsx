@@ -3,7 +3,9 @@ import clsx from 'clsx';
 import SvgIcRefresh from '@assets/svg/IcRefresh';
 import SvgIcXGray900 from '@assets/svg/IcXGray900';
 import BottomActionBar from '@components/bottomActionBar/BottomActionBar';
+import { useGetRecruitQuery } from '@pages/recruit/apis/useRecruitFilterQuery';
 import type { FilterValues } from '@pages/recruit/types/filter';
+import { getResultCount } from '@pages/recruit/utils/resultNumber';
 
 import FilterSelector from './FilterSelector';
 
@@ -11,7 +13,6 @@ import * as styles from './FilterBottomSheet.css';
 
 interface FilterBottomSheetProps {
   isOpen: boolean;
-  resultCount?: string | number;
   selectedFilters: FilterValues;
   setSelectedFilters: React.Dispatch<React.SetStateAction<FilterValues>>;
   onClose: () => void;
@@ -20,12 +21,17 @@ interface FilterBottomSheetProps {
 
 const FilterBottomSheet = ({
   isOpen,
-  resultCount,
   selectedFilters,
   setSelectedFilters,
   onClose,
   onApply,
 }: FilterBottomSheetProps) => {
+  const { data: draftRecruitList = [] } = useGetRecruitQuery(
+    selectedFilters,
+    isOpen,
+  );
+  const resultCount = getResultCount(selectedFilters, draftRecruitList.length);
+
   // 새로고침 버튼
   const handleRefreshClick = () => {
     setSelectedFilters({

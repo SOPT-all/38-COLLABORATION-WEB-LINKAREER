@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
 import AppLayout from '@/layout/AppLayout';
+import RecruitDetailLayout from '@/layout/RecruitDetailLayout';
 import HomePage from '@pages/home/HomePage';
 import MentoPage from '@pages/mento/MentoPage';
 import RecruitPage from '@pages/recruit/RecruitPage';
@@ -20,12 +21,18 @@ const router = createBrowserRouter([
         element: <RecruitPage />,
       },
       {
-        path: 'recruit/detail',
-        element: <RecruitDetailPage />,
-      },
-      {
         path: 'mento',
         element: <MentoPage />,
+      },
+    ],
+  },
+  {
+    path: '/recruit/detail',
+    element: <RecruitDetailLayout />,
+    children: [
+      {
+        index: true,
+        element: <RecruitDetailPage />,
       },
     ],
   },

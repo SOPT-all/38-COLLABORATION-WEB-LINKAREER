@@ -3,21 +3,17 @@ import { useNavigate } from 'react-router';
 import ClipBoardImage from '@assets/svg/Graphic1';
 import ClockImage from '@assets/svg/Graphic2';
 import Button from '@components/button/Button';
+import type {
+  HomeCuratedCardImageType,
+  HomeCuratedCardProps,
+} from '@pages/home/types/homeCuratedCard';
 
-import * as style from './HomeCuratedCard.css';
+import * as styles from './HomeCuratedCard.css';
 
-const CARD_IMAGE = {
+const CARD_IMAGE: Record<HomeCuratedCardImageType, typeof ClipBoardImage> = {
   clipboard: ClipBoardImage,
   clock: ClockImage,
-} as const;
-
-interface HomeCuratedCardProps {
-  eyebrowText: string;
-  cardTitle: string[];
-  buttonText?: string;
-  imageType?: keyof typeof CARD_IMAGE;
-  to: string;
-}
+};
 
 const HomeCuratedCard = ({
   eyebrowText,
@@ -34,17 +30,17 @@ const HomeCuratedCard = ({
   };
 
   return (
-    <article className={style.curatedCard}>
-      <div className={style.curatedContentContainer}>
-        <div className={style.curatedTextContainer}>
-          <p className={style.cardEyebrow}>{eyebrowText}</p>
-          <h2 className={style.cardTitle}>{formattedCardTitle}</h2>
+    <article className={styles.curatedCard}>
+      <div className={styles.curatedContentContainer}>
+        <div className={styles.curatedTextContainer}>
+          <p className={styles.cardEyebrow}>{eyebrowText}</p>
+          <h2 className={styles.cardTitle}>{formattedCardTitle}</h2>
         </div>
         <Button size="sm" onClick={handleButtonClick}>
           {buttonText}
         </Button>
       </div>
-      <CuratedImage className={style.cardImage} aria-hidden={true} />
+      <CuratedImage className={styles.cardImage} aria-hidden={true} />
     </article>
   );
 };

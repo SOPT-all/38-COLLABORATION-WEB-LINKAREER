@@ -47,8 +47,9 @@ export const title = style({
   height: '5.4rem',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
+  whiteSpace: 'pre-wrap',
   color: vars.color.white,
-  WebkitBoxOrient: 'vertical',
   ...typography.title_sb_18,
+  WebkitBoxOrient: 'vertical',
   WebkitLineClamp: 2,
 });

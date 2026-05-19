@@ -13,3 +13,10 @@ export const paginationContainer = style({
   justifyContent: 'center',
   padding: '2.4rem 0',
 });
+
+export const loading = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '4rem 0',
+});

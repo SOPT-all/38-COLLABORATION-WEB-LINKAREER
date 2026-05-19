@@ -31,44 +31,60 @@ const HomeFeaturedCarouselCard = ({
     announcementCategory,
   } = carouselItem;
 
-  return (
-    <article className={styles.container}>
-      <Link className={styles.card} to={to} aria-label={announcementTitle}>
-        <img
-          className={styles.thumbnail}
-          src={thumbnailUrl}
-          alt={thumbnailAlt}
+  const cardContent = (
+    <>
+      <img className={styles.thumbnail} src={thumbnailUrl} alt={thumbnailAlt} />
+      <div className={styles.fractionalIndicator}>
+        <Tag
+          size="medium"
+          color="black"
+          text={`${currentCardNumber}/${totalCardCount}`}
         />
-        <div className={styles.fractionalIndicator}>
-          <Tag
-            size="medium"
-            color="black"
-            text={`${currentCardNumber}/${totalCardCount}`}
+      </div>
+      <div className={styles.ddayIndicator}>
+        <DdayTag size="medium" daysLeft={daysLeft} />
+      </div>
+      <div className={styles.overlay}>
+        <div className={styles.companyInfoContainer}>
+          <img
+            className={styles.companyLogo}
+            src={companyLogoUrl}
+            alt={companyLogoAlt}
           />
-        </div>
-        <div className={styles.ddayIndicator}>
-          <DdayTag size="medium" daysLeft={daysLeft} />
-        </div>
-        <div className={styles.overlay}>
-          <div className={styles.companyInfoContainer}>
-            <img
-              className={styles.companyLogo}
-              src={companyLogoUrl}
-              alt={companyLogoAlt}
-            />
-            <div className={styles.companyInfoText}>
-              <h2 className={styles.companyName}>{companyName}</h2>
-              <p className={styles.companySize}>{companySize}</p>
-            </div>
+          <div className={styles.companyInfoText}>
+            <h2 className={styles.companyName}>{companyName}</h2>
+            <p className={styles.companySize}>{companySize}</p>
           </div>
         </div>
-      </Link>
-      <Link className={styles.announcementInfo} to={to}>
-        <h2 className={styles.announcementTitle}>{announcementTitle}</h2>
-        <p className={styles.announcementMeta}>
-          {announcementDeadline} · {announcementCategory}
-        </p>
-      </Link>
+      </div>
+    </>
+  );
+
+  const announcementContent = (
+    <>
+      <h2 className={styles.announcementTitle}>{announcementTitle}</h2>
+      <p className={styles.announcementMeta}>
+        {announcementDeadline} · {announcementCategory}
+      </p>
+    </>
+  );
+
+  return (
+    <article className={styles.container}>
+      {to ? (
+        <Link className={styles.card} to={to} aria-label={announcementTitle}>
+          {cardContent}
+        </Link>
+      ) : (
+        <div className={styles.card}>{cardContent}</div>
+      )}
+      {to ? (
+        <Link className={styles.announcementInfo} to={to}>
+          {announcementContent}
+        </Link>
+      ) : (
+        <div className={styles.announcementInfo}>{announcementContent}</div>
+      )}
     </article>
   );
 };

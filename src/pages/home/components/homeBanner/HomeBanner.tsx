@@ -1,10 +1,6 @@
-import * as style from './HomeBanner.css';
+import type { HomeBannerProps } from '@pages/home/types/homeBanner';
 
-interface HomeBannerProps {
-  imageUrl: string;
-  imageAlt: string;
-  borderPosition?: 'top' | 'bottom';
-}
+import * as style from './HomeBanner.css';
 
 const HomeBanner = ({
   imageUrl,
