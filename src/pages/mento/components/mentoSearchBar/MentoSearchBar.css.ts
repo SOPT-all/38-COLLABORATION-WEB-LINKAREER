@@ -6,8 +6,8 @@ import { typography } from '@styles/tokens/typography';
 export const container = style({
   display: 'flex',
   gap: '0.3rem',
-  margin: '1rem 1.9rem',
-  height: '3.8rem',
+  backgroundColor: vars.color.gray50,
+  padding: '1rem 1.9rem',
 });
 
 export const inputField = style({
@@ -15,7 +15,9 @@ export const inputField = style({
   ...typography.body_r_14,
   border: `1px solid ${vars.color.gray200}`,
   borderRadius: '0.8rem',
+  backgroundColor: vars.color.white,
   padding: '0.8rem 1.6rem',
+  height: '3.8rem',
   selectors: {
     '&::placeholder': {
       color: vars.color.gray400,
@@ -34,6 +36,7 @@ export const button = style({
   backgroundColor: vars.color.blue500,
   padding: '0.8rem 1.2rem',
   width: '5.6rem',
+  height: '3.8rem',
   color: vars.color.white,
   ...typography.caption_m_12,
 });

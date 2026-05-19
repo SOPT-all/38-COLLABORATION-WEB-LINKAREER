@@ -35,12 +35,11 @@ const MentoCard = ({ card }: MentoCardProps) => {
             <span>답변 수 {card.answerCount.toLocaleString()}</span>
           </p>
           <ul className={styles.infoRow}>
-            <li>
-              <Tag text="#대기업" size="small" color="gray" />
-            </li>
-            <li>
-              <Tag text="#비전공자" size="small" color="gray" />
-            </li>
+            {card.tag.map((tag) => (
+              <li key={tag}>
+                <Tag text={tag} size="small" color="gray" />
+              </li>
+            ))}
           </ul>
         </div>
       </div>

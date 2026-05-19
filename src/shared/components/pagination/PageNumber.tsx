@@ -1,4 +1,4 @@
-import * as styles from './Pagenation.css';
+import * as styles from './Pagination.css';
 
 interface PageNumberProps {
   page: number;

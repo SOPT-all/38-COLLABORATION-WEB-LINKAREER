@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 
 import BottomNavigationBar from '@components/bottomNavigationBar/BottomNavigationBar';
 import Footer from '@components/footer/Footer';
@@ -7,9 +7,13 @@ import GlobalNavigationBar from '@components/globalNavigationBar/GlobalNavigatio
 import * as styles from './AppLayout.css';
 
 const AppLayout = () => {
+  const { pathname } = useLocation();
+
+  const isMentoPage = pathname === '/mento';
+
   return (
     <div className={styles.layout}>
-      <GlobalNavigationBar />
+      <GlobalNavigationBar isSticky={isMentoPage} />
       <main className={styles.main}>
         <Outlet />
         <Footer />

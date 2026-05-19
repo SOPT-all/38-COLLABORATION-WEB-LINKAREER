@@ -13,10 +13,16 @@ const ACTION_ITEMS = [
   { label: '메뉴', Icon: IcMenu2 },
 ] as const;
 
-const GlobalNavigationBar = () => {
+interface GloabalNavigationBarProps {
+  isSticky?: boolean;
+}
+
+const GlobalNavigationBar = ({
+  isSticky = false,
+}: GloabalNavigationBarProps) => {
   return (
     <>
-      <header className={styles.container}>
+      <header className={styles.container({ isSticky })}>
         <Link to="/" className={styles.logo} aria-label="Linkareer home">
           <Logo className={styles.logoIcon} />
         </Link>

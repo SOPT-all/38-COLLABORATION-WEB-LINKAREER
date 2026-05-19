@@ -8,6 +8,7 @@ export const container = recipe({
   base: {
     display: 'inline-flex',
     flexDirection: 'column',
+    flexShrink: 0,
     gap: '1rem',
     border: `1px solid ${vars.color.gray200}`,
     borderRadius: '1.2rem',

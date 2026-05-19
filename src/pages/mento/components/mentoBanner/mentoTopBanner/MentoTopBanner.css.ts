@@ -12,6 +12,6 @@ export const content = style({
   flexShrink: 0,
   backgroundColor: vars.color.gray100,
   objectFit: 'cover',
-  width: '37.5rem',
+  width: '28.7rem',
   height: '100%',
 });
