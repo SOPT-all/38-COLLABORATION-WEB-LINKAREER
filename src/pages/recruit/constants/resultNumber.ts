@@ -2,6 +2,6 @@
 export const CONTENT_RESULT = {
   default: 120316,
   marketing: 21,
-  business: 2,
+  business: 4,
   sales: 3,
 } as const;
