@@ -38,7 +38,7 @@ export const updateTitle = style({
       borderRadius: '50%',
       backgroundColor: vars.color.blue500,
       width: '0.4rem',
-      height: '0.6rem',
+      height: '0.4rem',
       content: '',
     },
   },

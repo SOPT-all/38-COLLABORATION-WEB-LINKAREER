@@ -3,7 +3,7 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
-export const card = style({
+export const cardContainer = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1.6rem',
@@ -35,7 +35,7 @@ export const image = style({
   height: '100%',
 });
 
-export const textBox = style({
+export const textContainer = style({
   display: 'flex',
   flexDirection: 'column',
   alignSelf: 'stretch',

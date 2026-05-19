@@ -3,7 +3,7 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
 
-export const card = style({
+export const cardContainer = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
@@ -11,7 +11,7 @@ export const card = style({
   width: '16rem',
 });
 
-export const logoBox = style({
+export const logoContainer = style({
   aspectRatio: '1 / 1',
   position: 'relative',
   border: 'none',
@@ -37,7 +37,7 @@ export const logoShadow = style({
   height: '8rem',
 });
 
-export const textBox = style({
+export const textContainer = style({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
