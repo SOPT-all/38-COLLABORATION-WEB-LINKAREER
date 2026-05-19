@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { vars } from '@styles/theme.css';
 import { typography } from '@styles/tokens/typography';
+import { zIndex } from '@styles/tokens/zIndex';
 
 export const pageContainer = style({
   position: 'relative',
@@ -9,7 +10,8 @@ export const pageContainer = style({
 
 export const stickyContent = style({
   position: 'sticky',
-  top: 0,
+  zIndex: zIndex.sticky,
+  top: '6rem',
 });
 
 export const mentoSection = style({
